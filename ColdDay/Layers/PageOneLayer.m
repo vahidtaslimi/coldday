@@ -58,7 +58,7 @@ bool lillyIsMoving = false;
 			background = [CCSprite spriteWithFile:@"Default.png"];
 			background.rotation = 90;
 		} else {
-			background = [CCSprite spriteWithFile:@"page1bg.png"];
+			background = [CCSprite spriteWithFile:@"p1-BG.jpg"];
 		}
 		background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:-1];
