@@ -17,6 +17,8 @@ NSUserDefaults *defaults;
 @implementation PageTwoLayer
 {
     
+    
+    
 }
 
 
