@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>snow00.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{243, 18}, {74, 44}}</string>
+			<key>spriteOffset</key>
+			<string>{77, 149}</string>
+			<key>spriteSize</key>
+			<string>{74, 44}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1281, 8}, {74, 44}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow01.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{244, 20}, {74, 74}}</string>
+			<key>spriteOffset</key>
+			<string>{78, 132}</string>
+			<key>spriteSize</key>
+			<string>{74, 74}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1202, 33}, {74, 74}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow02.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{214, 28}, {122, 132}}</string>
+			<key>spriteOffset</key>
+			<string>{72, 95}</string>
+			<key>spriteSize</key>
+			<string>{122, 132}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1147, 75}, {122, 132}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow03.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{178, 28}, {198, 186}}</string>
+			<key>spriteOffset</key>
+			<string>{74, 68}</string>
+			<key>spriteSize</key>
+			<string>{198, 186}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1069, 131}, {198, 186}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow04.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{140, 60}, {212, 198}}</string>
+			<key>spriteOffset</key>
+			<string>{43, 30}</string>
+			<key>spriteSize</key>
+			<string>{212, 198}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{990, 234}, {212, 198}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow05.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{99, 65}, {274, 242}}</string>
+			<key>spriteOffset</key>
+			<string>{33, 3}</string>
+			<key>spriteSize</key>
+			<string>{274, 242}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{902, 315}, {274, 242}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow06.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{17, 79}, {384, 266}}</string>
+			<key>spriteOffset</key>
+			<string>{6, -23}</string>
+			<key>spriteSize</key>
+			<string>{384, 266}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{795, 376}, {384, 266}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow07.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{15, 182}, {374, 162}}</string>
+			<key>spriteOffset</key>
+			<string>{-1, -74}</string>
+			<key>spriteSize</key>
+			<string>{374, 162}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{740, 513}, {374, 162}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>snow08.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{16, 241}, {232, 100}}</string>
+			<key>spriteOffset</key>
+			<string>{-71, -102}</string>
+			<key>spriteSize</key>
+			<string>{232, 100}</string>
+			<key>spriteSourceSize</key>
+			<string>{406, 378}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{786, 629}, {232, 100}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{2048, 1024}</string>
+		<key>name</key>
+		<string>Untitled</string>
+		<key>target</key>
+		<dict>
+			<key>name</key>
+			<string>default</string>
+			<key>textureFileName</key>
+			<string>PageOne_SnowFall-ipadhd</string>
+			<key>textureFileExtension</key>
+			<string>.png</string>
+			<key>coordinatesFileName</key>
+			<string>PageOne_SnowFall-ipadhd</string>
+			<key>coordinatesFileExtension</key>
+			<string>.plist</string>
+			<key>premultipliedAlpha</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>
