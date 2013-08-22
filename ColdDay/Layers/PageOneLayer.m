@@ -33,6 +33,7 @@ bool isLeftHandInPlace = true;
 bool isNoseInPlace = true;
 bool isHeadInPlace = true;
 bool isSnowmanFixed=true;
+bool hasFixedSnowManForAtleastOneTime=false;
 bool canLightTurnOn=false;
 bool hasUserTouchedSnow =false;
 bool hasUserTouchedLights=false;
@@ -64,17 +65,17 @@ bool lillyIsMoving = false;
 		[self addChild: background z:-1];
         
         
-        head=[CCSprite spriteWithFile:@"head.png"];
+        head=[CCSprite spriteWithFile:@"p1-head.png"];
         head.anchorPoint=ccp(0,0);
-        head.position=ccp(850,390);
+        head.position=ccp(855,390);
         [self addChild:head];
         
-        eyes=[CCSprite spriteWithFile:@"eyes.png"];
+        eyes=[CCSprite spriteWithFile:@"p1-eyes.png"];
         //eyes.anchorPoint=ccp(0,0);
-        eyes.position=ccp(872,414);
+        eyes.position=ccp(882,420);
         [self addChild:eyes];
         
-        hat=[CCSprite spriteWithFile:@"hat.png"];
+        hat=[CCSprite spriteWithFile:@"p1-hat.png"];
         //hat.anchorPoint=ccp(0,0);
         hat.position=ccp(874,434);
         [self addChild:hat];
@@ -99,7 +100,8 @@ bool lillyIsMoving = false;
               [NSString stringWithFormat:@"snow0%d.png",i]]];
         }
         snow1 = [CCSprite spriteWithSpriteFrameName:@"snow00.png"];
-        snow1.position=ccp(850,330);
+        snow1.position=ccp(825,320);
+        snow1.scale=1.2;
         [snowFallSpriteSheet addChild:snow1];
         CCAnimation *snowFallAnimimation = [CCAnimation animationWithSpriteFrames:snowFallAnimFrames delay:0.1f];
         self.snowFallAction = [CCAnimate actionWithAnimation:snowFallAnimimation];
@@ -108,22 +110,22 @@ bool lillyIsMoving = false;
         id rotateright = [CCRotateBy actionWithDuration:0.5 angle:2];
         [snow1 runAction:[CCRepeatForever actionWithAction:[CCSequence actions:rotateleft,rotateright,nil]]];
         
-        nose=[CCSprite spriteWithFile:@"nose.png"];
+        nose=[CCSprite spriteWithFile:@"p1-nose.png"];
         nose.anchorPoint=ccp(0,0);
-        nose.position=ccp(872,405);
+        nose.position=ccp(879,405);
         [self addChild:nose];
         
-        leftHand=[CCSprite spriteWithFile:@"lhand.png"];
+        leftHand=[CCSprite spriteWithFile:@"p1-lhand.png"];
         leftHand.anchorPoint=ccp(0,0);
-        leftHand.position=ccp(820,360);
+        leftHand.position=ccp(790,330);
         [self addChild:leftHand];
         
-        rightHand=[CCSprite spriteWithFile:@"rhand.png"];
+        rightHand=[CCSprite spriteWithFile:@"p1-rhand.png"];
         rightHand.anchorPoint=ccp(0,0);
-        rightHand.position=ccp(885,376);
+        rightHand.position=ccp(899,370);
         [self addChild:rightHand];
         
-        window=[CCSprite spriteWithFile:@"window1.png"];
+        window=[CCSprite spriteWithFile:@"p1-window.png"];
         window.anchorPoint=ccp(0,0);
         window.position=ccp(19,320);
         window.opacity = 0;
@@ -179,11 +181,11 @@ bool lillyIsMoving = false;
         }
         isEyesInPlace=true;
         
-        location=ccp(872,414);
+        location=ccp(882,420);
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
         [eyes runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [eyes runAction:scale];
-        [eyes runAction:[CCTintTo actionWithDuration:1 red:255 green:0 blue:0]];
+        //[eyes runAction:[CCTintTo actionWithDuration:1 red:255 green:0 blue:0]];
         //[eyes runAction:[CCAnimate actionWithAnimation:[self getAnimationWithFrames:1 to:10] restoreOriginalFrame:NO]];
         [self updateCanLillyMove];
     }
@@ -195,7 +197,7 @@ bool lillyIsMoving = false;
         }
         isRightHandInPlace=true;
               id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        location=ccp(885,376);
+        location=ccp(899,370);
         [rightHand runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [rightHand runAction:scale];
         [self updateCanLillyMove];
@@ -208,7 +210,7 @@ bool lillyIsMoving = false;
         }
         isLeftHandInPlace=true;
         
-        location=ccp(820,360);
+        location=ccp(790,330);
         [leftHand runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [self updateCanLillyMove];
     }
@@ -220,7 +222,7 @@ bool lillyIsMoving = false;
         }
         isNoseInPlace=true;
               id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        location=ccp(872,405);
+        location=ccp(879,405);
         [nose runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [nose runAction:scale];
         [self updateCanLillyMove];
@@ -234,7 +236,7 @@ bool lillyIsMoving = false;
         }
         isHeadInPlace=true;
               id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        location=ccp(850,390);
+        location=ccp(855,390);
         [head runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [head runAction:scale];
         
@@ -252,7 +254,7 @@ bool lillyIsMoving = false;
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
         [hat runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [hat runAction:scale];
-        [hat runAction:[CCTintTo actionWithDuration:1 red:255 green:0 blue:0]];
+        //[hat runAction:[CCTintTo actionWithDuration:1 red:255 green:0 blue:0]];
        
         [self updateCanLillyMove];
     }
@@ -330,7 +332,7 @@ bool lillyIsMoving = false;
     }
     else if(CGRectContainsPoint([lilly boundingBox], location))
     {
-        if(isSnowmanFixed ==false)
+        if(isSnowmanFixed ==false  || hasFixedSnowManForAtleastOneTime ==false)
         {
             return;
         }
@@ -376,16 +378,16 @@ bool lillyIsMoving = false;
         
         bezier.controlPoint_1 = CGPointMake(104, -55.0f);
         bezier.controlPoint_2 = CGPointMake(650, -150.0f);
-        bezier.endPosition =CGPointMake(550.0f,-190.0f);
+        bezier.endPosition =CGPointMake(500.0f,-190.0f);
         
         self.lillySkateMove1 = [CCBezierBy actionWithDuration:3 bezier:bezier];
         ccBezierConfig bezier2;
         bezier2.controlPoint_1 = CGPointMake(-700.0f, 190.0f);
         bezier2.controlPoint_2 = CGPointMake(-780, -80.0f);
-        bezier2.endPosition =CGPointMake(-250.0f,-50.0f);
+        bezier2.endPosition =CGPointMake(-350.0f,50.0f);
         
         self.lillySkateMove2 = [CCBezierBy actionWithDuration:3 bezier:bezier2];
-        id scale = [CCScaleTo actionWithDuration:2 scale:1.2] ;
+        id scale = [CCScaleTo actionWithDuration:2 scale:1.3] ;
         id flipXAction=[CCFlipX actionWithFlipX:true];
         id flipXActionNo=[CCFlipX actionWithFlipX:false];
         
@@ -410,10 +412,13 @@ bool lillyIsMoving = false;
         }
         isHeadInPlace=true;
            [[SimpleAudioEngine sharedEngine] playEffect:@"p1-Switch.mp3"];
-        CCAction *tintAction = [CCTintTo actionWithDuration:2 red:119 green:119 blue:119];
+
         [background runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
-        [head runAction:tintAction];
-        CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"page1bg-Dark.png"];
+        [head runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+        [hat runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+        [snow1 runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+        [nose runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+        CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"p1-BGdark.jpg"];
         [background setTexture: tex];
         CCAction *fadeAction = [CCFadeTo actionWithDuration:2 opacity:1];
         [window runAction:fadeAction];
@@ -473,7 +478,11 @@ bool lillyIsMoving = false;
         [self resetSnow1];
         isSnowmanFixed =true;
         [lilly stopAction:self.skateAction];
-        [lilly runAction:self.skateAction];
+        if(hasFixedSnowManForAtleastOneTime){
+                   [lilly runAction:self.skateAction];
+        }
+ 
+        hasFixedSnowManForAtleastOneTime=true;
     }
 }
 @end
