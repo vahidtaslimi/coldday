@@ -210,7 +210,7 @@ CCSprite *background;
             lives--;
             [self removeChild:[hearthArray lastObject] cleanup:YES];
             [hearthArray removeLastObject];
-            [[SimpleAudioEngine sharedEngine] playEffect:@"P2-Missed.mp3"];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"p2-missed.mp3"];
             /* if(lives == 0)
              [[CCDirector sharedDirector] replaceScene:[PageOneLayer scene]];
              */
@@ -265,11 +265,19 @@ CCSprite *background;
     
     if(_hasSnowFallStarted ==false)
     {
-           CCTexture2D* texture=[[CCTextureCache sharedTextureCache]addImage:@"P2-Lilly2.png"];
+        //CCTexture2D* texture=[[CCTextureCache sharedTextureCache]addImage:@"P2-Lilly2.png"];
+        CCSprite *coldLilly=[CCSprite spriteWithFile:@"P2-Lilly2.png"];
+        coldLilly.position=self.lilly.position;
+        coldLilly.opacity=0;
+        [self addChild:coldLilly];
+        [self.lilly runAction:[CCFadeOut actionWithDuration:1]];
+        [coldLilly runAction:[CCFadeIn actionWithDuration:1]];
+        
         [self startSnow];
+ 
         id delay = [CCDelayTime actionWithDuration: 2];
         id callbackAction = [CCCallBlock actionWithBlock:^{
-                     [self.lilly setTexture:texture];
+                     //[self.lilly setTexture:texture];
         } ];
         
         id sequence = [CCSequence actions: delay, callbackAction, nil];
@@ -306,7 +314,7 @@ CCSprite *background;
                 CCSequence *sequencia = [CCSequence actions:emitter, nil];
                 
                 //if([defaults integerForKey:@"sound"]==1)
-                    [[SimpleAudioEngine sharedEngine] playEffect:@"P2-Smashed.mp3"];
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"p2-pding.mp3"];
                 [splashPool runAction:sequencia];
                 CCSprite *star=[starArray objectAtIndex:score];
                 //star.color=ccc3(255, 216, 0);
