@@ -41,7 +41,7 @@ int lapNumber=1;
 			self.background = [CCSprite spriteWithFile:@"Default.png"];
 			self.background.rotation = 90;
 		} else {
-			self.background = [CCSprite spriteWithFile:@"page3bg.jpg"];
+			self.background = [CCSprite spriteWithFile:@"p3-BG.jpg"];
 		}
 		self.background.position = ccp(size.width/2, size.height/2);
 		[self addChild: self.background z:-1];
