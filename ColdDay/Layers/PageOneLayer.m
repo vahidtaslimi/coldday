@@ -8,7 +8,7 @@
 
 #import "PageOneLayer.h"
 #import "PageTwoLayer.h"
-#include "SimpleAudioEngine.h"   
+#include "SimpleAudioEngine.h"
 
 @implementation PageOneLayer
 {
@@ -38,6 +38,7 @@ bool canLightTurnOn=false;
 bool hasUserTouchedSnow =false;
 bool hasUserTouchedLights=false;
 bool lillyIsMoving = false;
+CCSpriteBatchNode *spinSpriteSheet;
 
 +(CCScene *) scene
 {
@@ -51,7 +52,7 @@ bool lillyIsMoving = false;
 {
     
 	if( (self=[super init]) ) {
-               
+        
 		self. touchEnabled=TRUE;
         CGSize size = [[CCDirector sharedDirector] winSize];
         
@@ -148,8 +149,30 @@ bool lillyIsMoving = false;
         [spriteSheet addChild:lilly];
         CCAnimation *skateAnimimation = [CCAnimation animationWithSpriteFrames:skateAnimFrames delay:0.1f];
         self.skateAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:skateAnimimation]];
-         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
-         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
+        
+        //Spin spritesheet
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"p1-lillySpin.plist"];
+        spinSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"p1-lillySpin.png"];
+        [self addChild:spinSpriteSheet];
+        
+        NSMutableArray *spinAnimFrames = [NSMutableArray array];
+        for (int i=1; i<=12; i++) {
+            [spinAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"00secondlillyPNG%d.png",i]]];
+        }
+        /*lilly = [CCSprite spriteWithSpriteFrameName:@"00secondlillyPNG1.png"];
+        lilly.position = ccp(400, 360);
+        lilly.scale=0.6;
+        [spinSpriteSheet addChild:lilly];
+        */
+         CCAnimation *spinAnimimation = [CCAnimation animationWithSpriteFrames:spinAnimFrames delay:0.3f];
+        self.lillySpinAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:spinAnimimation]];
+                
+        
+        
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         
 	}
 	return self;
@@ -196,7 +219,7 @@ bool lillyIsMoving = false;
             return;
         }
         isRightHandInPlace=true;
-              id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
+        id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
         location=ccp(899,370);
         [rightHand runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [rightHand runAction:scale];
@@ -221,7 +244,7 @@ bool lillyIsMoving = false;
             return;
         }
         isNoseInPlace=true;
-              id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
+        id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
         location=ccp(879,405);
         [nose runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [nose runAction:scale];
@@ -235,7 +258,7 @@ bool lillyIsMoving = false;
             return;
         }
         isHeadInPlace=true;
-              id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
+        id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
         location=ccp(855,390);
         [head runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [head runAction:scale];
@@ -255,7 +278,7 @@ bool lillyIsMoving = false;
         [hat runAction:[CCMoveTo actionWithDuration:1 position:location]];
         [hat runAction:scale];
         //[hat runAction:[CCTintTo actionWithDuration:1 red:255 green:0 blue:0]];
-       
+        
         [self updateCanLillyMove];
     }
     else if(CGRectContainsPoint([snow1 boundingBox], location))
@@ -349,9 +372,9 @@ bool lillyIsMoving = false;
             //CCAction *moveLilly=[CCMoveTo actionWithDuration:1 position:location];
             location=ccp(1250,150);
             CCSequence *seq=[CCSequence actions:
-                            [CCMoveTo actionWithDuration:2 position:location],
-                            [CCCallFunc actionWithTarget:self selector:@selector(moveToSceneTwo)],
-                            nil];
+                             [CCMoveTo actionWithDuration:2 position:location],
+                             [CCCallFunc actionWithTarget:self selector:@selector(moveToSceneTwo)],
+                             nil];
             
             [lilly runAction:seq];
             return;
@@ -359,6 +382,13 @@ bool lillyIsMoving = false;
         
         if(canLightTurnOn)
         {
+            CGPoint position=lilly.position;
+            [self removeChild:lilly];
+            lilly = [CCSprite spriteWithSpriteFrameName:@"00secondlillyPNG1.png"];
+            lilly.position = position;
+            [spinSpriteSheet addChild:lilly];
+            [lilly stopAction:self.lillySpinAction];
+            [lilly runAction:self.lillySpinAction];
             return;
         }
         
@@ -401,7 +431,7 @@ bool lillyIsMoving = false;
                            flipXActionNo,
                            [CCCallFunc actionWithTarget:self selector:@selector(skateMoveEnded)],
                            nil]];
-
+        
         
     }
     else if(CGRectContainsPoint([window boundingBox], location))
@@ -411,8 +441,8 @@ bool lillyIsMoving = false;
             return;
         }
         isHeadInPlace=true;
-           [[SimpleAudioEngine sharedEngine] playEffect:@"p1-Switch.mp3"];
-
+        [[SimpleAudioEngine sharedEngine] playEffect:@"p1-Switch.mp3"];
+        
         [background runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
         [head runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
         [hat runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
@@ -433,7 +463,7 @@ bool lillyIsMoving = false;
 
 - (void) moveToSceneTwo
 {
-     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PageTwoLayer scene] ]];
 }
 
@@ -460,7 +490,7 @@ bool lillyIsMoving = false;
 
 - (void) updateCanLillyMove
 {
-     [[SimpleAudioEngine sharedEngine] playEffect:@"P1-POP.mp3"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"P1-POP.mp3"];
     
     if(hasUserTouchedSnow == false)
     {
@@ -479,9 +509,9 @@ bool lillyIsMoving = false;
         isSnowmanFixed =true;
         [lilly stopAction:self.skateAction];
         if(hasFixedSnowManForAtleastOneTime){
-                   [lilly runAction:self.skateAction];
+            [lilly runAction:self.skateAction];
         }
- 
+        
         hasFixedSnowManForAtleastOneTime=true;
     }
 }

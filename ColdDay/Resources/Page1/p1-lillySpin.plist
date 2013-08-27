@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>00secondlillyPNG1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{61, 61}, {152, 227}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -22}</string>
+			<key>spriteSize</key>
+			<string>{152, 227}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{9, 9}, {152, 227}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG10.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{112, 33}, {74, 253}}</string>
+			<key>spriteOffset</key>
+			<string>{4, -7}</string>
+			<key>spriteSize</key>
+			<string>{74, 253}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{208, 554}, {74, 253}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG11.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{95, 23}, {104, 265}}</string>
+			<key>spriteOffset</key>
+			<string>{2, -3}</string>
+			<key>spriteSize</key>
+			<string>{104, 265}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{357, 551}, {104, 265}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG12.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{111, 24}, {78, 263}}</string>
+			<key>spriteOffset</key>
+			<string>{5, -3}</string>
+			<key>spriteSize</key>
+			<string>{78, 263}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{506, 553}, {78, 263}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG2.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{80, 62}, {138, 225}}</string>
+			<key>spriteOffset</key>
+			<string>{4, -22}</string>
+			<key>spriteSize</key>
+			<string>{138, 225}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{249, 11}, {138, 225}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG3.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{107, 43}, {92, 245}}</string>
+			<key>spriteOffset</key>
+			<string>{8, -13}</string>
+			<key>spriteSize</key>
+			<string>{92, 245}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{504, 3}, {92, 245}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG4.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{87, 43}, {154, 245}}</string>
+			<key>spriteOffset</key>
+			<string>{19, -13}</string>
+			<key>spriteSize</key>
+			<string>{154, 245}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{635, 0}, {154, 245}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG5.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{11, 40}, {252, 247}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -11}</string>
+			<key>spriteSize</key>
+			<string>{252, 247}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 267}, {252, 247}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG6.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{62, 44}, {166, 243}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -13}</string>
+			<key>spriteSize</key>
+			<string>{166, 243}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{336, 268}, {166, 243}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG7.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{101, 39}, {96, 249}}</string>
+			<key>spriteOffset</key>
+			<string>{4, -11}</string>
+			<key>spriteSize</key>
+			<string>{96, 249}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{595, 289}, {96, 249}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG8.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{89, 44}, {96, 243}}</string>
+			<key>spriteOffset</key>
+			<string>{-8, -13}</string>
+			<key>spriteSize</key>
+			<string>{96, 243}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{776, 269}, {96, 243}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>00secondlillyPNG9.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{99, 31}, {108, 257}}</string>
+			<key>spriteOffset</key>
+			<string>{8, -7}</string>
+			<key>spriteSize</key>
+			<string>{108, 257}</string>
+			<key>spriteSourceSize</key>
+			<string>{290, 305}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{35, 549}, {108, 257}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{1024, 1024}</string>
+		<key>name</key>
+		<string>p1-lillySpin</string>
+		<key>target</key>
+		<dict>
+			<key>name</key>
+			<string>default</string>
+			<key>textureFileName</key>
+			<string>p1-lillySpin</string>
+			<key>textureFileExtension</key>
+			<string>.png</string>
+			<key>coordinatesFileName</key>
+			<string>p1-lillySpin</string>
+			<key>coordinatesFileExtension</key>
+			<string>.plist</string>
+			<key>premultipliedAlpha</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>

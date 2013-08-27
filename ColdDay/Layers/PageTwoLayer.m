@@ -48,7 +48,7 @@ CCSprite *background;
 		}
         
 		background.position = ccp(size.width/2, size.height/2);
-		[self addChild: background z:-1];        
+		[self addChild: background z:-1];
         
         self.lilly=[CCSprite spriteWithFile:@"P2-Lilly1.png"];
         self.lilly.position=ccp(size.width/2, size.height/2);
@@ -71,6 +71,8 @@ CCSprite *background;
             star.position = ccp( ((size.width-300)+(i*50)), size.height - 50);
             //[self addChild:star];
         }
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p2-bg.mp3"];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         
 	}
 	return self;
@@ -256,11 +258,12 @@ CCSprite *background;
     
     UITouch * touch = [[touches allObjects] objectAtIndex:0];
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
-        CGPoint location =[touch locationInView:[touch view]];
+    CGPoint location =[touch locationInView:[touch view]];
     
     if(CGRectContainsPoint(CGRectMake(1000, 750, 200, 200), location))
     {
-      [[CCDirector sharedDirector] replaceScene:[PageThreeLayer scene]];
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[CCDirector sharedDirector] replaceScene:[PageThreeLayer scene]];
     }
     
     if(_hasSnowFallStarted ==false)
@@ -274,10 +277,10 @@ CCSprite *background;
         [coldLilly runAction:[CCFadeIn actionWithDuration:1]];
         
         [self startSnow];
- 
+        
         id delay = [CCDelayTime actionWithDuration: 2];
         id callbackAction = [CCCallBlock actionWithBlock:^{
-                     //[self.lilly setTexture:texture];
+            //[self.lilly setTexture:texture];
         } ];
         
         id sequence = [CCSequence actions: delay, callbackAction, nil];
@@ -290,38 +293,45 @@ CCSprite *background;
             [monstersToDelete addObject:monster];
             
             //add animation with fade - splash
-            pageTwoSnow *m = [_snows objectAtIndex:(monster.tag-1)];
-            m.position = monster.position;
-    CCSprite *splashPool = [[CCSprite alloc] initWithFile:[m splashSprite]];
+            pageTwoSnow *snow = [_snows objectAtIndex:(monster.tag-1)];
+            snow.position = monster.position;
+            CCSprite *splashPool = [[CCSprite alloc] initWithFile:[snow splashSprite]];
             
-            if([m killMethod] == 1){
-               /* splashPool.position = monster.position;
-                [self addChild:splashPool];
-                
-                CCFadeOut *fade = [CCFadeOut actionWithDuration:3];  //this will make it fade
-                CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
-                CCSequence *sequencia = [CCSequence actions: fade, remove, nil];
-                if([defaults integerForKey:@"sound"]==1)
-                    [[SimpleAudioEngine sharedEngine] playEffect:@"SplatEffect.caf"];
-                [splashPool runAction:sequencia];
-                //finish splash*/
+            if([snow killMethod] == 1){
+                /* splashPool.position = monster.position;
+                 [self addChild:splashPool];
+                 
+                 CCFadeOut *fade = [CCFadeOut actionWithDuration:3];  //this will make it fade
+                 CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
+                 CCSequence *sequencia = [CCSequence actions: fade, remove, nil];
+                 if([defaults integerForKey:@"sound"]==1)
+                 [[SimpleAudioEngine sharedEngine] playEffect:@"SplatEffect.caf"];
+                 [splashPool runAction:sequencia];
+                 //finish splash*/
                 
             }
-            if([m killMethod] == 2){ // Particles
-            
+            if([snow killMethod] == 2){ // Particles
                 
+                CCFadeOut *fade = [CCFadeOut actionWithDuration:2];
                 CCCallFuncND *emitter = [CCCallFuncND actionWithTarget:self selector:@selector(startExplosion:data:) data:monster];
-                CCSequence *sequencia = [CCSequence actions:emitter, nil];
+                CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
+                CCSequence *sequencia = [CCSequence actions:emitter,fade,remove, nil];
+                
+                splashPool.position = monster.position;
+                [self addChild:splashPool];
                 
                 //if([defaults integerForKey:@"sound"]==1)
-                    [[SimpleAudioEngine sharedEngine] playEffect:@"p2-pding.mp3"];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"p2-ding.mp3"];
                 [splashPool runAction:sequencia];
                 CCSprite *star=[starArray objectAtIndex:score];
                 //star.color=ccc3(255, 216, 0);
                 [star runAction:[CCTintTo actionWithDuration:0.5 red:255 green:216 blue:0]];
                 score++;
                 if(score == 5)
+                {
+                    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
                     [[CCDirector sharedDirector] replaceScene:[PageThreeLayer scene]];
+                }
                 
                 for (CCSprite *monster in monstersToDelete) {
                     [monster stopAllActions];
@@ -333,7 +343,7 @@ CCSprite *background;
         }
     }
     
-
+    
 }
 
 -(void) removeSprite:(id)sender {
