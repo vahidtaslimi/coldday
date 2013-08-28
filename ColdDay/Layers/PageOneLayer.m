@@ -133,8 +133,8 @@ CCSpriteBatchNode *spinSpriteSheet;
         [self addChild:window];
         
         
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"PageOne_Lilly.plist"];
-        CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"PageOne_Lilly.png"];
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"p1_Lilly.plist"];
+        CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"p1_Lilly.png"];
         [self addChild:spriteSheet];
         
         NSMutableArray *skateAnimFrames = [NSMutableArray array];
@@ -150,25 +150,23 @@ CCSpriteBatchNode *spinSpriteSheet;
         CCAnimation *skateAnimimation = [CCAnimation animationWithSpriteFrames:skateAnimFrames delay:0.1f];
         self.skateAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:skateAnimimation]];
         
-        //Spin spritesheet
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"p1-lillySpin.plist"];
-        spinSpriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"p1-lillySpin.png"];
-        [self addChild:spinSpriteSheet];
-        
         NSMutableArray *spinAnimFrames = [NSMutableArray array];
         for (int i=1; i<=12; i++) {
+            NSString *frameName=[NSString stringWithFormat:@"00secondlillyPNG0%d.png",i];
+            
+            if(i>9)
+            {
+                frameName=[NSString stringWithFormat:@"00secondlillyPNG%d.png",i];
+            }
+            
             [spinAnimFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"00secondlillyPNG%d.png",i]]];
+              frameName]];
         }
-        /*lilly = [CCSprite spriteWithSpriteFrameName:@"00secondlillyPNG1.png"];
-        lilly.position = ccp(400, 360);
-        lilly.scale=0.6;
-        [spinSpriteSheet addChild:lilly];
-        */
-         CCAnimation *spinAnimimation = [CCAnimation animationWithSpriteFrames:spinAnimFrames delay:0.3f];
-        self.lillySpinAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:spinAnimimation]];
-                
+        
+        CCAnimation *spinAnimimation = [CCAnimation animationWithSpriteFrames:spinAnimFrames delay:0.15f];
+        self.lillySpinAction = [CCAnimate actionWithAnimation:spinAnimimation];
+        
         
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
@@ -382,11 +380,15 @@ CCSpriteBatchNode *spinSpriteSheet;
         
         if(canLightTurnOn)
         {
-            CGPoint position=lilly.position;
+            CCSpriteFrameCache* cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+            CCSpriteFrame* frame = [cache spriteFrameByName:@"00secondlillyPNG01.png"];
+            [lilly setDisplayFrame:frame];
+            /*CGPoint position=lilly.position;
             [self removeChild:lilly];
-            lilly = [CCSprite spriteWithSpriteFrameName:@"00secondlillyPNG1.png"];
+            lilly = [CCSprite spriteWithSpriteFrameName:@"00secondlillyPNG01.png"];
             lilly.position = position;
             [spinSpriteSheet addChild:lilly];
+             */
             [lilly stopAction:self.lillySpinAction];
             [lilly runAction:self.lillySpinAction];
             return;
