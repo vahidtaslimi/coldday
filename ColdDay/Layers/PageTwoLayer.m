@@ -112,7 +112,7 @@ CCSprite *background;
     _snows = [[NSMutableArray alloc] init];
     pageTwoSnow *m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(1)];
-    [m1 setMonsterSprite:@"page2snow1.png"];
+    [m1 setMonsterSprite:@"p2-snow3.png"];
     [m1 setSplashSprite:@"page2snow2.png"];
     [m1 setMinVelocity:2];
     [m1 setMaxVelocity:8];
@@ -132,7 +132,7 @@ CCSprite *background;
     
     m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(3)];
-    [m1 setMonsterSprite:@"page2snow1.png"];
+    [m1 setMonsterSprite:@"p2-snow4.png"];
     [m1 setSplashSprite:@"page2snow2.png"];
     [m1 setMinVelocity:2];
     [m1 setMaxVelocity:8];
@@ -298,17 +298,17 @@ CCSprite *background;
             CCSprite *splashPool = [[CCSprite alloc] initWithFile:[snow splashSprite]];
             
             if([snow killMethod] == 1){
-                /* splashPool.position = monster.position;
+               
+                /*
+                splashPool.position = monster.position;
                  [self addChild:splashPool];
-                 
-                 CCFadeOut *fade = [CCFadeOut actionWithDuration:3];  //this will make it fade
+                  CCFadeOut *fade = [CCFadeOut actionWithDuration:2];  //this will make it fade
                  CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
                  CCSequence *sequencia = [CCSequence actions: fade, remove, nil];
-                 if([defaults integerForKey:@"sound"]==1)
-                 [[SimpleAudioEngine sharedEngine] playEffect:@"SplatEffect.caf"];
+
                  [splashPool runAction:sequencia];
-                 //finish splash*/
-                
+                 //finish splash
+                */
             }
             if([snow killMethod] == 2){ // Particles
                 
@@ -333,11 +333,12 @@ CCSprite *background;
                     [[CCDirector sharedDirector] replaceScene:[PageThreeLayer scene]];
                 }
                 
-                for (CCSprite *monster in monstersToDelete) {
-                    [monster stopAllActions];
-                    [_snowsOnScreen removeObject:monster];
-                    [self removeChild:monster cleanup:YES];
-                }
+
+            }
+            for (CCSprite *monster in monstersToDelete) {
+                [monster stopAllActions];
+                [_snowsOnScreen removeObject:monster];
+                [self removeChild:monster cleanup:YES];
             }
             break;
         }
