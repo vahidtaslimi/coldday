@@ -281,7 +281,7 @@ CCSpriteBatchNode *spinSpriteSheet;
     }
     else if(CGRectContainsPoint([snow1 boundingBox], location))
     {
-        if(isSnowmanFixed == false)
+        if(isSnowmanFixed == false || hasUserTouchedSnow )
         {
             return;
         }
@@ -510,10 +510,8 @@ CCSpriteBatchNode *spinSpriteSheet;
         [self resetSnow1];
         isSnowmanFixed =true;
         [lilly stopAction:self.skateAction];
-        if(hasFixedSnowManForAtleastOneTime){
-            [lilly runAction:self.skateAction];
-        }
-        
+               [lilly runAction:self.skateAction];
+         
         hasFixedSnowManForAtleastOneTime=true;
     }
 }

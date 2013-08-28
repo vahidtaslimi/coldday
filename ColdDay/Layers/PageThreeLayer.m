@@ -10,6 +10,7 @@
 #import "CCParticleSystemQuad.h"
 #import "PageFourLayer.h"
 #import "CCFerris.h"
+#import "CCActionGrid3D.h"
 
 @implementation PageThreeLayer
 {
@@ -48,6 +49,7 @@ int lapNumber=1;
         
         [self addLillySprite];
         
+
 	}
 	return self;
 }
@@ -60,9 +62,11 @@ int lapNumber=1;
     
     if(_hasLillyStaredSkating ==false)
     {
-        [self displaySun];
-        [self runFerries];
-            [self schedule:@selector(updateParticleSystem:) interval:0.1];
+
+        [self.lilly runAction:self.skateAction];
+    
+        [self startSpinningLilly];
+        [self schedule:@selector(updateParticleSystem:) interval:0.1];
         _hasLillyStaredSkating=true;
     }
     
@@ -108,7 +112,7 @@ int lapNumber=1;
     }
     self.lilly = [CCSprite spriteWithSpriteFrameName:@"Layer-01.png"];
     self.lilly.position = ccp(xOffset,size.height/2);
-    
+    self.lilly.scale=2;
     [spriteSheet addChild:self.lilly];
     CCAnimation *skateAnimimation = [CCAnimation animationWithSpriteFrames:skateAnimFrames delay:0.32f];
     self.skateAction = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:skateAnimimation]];
@@ -120,115 +124,130 @@ int lapNumber=1;
     trailEmitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"particleTexture.png"];
     //[self addChild:trailEmitter];
     
- 
-
+    
+    
 }
 
--(void) runFerries
+-(void) startSpinningLilly
 {
-   if(lapNumber==8)
-   {
-       [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:2.0 scene:[PageFourLayer scene] ]];
-   }
-   else{
-        float lapDuration=4.0/lapNumber;
+    self.lilly.scale=self.lilly.scale*0.85;
+    if(lapNumber ==2)
+    {
+            [self displaySun];
+    }
+    
+    if(lapNumber==4)
+    {
+        id my_wavesAction = [CCWaves actionWithWaves:7 amplitude:25 horizontal:NO
+                                            vertical:YES grid:ccg(15,10) duration:10];
+        [self.background runAction: [CCRepeatForever actionWithAction:my_wavesAction]];
+    }
+    
+    if(lapNumber==8)
+    {
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionRotoZoom transitionWithDuration:2.0 scene:[PageFourLayer scene] ]];
+    }
+    else{
+        float lapDuration=6.0/lapNumber;
         CGSize size = [[CCDirector sharedDirector] winSize];
-    CCAction *ferris = [CCFerris actionWithDuration:lapDuration
-                                           position:ccp(size.width/2,size.height/2)
-                                             radius:320
-                                          direction:1
-                                           rotation:0
-                                              angle:360];
-    [self.lilly runAction:[CCSequence actions:
-                           ferris,
-                           [CCCallBlock actionWithBlock:^{
-        lapNumber++;
-        [self runFerries];
-    }],
-                           nil]];
-   }}
+        CCAction *ferris = [CCFerris actionWithDuration:lapDuration
+                                               position:ccp(size.width/2,size.height/2)
+                                                 radius:320
+                                              direction:1
+                                               rotation:0
+                                                  angle:360];
+        [self.lilly runAction:[CCSequence actions:
+                               ferris,
+                               [CCCallBlock actionWithBlock:^{
+            lapNumber++;
+            [self startSpinningLilly];
+        }],
+                               nil]];
+    }}
 
 - (void) updateParticleSystem:(ccTime)dt {
     trailEmitter.position = ccp(self.lilly.position.x - self.lilly.contentSize.width/3, self.lilly.position.y - self.lilly.contentSize.height/3);
 }
 
--(void) runLillySkateAnimation
-{
-    [self.lilly stopAction:self.skateAction];
-    int xOffset=90;
-    int yOffset=90;
-    float lapDuration=2.0/lapNumber;
-    CGSize size = [[CCDirector sharedDirector] winSize];
-    
-    
-    ccBezierConfig bezier;
-    bezier.controlPoint_1 = ccp(size.width*0.15,size.height*0.95);
-    bezier.controlPoint_2 =ccp(size.width*0.25,size.height*0.75);
-    bezier.endPosition = ccp(size.width/2,size.height-yOffset) ;
-    id bezierForward = [CCBezierTo actionWithDuration:lapDuration bezier:bezier];
-    
-    ccBezierConfig bezier1;
-    bezier1.controlPoint_1 = ccp(size.width*0.95,size.height*0.95);
-    bezier1.controlPoint_2 =ccp(size.width*0.75,size.height*0.75);
-    bezier1.endPosition = ccp(size.width-xOffset,size.height/2) ;
-    id bezierForward2 = [CCBezierTo actionWithDuration:lapDuration bezier:bezier1];
-    
-    ccBezierConfig bezier2;
-    bezier2.controlPoint_1 = ccp(size.width*0.95,size.height*0.25) ;
-    bezier2.controlPoint_2 =ccp(size.width*0.75,size.height*0.10);
-    bezier2.endPosition = ccp(size.width/2,0+yOffset);
-    id bezierReturn = [CCBezierTo actionWithDuration:lapDuration bezier:bezier2];
-    
-    ccBezierConfig bezier3;
-    bezier3.controlPoint_1 = ccp(size.width*0.15,0+size.height*0.10) ;
-    bezier3.controlPoint_2 =ccp(size.width*0.30,size.height*0.25);
-    bezier3.endPosition = ccp(xOffset,size.height/2);
-    id bezierReturn2 = [CCBezierTo actionWithDuration:lapDuration bezier:bezier3];
 
+/*
+ -(void) runLillySkateAnimation
+ {
+ int xOffset=90;
+ int yOffset=90;
+ float lapDuration=2.0/lapNumber;
+ CGSize size = [[CCDirector sharedDirector] winSize];
+ 
+ 
+ ccBezierConfig bezier;
+ bezier.controlPoint_1 = ccp(size.width*0.15,size.height*0.95);
+ bezier.controlPoint_2 =ccp(size.width*0.25,size.height*0.75);
+ bezier.endPosition = ccp(size.width/2,size.height-yOffset) ;
+ id bezierForward = [CCBezierTo actionWithDuration:lapDuration bezier:bezier];
+ 
+ ccBezierConfig bezier1;
+ bezier1.controlPoint_1 = ccp(size.width*0.95,size.height*0.95);
+ bezier1.controlPoint_2 =ccp(size.width*0.75,size.height*0.75);
+ bezier1.endPosition = ccp(size.width-xOffset,size.height/2) ;
+ id bezierForward2 = [CCBezierTo actionWithDuration:lapDuration bezier:bezier1];
+ 
+ ccBezierConfig bezier2;
+ bezier2.controlPoint_1 = ccp(size.width*0.95,size.height*0.25) ;
+ bezier2.controlPoint_2 =ccp(size.width*0.75,size.height*0.10);
+ bezier2.endPosition = ccp(size.width/2,0+yOffset);
+ id bezierReturn = [CCBezierTo actionWithDuration:lapDuration bezier:bezier2];
+ 
+ ccBezierConfig bezier3;
+ bezier3.controlPoint_1 = ccp(size.width*0.15,0+size.height*0.10) ;
+ bezier3.controlPoint_2 =ccp(size.width*0.30,size.height*0.25);
+ bezier3.endPosition = ccp(xOffset,size.height/2);
+ id bezierReturn2 = [CCBezierTo actionWithDuration:lapDuration bezier:bezier3];
+ 
+ 
+ id stopLillySakteAction=[CCCallFunc actionWithTarget:self selector:@selector(lillyAnimationFinished)];
+ self.lillyMoveAnimation=  [CCSequence actions:
+ bezierForward,
+ bezierForward2,
+ bezierReturn,
+ bezierReturn2,
+ stopLillySakteAction,
+ nil];
+ //[self.lilly runAction:[CCRepeatForever actionWithAction:self.lillyMoveAnimation]];
+ [self.lilly runAction:self.lillyMoveAnimation];
+ [self schedule:@selector(updateParticleSystem:) interval:0.1];
+ 
+ }
+ 
+ -(void) lillyAnimationFinished
+ {
+ lapNumber+=1;
+ if(lapNumber <8)
+ [self runLillySkateAnimation];
+ else
+ [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:2.0 scene:[PageFourLayer scene] ]];
+ }
+ 
+ - (CGPoint) RotateAroundPt:(CGPoint) centerPt withAngle:(float)  radAngle withRadius:(float) radius  {
+ 
+ float x = centerPt.x + cosf(radAngle) * radius;
+ float y = centerPt.y + sinf(radAngle) * radius;
+ return ccp(x, y);
+ }
+ 
+ float omega =0;
+ float theta=0;
+ float x0 = 100.0f; // center of circle in x dimension
+ float yZero = 100.0f; //
+ 
+ -(void)move:(ccTime)dt {
+ theta += dt*omega;
+ float x = x0 + cosf(theta);
+ float y= yZero + sinf(theta);
+ CGPoint location= ccp(x,y);
+ [self.lilly runAction:[CCMoveTo actionWithDuration:1 position:location]];
+ }
+ */
 
-    id stopLillySakteAction=[CCCallFunc actionWithTarget:self selector:@selector(lillyAnimationFinished)];
-    self.lillyMoveAnimation=  [CCSequence actions:
-                               bezierForward,
-                               bezierForward2,
-                               bezierReturn,
-                               bezierReturn2,
-                               stopLillySakteAction,
-                               nil];
-    [self.lilly runAction:self.skateAction];
-    //[self.lilly runAction:[CCRepeatForever actionWithAction:self.lillyMoveAnimation]];
-    [self.lilly runAction:self.lillyMoveAnimation];
-    [self schedule:@selector(updateParticleSystem:) interval:0.1];
-    
-}
-
--(void) lillyAnimationFinished
-{
-    lapNumber+=1;
-    if(lapNumber <8)
-        [self runLillySkateAnimation];
-    else
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:2.0 scene:[PageFourLayer scene] ]];
-}
-
-- (CGPoint) RotateAroundPt:(CGPoint) centerPt withAngle:(float)  radAngle withRadius:(float) radius  {
-    
-    float x = centerPt.x + cosf(radAngle) * radius;
-    float y = centerPt.y + sinf(radAngle) * radius;
-    return ccp(x, y);
-}
-
-float omega =0;
-float theta=0;
-float x0 = 100.0f; // center of circle in x dimension
-float yZero = 100.0f; //
-
--(void)move:(ccTime)dt {
-    theta += dt*omega;
-    float x = x0 + cosf(theta);
-    float y= yZero + sinf(theta);
-    CGPoint location= ccp(x,y);
-    [self.lilly runAction:[CCMoveTo actionWithDuration:1 position:location]];
-}
 
 /*
  -(void) addLillySprite
