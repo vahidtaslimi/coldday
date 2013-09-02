@@ -146,26 +146,26 @@ CCSprite *background;
 - (void) addSnows:(ccTime)dt {
     
     //select a random monster from the _monsters Array
-    int selectedMonster = arc4random() % [_snows count];
+    int selectedSnow= arc4random() % [_snows count];
     
     //get some monster caracteristics
-    pageTwoSnow *monster = [_snows objectAtIndex:selectedMonster];
-    int m = [monster movement];
+    pageTwoSnow *snow = [_snows objectAtIndex:selectedSnow];
+    int m = [snow movement];
     
     //!IMPORTANT -- Every Sprite in Screen must be an new CCSprite! Each Sprite can only be one time on screen
-    CCSprite *spriteMonster = [[CCSprite alloc] initWithFile:[monster monsterSprite]];
-    spriteMonster.tag = [monster tag];
+    CCSprite *spriteSnow = [[CCSprite alloc] initWithFile:[snow monsterSprite]];
+    spriteSnow.tag = [snow tag];
     
     //BLOCK 1 - Determine where to spawn the monster along the Y axis
     CGSize winSize = [CCDirector sharedDirector].winSize;
-    int minX = spriteMonster.contentSize.width / 2;
-    int maxX = winSize.width - spriteMonster.contentSize.width/2;
+    int minX = spriteSnow.contentSize.width / 2;
+    int maxX = winSize.width - spriteSnow.contentSize.width/2;
     int rangeX = maxX - minX;
     int actualY = (arc4random() % rangeX) + minX;
     
     //BLOCK 2 - Determine speed of the monster
-    int minDuration = [monster minVelocity];
-    int maxDuration = [monster maxVelocity];
+    int minDuration = [snow minVelocity];
+    int maxDuration = [snow maxVelocity];
     int rangeDuration = maxDuration - minDuration;
     int actualDuration = (arc4random() % rangeDuration) + minDuration;
     
@@ -173,11 +173,11 @@ CCSprite *background;
         
         //BLOCK 3 - Create the monster slightly off-screen along the right edge,
         // and along a random position along the Y axis as calculated above
-        spriteMonster.position = ccp( actualY,winSize.height + spriteMonster.contentSize.height/2);
-        [self addChild:spriteMonster];
+        spriteSnow.position = ccp( actualY,winSize.height + spriteSnow.contentSize.height/2);
+        [self addChild:spriteSnow];
         
         //BLOCK 4 - Create the actions
-        CCMoveTo * actionMove = [CCMoveTo actionWithDuration:actualDuration position:ccp( actualY,-spriteMonster.contentSize.height/2)];
+        CCMoveTo * actionMove = [CCMoveTo actionWithDuration:actualDuration position:ccp( actualY,-spriteSnow.contentSize.height/2)];
         CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
             [_snowsOnScreen removeObject:node];
             [node removeFromParentAndCleanup:YES];
@@ -193,17 +193,17 @@ CCSprite *background;
             
         }];
         
-        [spriteMonster runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
+        [spriteSnow runAction:[CCSequence actions:actionMove, actionMoveDone, nil]];
         
-        [_snowsOnScreen addObject:spriteMonster];
+        [_snowsOnScreen addObject:spriteSnow];
     }
     else if(m == 2){ //ZIGZAG-SNAKE MOVIMENT
         
         /* Create the monster slightly off-screen along the right edge,
          and along a random position along the Y axis as calculated above
          */
-        spriteMonster.position = ccp( actualY,winSize.height + spriteMonster.contentSize.height/2);
-        [self addChild:spriteMonster];
+        spriteSnow.position = ccp( actualY,winSize.height + spriteSnow.contentSize.height/2);
+        [self addChild:spriteSnow];
         
         CCCallBlockN * actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
             [_snowsOnScreen removeObject:node];
@@ -245,10 +245,10 @@ CCSprite *background;
         
         id seq = [CCSequence actionsWithArray:arrayBezier];
         
-        [spriteMonster runAction:seq];
+        [spriteSnow runAction:seq];
         // ZigZag movement End
         
-        [_snowsOnScreen addObject:spriteMonster];
+        [_snowsOnScreen addObject:spriteSnow];
     }
 }
 

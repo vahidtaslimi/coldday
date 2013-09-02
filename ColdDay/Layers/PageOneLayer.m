@@ -22,9 +22,9 @@
     CCSprite *rightHand;
     CCSprite *background;
     CCSprite *window;
-    
-    
+    CCSprite * windowBlink;
 }
+
 bool isLightOn = false;
 bool isEyesInPlace = true;
 bool isHatInPlace = true;
@@ -110,7 +110,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         id rotateleft = [CCRotateBy actionWithDuration:0.5 angle:-2];
         id rotateright = [CCRotateBy actionWithDuration:0.5 angle:2];
         [snow1 runAction:[CCRepeatForever actionWithAction:[CCSequence actions:rotateleft,rotateright,nil]]];
-        
+       
         nose=[CCSprite spriteWithFile:@"p1-nose.png"];
         nose.anchorPoint=ccp(0,0);
         nose.position=ccp(879,405);
@@ -166,7 +166,6 @@ CCSpriteBatchNode *spinSpriteSheet;
         
         CCAnimation *spinAnimimation = [CCAnimation animationWithSpriteFrames:spinAnimFrames delay:0.15f];
         self.lillySpinAction = [CCAnimate actionWithAnimation:spinAnimimation];
-        
         
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
@@ -380,17 +379,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         
         if(canLightTurnOn)
         {
-            CCSpriteFrameCache* cache = [CCSpriteFrameCache sharedSpriteFrameCache];
-            CCSpriteFrame* frame = [cache spriteFrameByName:@"00secondlillyPNG01.png"];
-            [lilly setDisplayFrame:frame];
-            /*CGPoint position=lilly.position;
-            [self removeChild:lilly];
-            lilly = [CCSprite spriteWithSpriteFrameName:@"00secondlillyPNG01.png"];
-            lilly.position = position;
-            [spinSpriteSheet addChild:lilly];
-             */
-            [lilly stopAction:self.lillySpinAction];
-            [lilly runAction:self.lillySpinAction];
+            [self spinLilly];
             return;
         }
         
@@ -455,12 +444,41 @@ CCSpriteBatchNode *spinSpriteSheet;
         CCAction *fadeAction = [CCFadeTo actionWithDuration:2 opacity:1];
         [window runAction:fadeAction];
         hasUserTouchedLights=true;
+        
+        if(windowBlink)
+        {
+            [self removeChild:windowBlink];
+        }
+        
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        CCParticleSnow *emitter =[[CCParticleSnow alloc]init];
+        emitter.position=ccp(size.width/2,size.height);
+        emitter.speed=30;
+        [emitter setDuration:kCCParticleDurationInfinity];
+        emitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"page2snow1.png"];
+        [self addChild:emitter];
+        
     }
     else if(CGRectContainsPoint(CGRectMake(1000, 0, 200, 200), location))
     {
         [self moveToSceneTwo];
     }
     
+}
+
+-(void) spinLilly
+{
+    CCSpriteFrameCache* cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+    CCSpriteFrame* frame = [cache spriteFrameByName:@"00secondlillyPNG01.png"];
+    [lilly setDisplayFrame:frame];
+    /*CGPoint position=lilly.position;
+     [self removeChild:lilly];
+     lilly = [CCSprite spriteWithSpriteFrameName:@"00secondlillyPNG01.png"];
+     lilly.position = position;
+     [spinSpriteSheet addChild:lilly];
+     */
+    [lilly stopAction:self.lillySpinAction];
+    [lilly runAction:self.lillySpinAction];
 }
 
 - (void) moveToSceneTwo
@@ -475,6 +493,30 @@ CCSpriteBatchNode *spinSpriteSheet;
     canLightTurnOn = true;
     lillyIsMoving = false;
     canLightTurnOn =true;
+    [self spinLilly];
+    CCDelayTime *delay=[CCDelayTime actionWithDuration:4];
+    CCCallBlock *addBlinkBlock=[CCCallBlock actionWithBlock:^{
+        if(hasUserTouchedLights)
+        {
+            return ;
+        }
+        
+        windowBlink=[CCSprite spriteWithFile:@"p1-dazzle.png"];
+        windowBlink.scale=0.5;
+        windowBlink.anchorPoint=ccp(0,0);
+        windowBlink.position=ccp(73,423);
+        [self addChild:windowBlink];
+        CCFadeTo *fade = [[CCFadeTo alloc] initWithDuration:1 opacity:255];
+        CCFadeTo *fadeOut = [[CCFadeTo alloc] initWithDuration:1 opacity:50];
+        CCSequence *sequence = [[CCSequence alloc] initOne:fade two:fadeOut];
+        CCRepeatForever *repeat = [[CCRepeatForever alloc] initWithAction:sequence];
+        [windowBlink runAction:repeat];
+    }];
+    CCSequence *AddBlinkSeq=[CCSequence actions:
+                             delay,
+                             addBlinkBlock, nil];
+    [self runAction:AddBlinkSeq];
+    
 }
 
 - (void) hideSnow1
@@ -488,6 +530,7 @@ CCSpriteBatchNode *spinSpriteSheet;
     CCSpriteFrame* frame = [cache spriteFrameByName:@"snow00.png"];
     [snow1 setDisplayFrame:frame];
     snow1.visible=true;
+    [snow1 stopAllActions];
 }
 
 - (void) updateCanLillyMove
@@ -510,8 +553,8 @@ CCSpriteBatchNode *spinSpriteSheet;
         [self resetSnow1];
         isSnowmanFixed =true;
         [lilly stopAction:self.skateAction];
-               [lilly runAction:self.skateAction];
-         
+        [lilly runAction:self.skateAction];
+        
         hasFixedSnowManForAtleastOneTime=true;
     }
 }
