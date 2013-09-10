@@ -7,6 +7,7 @@
 //
 
 #import "PageFourLayer.h"
+#include "SimpleAudioEngine.h"
 
 @implementation PageFourLayer
 bool lizardHasMoved=false;
@@ -41,6 +42,8 @@ bool isPlayingFish=false;
         [self addLizardSprite];
         [self addWindowSprite];
         [self addWaterfallSprite];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p4.mp3"];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
     }
     return self;
 }

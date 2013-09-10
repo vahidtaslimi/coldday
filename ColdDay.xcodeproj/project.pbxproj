@@ -235,6 +235,7 @@
 		F2F012C517DF020E009E1816 /* p4-waterfall-sheet-ipadhd.zwd in Resources */ = {isa = PBXBuildFile; fileRef = F2F012AF17DF020E009E1816 /* p4-waterfall-sheet-ipadhd.zwd */; };
 		F2F012C617DF020E009E1816 /* p4-waterfall-sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F012B017DF020E009E1816 /* p4-waterfall-sheet.plist */; };
 		F2F012C717DF020E009E1816 /* p4-waterfall-sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012B117DF020E009E1816 /* p4-waterfall-sheet.png */; };
+		F2F012CA17DF242D009E1816 /* p4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2F012C917DF242D009E1816 /* p4.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -631,6 +632,7 @@
 		F2F012AF17DF020E009E1816 /* p4-waterfall-sheet-ipadhd.zwd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "p4-waterfall-sheet-ipadhd.zwd"; sourceTree = "<group>"; };
 		F2F012B017DF020E009E1816 /* p4-waterfall-sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p4-waterfall-sheet.plist"; sourceTree = "<group>"; };
 		F2F012B117DF020E009E1816 /* p4-waterfall-sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-waterfall-sheet.png"; sourceTree = "<group>"; };
+		F2F012C917DF242D009E1816 /* p4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = p4.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -657,6 +659,7 @@
 		F2033D2817B7296700BE1F60 /* Page4 */ = {
 			isa = PBXGroup;
 			children = (
+				F2F012C917DF242D009E1816 /* p4.mp3 */,
 				F2F0129B17DF020E009E1816 /* fish */,
 				F2F012A817DF020E009E1816 /* waterfall */,
 				F2F0129117DEFEF1009E1816 /* p4-hint-ipadhd.png */,
@@ -1425,6 +1428,7 @@
 				F2F012C517DF020E009E1816 /* p4-waterfall-sheet-ipadhd.zwd in Resources */,
 				F2F012C617DF020E009E1816 /* p4-waterfall-sheet.plist in Resources */,
 				F2F012C717DF020E009E1816 /* p4-waterfall-sheet.png in Resources */,
+				F2F012CA17DF242D009E1816 /* p4.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
