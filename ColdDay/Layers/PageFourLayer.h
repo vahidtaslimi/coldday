@@ -22,7 +22,10 @@
 @property (nonatomic,strong) CCSprite *tornado;
 @property (nonatomic, strong) CCAction *tornadoAction;
 @property (nonatomic,strong) CCSprite *windows;
-
+@property (nonatomic,strong) CCSprite *doors;
+@property (nonatomic,strong) CCSprite *waterfall;
+@property (nonatomic,strong) CCSprite *fish;
+@property (nonatomic,strong) CCSprite *doorHint;
 +(CCScene *) scene;
     
 @end
