@@ -240,6 +240,8 @@
 		F2F012D417E70DA5009E1816 /* p4-lake.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012CE17E70DA5009E1816 /* p4-lake.png */; };
 		F2F012D517E70DA5009E1816 /* p4-loli-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012CF17E70DA5009E1816 /* p4-loli-ipadhd.png */; };
 		F2F012D617E70DA5009E1816 /* p4-loli.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012D017E70DA5009E1816 /* p4-loli.png */; };
+		F2F012D917E711A1009E1816 /* p4-rock-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012D717E711A1009E1816 /* p4-rock-ipadhd.png */; };
+		F2F012DA17E711A1009E1816 /* p4-rock.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012D817E711A1009E1816 /* p4-rock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -641,6 +643,8 @@
 		F2F012CE17E70DA5009E1816 /* p4-lake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lake.png"; sourceTree = "<group>"; };
 		F2F012CF17E70DA5009E1816 /* p4-loli-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-loli-ipadhd.png"; sourceTree = "<group>"; };
 		F2F012D017E70DA5009E1816 /* p4-loli.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-loli.png"; sourceTree = "<group>"; };
+		F2F012D717E711A1009E1816 /* p4-rock-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-rock-ipadhd.png"; sourceTree = "<group>"; };
+		F2F012D817E711A1009E1816 /* p4-rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-rock.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -667,6 +671,8 @@
 		F2033D2817B7296700BE1F60 /* Page4 */ = {
 			isa = PBXGroup;
 			children = (
+				F2F012D717E711A1009E1816 /* p4-rock-ipadhd.png */,
+				F2F012D817E711A1009E1816 /* p4-rock.png */,
 				F2F012CB17E70DA5009E1816 /* p4-BG-ipadhp.jpg */,
 				F2F012CC17E70DA5009E1816 /* p4-BG.jpg */,
 				F2F012CD17E70DA5009E1816 /* p4-lake-ipadhd.png */,
@@ -1445,6 +1451,8 @@
 				F2F012D417E70DA5009E1816 /* p4-lake.png in Resources */,
 				F2F012D517E70DA5009E1816 /* p4-loli-ipadhd.png in Resources */,
 				F2F012D617E70DA5009E1816 /* p4-loli.png in Resources */,
+				F2F012D917E711A1009E1816 /* p4-rock-ipadhd.png in Resources */,
+				F2F012DA17E711A1009E1816 /* p4-rock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

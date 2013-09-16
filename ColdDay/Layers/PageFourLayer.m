@@ -42,6 +42,8 @@ bool isPlayingFish=false;
         [self addLizardSprite];
         [self addWindowSprite];
         [self addWaterfallSprite];
+          [self addRockSprite];
+        [self addLollySprite:0.5];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p4.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
     }
@@ -67,12 +69,13 @@ bool isPlayingFish=false;
     
     self.fish = [CCSprite spriteWithSpriteFrameName:@"1.png"];
     self.fish.scale=0.4;
-    self.fish.opacity=0;
+   // self.fish.opacity=0;
     self.fish.rotation=-75;
     self.fish.position = ccp(120,255);
     [spriteSheet addChild:self.fish];
     CCAnimation *animimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.15f];
     CCAction *action= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animimation]];
+  
     [self.fish runAction:action];
 }
 
@@ -127,6 +130,27 @@ bool isPlayingFish=false;
     self.tornadoAction= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:skateAnimimation]];
     [self.tornado runAction:[CCFadeIn actionWithDuration:1]];
     //[self.tornado runAction:[CCScaleTo actionWithDuration:1 scale:0.2f]];
+     [self addLollySprite:0.2];
+}
+
+
+-(void) addRockSprite
+{
+    self.rock= [CCSprite spriteWithFile:@"p4-rock.png"];
+    self.rock.position = ccp(110,370);
+   // rock.color=ccc3(255,216,0);
+     [self addChild:self.rock z:5];
+}
+
+-(void) addLollySprite:(float) speed
+{
+    CCSprite *lolly= [CCSprite spriteWithFile:@"p4-loli.png"];
+    lolly.position = ccp(925,650);
+    id spin = [CCRotateBy actionWithDuration:speed angle: 360];
+    id spins = [CCRepeatForever actionWithAction:spin];
+    [self addChild:lolly z:5];
+    [lolly runAction:spins];
+
 }
 
 -(void) addWindowSprite
@@ -244,6 +268,8 @@ bool isPlayingFish=false;
                          [CCCallBlock actionWithBlock:^{
             [self.background runAction:tintAction];
             [self.waterfall runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+            [self.rock runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119]];
+            
             self.doorHint.visible =false;
             [self.windows runAction:[CCFadeTo actionWithDuration:2 opacity:255]];
             [self.doors runAction:[CCFadeTo actionWithDuration:2 opacity:255]];
@@ -282,7 +308,7 @@ bool isPlayingFish=false;
             [self addFishSprite];
             CCSequence *seq=[CCSequence actions:
                              [CCCallBlock actionWithBlock:^{
-                [self.fish runAction:[CCFadeIn actionWithDuration:0.5]];
+                //[self.fish runAction:[CCFadeIn actionWithDuration:0.5]];
                 CGPoint location =ccp(150,450);
                 CCAction *action=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
                 [self.fish runAction:action];
@@ -290,13 +316,21 @@ bool isPlayingFish=false;
                              [CCDelayTime actionWithDuration:1],
                              [CCCallBlock actionWithBlock:^{
                 self.fish.rotation=70;
-                [self.fish runAction:[CCFadeOut actionWithDuration:1]];
+                //[self.fish runAction:[CCFadeOut actionWithDuration:1]];
                 CGPoint location =ccp(120,250);
                 CCAction *action=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
-                [self.fish runAction:action];
+                id seq2=[CCSequence actions:
+                         action,
+                         [CCCallBlock actionWithBlock:^{
+                      self.fish.visible=false;
+                }], nil];
+                
+                [self.fish runAction:seq2];
             }]
                              ,[CCCallBlock actionWithBlock:^{
                 isPlayingFish=false;
+           
+              
                 [self addDoorHint];
             }],
                              
@@ -328,7 +362,7 @@ bool isPlayingFish=false;
      //[self.doorHint runAction: [CCRepeatForever actionWithAction:seq2]];
      */
     
-    if(hasPalyedFishOnce ==false)
+    if(hasPalyedFishOnce ==false || lillyHasGotLizard == false)
     {
         return;
     }

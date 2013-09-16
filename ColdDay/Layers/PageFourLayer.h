@@ -26,6 +26,7 @@
 @property (nonatomic,strong) CCSprite *waterfall;
 @property (nonatomic,strong) CCSprite *fish;
 @property (nonatomic,strong) CCSprite *doorHint;
+@property (nonatomic,strong) CCSprite *rock;
 +(CCScene *) scene;
     
 @end
