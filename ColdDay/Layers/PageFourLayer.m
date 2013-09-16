@@ -34,7 +34,7 @@ bool isPlayingFish=false;
             self.background = [CCSprite spriteWithFile:@"Default.png"];
             self.background.rotation = 90;
         } else {
-            self.background = [CCSprite spriteWithFile:@"p4BG.jpg"];
+            self.background = [CCSprite spriteWithFile:@"p4-BG.jpg"];
         }
         self.background.position = ccp(size.width/2, size.height/2);
         [self addChild: self.background z:-1];
@@ -94,7 +94,7 @@ bool isPlayingFish=false;
     
     self.waterfall = [CCSprite spriteWithSpriteFrameName:@"1.png"];
     
-    self.waterfall.position = ccp(70,385);
+    self.waterfall.position = ccp(95,410);
     [spriteSheet addChild:self.waterfall z:3];
     CCAnimation *waterfallAnimimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.15f];
     CCAction *action= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:waterfallAnimimation]];

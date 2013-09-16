@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F2033D2B17B7297D00BE1F60 /* p4BG-ipadhd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2033D2917B7297D00BE1F60 /* p4BG-ipadhd.jpg */; };
-		F2033D2C17B7297D00BE1F60 /* p4BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2033D2A17B7297D00BE1F60 /* p4BG.jpg */; };
 		F2033D3317B729DC00BE1F60 /* p4-lil1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2033D2D17B729DC00BE1F60 /* p4-lil1-ipadhd.png */; };
 		F2033D3417B729DC00BE1F60 /* p4-lil1.png in Resources */ = {isa = PBXBuildFile; fileRef = F2033D2E17B729DC00BE1F60 /* p4-lil1.png */; };
 		F2033D3517B729DC00BE1F60 /* p4-lil2-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2033D2F17B729DC00BE1F60 /* p4-lil2-ipadhd.png */; };
@@ -236,11 +234,15 @@
 		F2F012C617DF020E009E1816 /* p4-waterfall-sheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F012B017DF020E009E1816 /* p4-waterfall-sheet.plist */; };
 		F2F012C717DF020E009E1816 /* p4-waterfall-sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012B117DF020E009E1816 /* p4-waterfall-sheet.png */; };
 		F2F012CA17DF242D009E1816 /* p4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2F012C917DF242D009E1816 /* p4.mp3 */; };
+		F2F012D117E70DA5009E1816 /* p4-BG-ipadhp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F012CB17E70DA5009E1816 /* p4-BG-ipadhp.jpg */; };
+		F2F012D217E70DA5009E1816 /* p4-BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F012CC17E70DA5009E1816 /* p4-BG.jpg */; };
+		F2F012D317E70DA5009E1816 /* p4-lake-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012CD17E70DA5009E1816 /* p4-lake-ipadhd.png */; };
+		F2F012D417E70DA5009E1816 /* p4-lake.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012CE17E70DA5009E1816 /* p4-lake.png */; };
+		F2F012D517E70DA5009E1816 /* p4-loli-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012CF17E70DA5009E1816 /* p4-loli-ipadhd.png */; };
+		F2F012D617E70DA5009E1816 /* p4-loli.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012D017E70DA5009E1816 /* p4-loli.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F2033D2917B7297D00BE1F60 /* p4BG-ipadhd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p4BG-ipadhd.jpg"; sourceTree = "<group>"; };
-		F2033D2A17B7297D00BE1F60 /* p4BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = p4BG.jpg; sourceTree = "<group>"; };
 		F2033D2D17B729DC00BE1F60 /* p4-lil1-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lil1-ipadhd.png"; sourceTree = "<group>"; };
 		F2033D2E17B729DC00BE1F60 /* p4-lil1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lil1.png"; sourceTree = "<group>"; };
 		F2033D2F17B729DC00BE1F60 /* p4-lil2-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lil2-ipadhd.png"; sourceTree = "<group>"; };
@@ -633,6 +635,12 @@
 		F2F012B017DF020E009E1816 /* p4-waterfall-sheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p4-waterfall-sheet.plist"; sourceTree = "<group>"; };
 		F2F012B117DF020E009E1816 /* p4-waterfall-sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-waterfall-sheet.png"; sourceTree = "<group>"; };
 		F2F012C917DF242D009E1816 /* p4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = p4.mp3; sourceTree = "<group>"; };
+		F2F012CB17E70DA5009E1816 /* p4-BG-ipadhp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p4-BG-ipadhp.jpg"; sourceTree = "<group>"; };
+		F2F012CC17E70DA5009E1816 /* p4-BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p4-BG.jpg"; sourceTree = "<group>"; };
+		F2F012CD17E70DA5009E1816 /* p4-lake-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lake-ipadhd.png"; sourceTree = "<group>"; };
+		F2F012CE17E70DA5009E1816 /* p4-lake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lake.png"; sourceTree = "<group>"; };
+		F2F012CF17E70DA5009E1816 /* p4-loli-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-loli-ipadhd.png"; sourceTree = "<group>"; };
+		F2F012D017E70DA5009E1816 /* p4-loli.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-loli.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -659,6 +667,12 @@
 		F2033D2817B7296700BE1F60 /* Page4 */ = {
 			isa = PBXGroup;
 			children = (
+				F2F012CB17E70DA5009E1816 /* p4-BG-ipadhp.jpg */,
+				F2F012CC17E70DA5009E1816 /* p4-BG.jpg */,
+				F2F012CD17E70DA5009E1816 /* p4-lake-ipadhd.png */,
+				F2F012CE17E70DA5009E1816 /* p4-lake.png */,
+				F2F012CF17E70DA5009E1816 /* p4-loli-ipadhd.png */,
+				F2F012D017E70DA5009E1816 /* p4-loli.png */,
 				F2F012C917DF242D009E1816 /* p4.mp3 */,
 				F2F0129B17DF020E009E1816 /* fish */,
 				F2F012A817DF020E009E1816 /* waterfall */,
@@ -682,8 +696,6 @@
 				F2033D3017B729DC00BE1F60 /* p4-lil2.png */,
 				F2033D3117B729DC00BE1F60 /* p4-lil3-ipadhd.png */,
 				F2033D3217B729DC00BE1F60 /* p4-lil3.png */,
-				F2033D2917B7297D00BE1F60 /* p4BG-ipadhd.jpg */,
-				F2033D2A17B7297D00BE1F60 /* p4BG.jpg */,
 			);
 			name = Page4;
 			path = Resources/Page4;
@@ -1363,8 +1375,6 @@
 				F2A23A8617AE0D53005C339C /* P3-sun.png in Resources */,
 				F2AB5EA517B2519B0055CA0F /* Particles_fire.png in Resources */,
 				F2AB5EA717B25D2D0055CA0F /* particleTexture.png in Resources */,
-				F2033D2B17B7297D00BE1F60 /* p4BG-ipadhd.jpg in Resources */,
-				F2033D2C17B7297D00BE1F60 /* p4BG.jpg in Resources */,
 				F2033D3317B729DC00BE1F60 /* p4-lil1-ipadhd.png in Resources */,
 				F2033D3417B729DC00BE1F60 /* p4-lil1.png in Resources */,
 				F2033D3517B729DC00BE1F60 /* p4-lil2-ipadhd.png in Resources */,
@@ -1429,6 +1439,12 @@
 				F2F012C617DF020E009E1816 /* p4-waterfall-sheet.plist in Resources */,
 				F2F012C717DF020E009E1816 /* p4-waterfall-sheet.png in Resources */,
 				F2F012CA17DF242D009E1816 /* p4.mp3 in Resources */,
+				F2F012D117E70DA5009E1816 /* p4-BG-ipadhp.jpg in Resources */,
+				F2F012D217E70DA5009E1816 /* p4-BG.jpg in Resources */,
+				F2F012D317E70DA5009E1816 /* p4-lake-ipadhd.png in Resources */,
+				F2F012D417E70DA5009E1816 /* p4-lake.png in Resources */,
+				F2F012D517E70DA5009E1816 /* p4-loli-ipadhd.png in Resources */,
+				F2F012D617E70DA5009E1816 /* p4-loli.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

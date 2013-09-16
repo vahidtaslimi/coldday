@@ -12,17 +12,17 @@
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{0, 4}, {283, 282}}</string>
+			<string>{{0, 0}, {387, 410}}</string>
 			<key>spriteOffset</key>
-			<string>{-2, 1}</string>
+			<string>{-11, 4}</string>
 			<key>spriteSize</key>
-			<string>{283, 282}</string>
+			<string>{387, 410}</string>
 			<key>spriteSourceSize</key>
-			<string>{287, 292}</string>
+			<string>{409, 418}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 0}, {283, 282}}</string>
+			<string>{{7, 7}, {387, 410}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -34,17 +34,17 @@
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{0, 4}, {282, 282}}</string>
+			<string>{{0, 0}, {409, 418}}</string>
 			<key>spriteOffset</key>
-			<string>{-3, -0}</string>
+			<string>{0, -0}</string>
 			<key>spriteSize</key>
-			<string>{282, 282}</string>
+			<string>{409, 418}</string>
 			<key>spriteSourceSize</key>
-			<string>{288, 290}</string>
+			<string>{409, 418}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{285, 0}, {282, 282}}</string>
+			<string>{{467, 1}, {409, 418}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -59,7 +59,7 @@
 		<key>size</key>
 		<string>{1024, 512}</string>
 		<key>name</key>
-		<string>Untitled</string>
+		<string>p4-waterfall-sheet-ipadhd.zwd</string>
 		<key>target</key>
 		<dict>
 			<key>name</key>
