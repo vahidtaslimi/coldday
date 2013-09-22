@@ -17,6 +17,8 @@
 @property (nonatomic, strong) CCAction *lillySkateMove1;
 @property (nonatomic, strong) CCAction *lillySkateMove2;
 @property (nonatomic, strong) CCAction *lillySpinAction;
+@property (nonatomic, strong) CCAction *lillyRepeateColdAction;
+@property (nonatomic, strong) CCAction *lillyColdAction;
 
 +(CCScene *) scene;
 

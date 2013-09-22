@@ -110,7 +110,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         id rotateleft = [CCRotateBy actionWithDuration:0.5 angle:-2];
         id rotateright = [CCRotateBy actionWithDuration:0.5 angle:2];
         [snow1 runAction:[CCRepeatForever actionWithAction:[CCSequence actions:rotateleft,rotateright,nil]]];
-       
+        
         nose=[CCSprite spriteWithFile:@"p1-nose.png"];
         nose.anchorPoint=ccp(0,0);
         nose.position=ccp(879,405);
@@ -168,12 +168,54 @@ CCSpriteBatchNode *spinSpriteSheet;
         self.lillySpinAction = [CCAnimate actionWithAnimation:spinAnimimation];
         
         
+        NSMutableArray *firstColdAnimFrames = [NSMutableArray array];
+        for (int i=1; i<=7; i++) {
+            [firstColdAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"%d.png",i]]];
+        }
+        
+        NSMutableArray *repeateColdAnimFrames = [NSMutableArray array];
+        for (int i=8; i<=9; i++) {
+            [repeateColdAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"%d.png",i]]];
+        }
+        
+        CCAnimation *repeateColdAnimation = [CCAnimation animationWithSpriteFrames:repeateColdAnimFrames delay:0.1f];
+        self.lillyRepeateColdAction= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:repeateColdAnimation]];
+        
+        CCAnimation *firstColdAnimation = [CCAnimation animationWithSpriteFrames:firstColdAnimFrames delay:0.4f];
+        self.lillyColdAction= [CCAnimate actionWithAnimation:firstColdAnimation];
+        
+        
+        
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         
 	}
 	return self;
 }
+
+-(void) addLillyColdSpriteSheet
+{
+    
+    CCSpriteFrameCache* cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+    CCSpriteFrame* frame = [cache spriteFrameByName:@"1.png"];
+    [lilly setDisplayFrame:frame];
+    
+    
+    CCSequence* seq=[CCSequence actions:
+                     self.lillyColdAction,
+                     [CCCallBlock actionWithBlock:^{
+        [lilly runAction:self.lillyRepeateColdAction];
+    }]
+                     , nil];
+    [lilly runAction:seq];
+    
+}
+
+
 
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
@@ -280,6 +322,7 @@ CCSpriteBatchNode *spinSpriteSheet;
     }
     else if(CGRectContainsPoint([snow1 boundingBox], location))
     {
+  
         if(isSnowmanFixed == false || hasUserTouchedSnow )
         {
             return;
@@ -457,7 +500,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         [emitter setDuration:kCCParticleDurationInfinity];
         emitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"page2snow1.png"];
         [self addChild:emitter];
-        
+        [self addLillyColdSpriteSheet];
     }
     else if(CGRectContainsPoint(CGRectMake(1000, 0, 200, 200), location))
     {
