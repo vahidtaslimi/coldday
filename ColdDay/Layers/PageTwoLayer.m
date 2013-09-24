@@ -22,7 +22,7 @@ NSUserDefaults *defaults;
     
 }
 
-
+int _numberOfTimesPlayed;
 bool _hasSnowFallStarted=false;
 CCSprite *background;
 
@@ -51,9 +51,7 @@ CCSprite *background;
 		background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:-1];
         
-        self.lilly=[CCSprite spriteWithFile:@"P2-Lilly1.png"];
-        self.lilly.position=ccp(size.width/2, size.height/2);
-        [self addChild:self.lilly];
+        [self addLillySpriteSheet];
         
         lives = 5;
         hearthArray = [[NSMutableArray alloc] init];
@@ -105,6 +103,128 @@ CCSprite *background;
     [self initSnows];
     _hasSnowFallStarted=true;
     
+}
+
+
+-(void)addLillySpriteSheet
+{
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"p2-lilly-spritesheet.plist"];
+    CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"p2-lilly-spritesheet.png"];
+    [self addChild:spriteSheet];
+    
+    NSMutableArray *firstAnimFrames = [NSMutableArray array];
+    for (int i=0; i<=5; i++) {
+        [firstAnimFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"lilly1-0%d.png",i]]];
+    }
+    CCAnimation *firstAnimimation = [CCAnimation animationWithSpriteFrames:firstAnimFrames delay:0.3f];
+    self.firstLillyAction = [CCAnimate actionWithAnimation:firstAnimimation];
+    
+    NSMutableArray *winkAnimFrames = [NSMutableArray array];
+    [winkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly1-00.png"]];
+    [winkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly1-03.png"]];
+     [winkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly1-01.png"]];
+     CCAnimation *winkAnimimation = [CCAnimation animationWithSpriteFrames:winkAnimFrames delay:0.2f];
+    self.winkAction = [CCAnimate actionWithAnimation:winkAnimimation];
+    
+    
+    NSMutableArray *secondAnimFrames = [NSMutableArray array];
+    for (int i=4; i<=5; i++) {
+        [secondAnimFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"lilly1-0%d.png",i]]];
+    }
+    
+    CCAnimation *secondAnimimation = [CCAnimation animationWithSpriteFrames:secondAnimFrames delay:0.5f];
+    CCSequence *secondSeq=[CCSequence actions:
+                           [CCCallBlock actionWithBlock:^{
+             _numberOfTimesPlayed++;
+    }],
+                           [CCDelayTime actionWithDuration:2],
+                           [CCCallBlock actionWithBlock:^{
+     
+        [self.lilly runAction:[CCAnimate actionWithAnimation:secondAnimimation] ];
+    }], 
+                           [CCCallBlock actionWithBlock:^{
+      
+       if(_numberOfTimesPlayed %2==0)
+       {
+           NSLog(@"%d",_numberOfTimesPlayed);
+         [self.lilly runAction:self.winkAction];
+       }
+    }],
+                           nil];
+    
+    self.secondtLillyAction = [CCRepeatForever actionWithAction:secondSeq];
+    
+    NSMutableArray *thirdAnimFrames = [NSMutableArray array];
+    for (int i=0; i<=5; i++) {
+        [thirdAnimFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"lilly2-0%d.png",i]]];
+    }
+    CCAnimation *thirdAnimimation = [CCAnimation animationWithSpriteFrames:thirdAnimFrames delay:0.3f];
+    self.thirdLillyAction = [CCAnimate actionWithAnimation:thirdAnimimation];
+    
+    
+    NSMutableArray *shiverAnimFrames = [NSMutableArray array];
+    [shiverAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-04.png"]];
+    [shiverAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-05.png"]];
+    [shiverAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-04.png"]];
+    CCAnimation *shiverAnimimation = [CCAnimation animationWithSpriteFrames:shiverAnimFrames delay:0.07f];
+    self.shiverAction =[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shiverAnimimation]];
+    
+    
+    self.lilly = [CCSprite spriteWithSpriteFrameName:@"lilly1-00.png"];
+    self.lilly.position = ccp(400, 310);
+    //lilly.scale=0.6;
+    [spriteSheet addChild:self.lilly];
+    
+    CCSequence *firstSeq=[CCSequence actions:
+                          self.firstLillyAction,
+                          [CCDelayTime actionWithDuration:1],
+                          [CCCallBlock actionWithBlock:^{
+        [self.lilly runAction:self.secondtLillyAction];
+    }]
+                          , nil];
+    [self.lilly runAction:firstSeq];
+    
+}
+
+-(void)startLillyShiver
+{
+    [self.lilly stopAllActions];
+    
+CCSequence *seq=[CCSequence actions:
+                 self.thirdLillyAction,
+                 [CCDelayTime actionWithDuration:2],
+                 [CCCallBlock actionWithBlock:^{
+   [self.lilly runAction:self.shiverAction];
+}]
+                 , nil];
+    
+    [self.lilly runAction:seq];
+}
+
+-(void)playSmileAction
+{
+    [self.lilly stopAllActions];
+    CCSequence *seq=[CCSequence actions:
+    [CCCallBlock actionWithBlock:^{
+        CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-06.png"];
+        [self.lilly setDisplayFrame:frame];
+
+    }],
+                     [CCDelayTime actionWithDuration:2],
+                     [CCCallBlock actionWithBlock:^{
+        [self startLillyShiver];
+    }]
+                     
+                     , nil];
+    
+    [self.lilly runAction:seq];
 }
 
 -(void) initSnows
@@ -270,12 +390,6 @@ CCSprite *background;
     if(_hasSnowFallStarted ==false)
     {
         //CCTexture2D* texture=[[CCTextureCache sharedTextureCache]addImage:@"P2-Lilly2.png"];
-        CCSprite *coldLilly=[CCSprite spriteWithFile:@"P2-Lilly2.png"];
-        coldLilly.position=self.lilly.position;
-        coldLilly.opacity=0;
-        [self addChild:coldLilly];
-        [self.lilly runAction:[CCFadeOut actionWithDuration:1]];
-        [coldLilly runAction:[CCFadeIn actionWithDuration:1]];
         
         [self startSnow];
         
@@ -286,6 +400,8 @@ CCSprite *background;
         
         id sequence = [CCSequence actions: delay, callbackAction, nil];
         [self runAction: sequence];
+        
+        [self startLillyShiver];
         
     }
     
@@ -299,17 +415,17 @@ CCSprite *background;
             CCSprite *splashPool = [[CCSprite alloc] initWithFile:[snow splashSprite]];
             
             if([snow killMethod] == 1){
-               
+                
                 /*
-                splashPool.position = monster.position;
+                 splashPool.position = monster.position;
                  [self addChild:splashPool];
-                  CCFadeOut *fade = [CCFadeOut actionWithDuration:2];  //this will make it fade
+                 CCFadeOut *fade = [CCFadeOut actionWithDuration:2];  //this will make it fade
                  CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
                  CCSequence *sequencia = [CCSequence actions: fade, remove, nil];
-
+                 
                  [splashPool runAction:sequencia];
                  //finish splash
-                */
+                 */
             }
             if([snow killMethod] == 2){ // Particles
                 
@@ -327,6 +443,9 @@ CCSprite *background;
                 CCSprite *star=[starArray objectAtIndex:score];
                 //star.color=ccc3(255, 216, 0);
                 [star runAction:[CCTintTo actionWithDuration:0.5 red:255 green:216 blue:0]];
+                
+                [self playSmileAction];
+                
                 score++;
                 if(score == 5)
                 {
@@ -334,7 +453,7 @@ CCSprite *background;
                     [[CCDirector sharedDirector] replaceScene:[PageFourLayer scene]];
                 }
                 
-
+                
             }
             for (CCSprite *monster in monstersToDelete) {
                 [monster stopAllActions];

@@ -263,6 +263,8 @@
 		F2F0130517EF2A23009E1816 /* p1-LillyCold.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F012F017EF2A23009E1816 /* p1-LillyCold.plist */; };
 		F2F0130617EF2A23009E1816 /* p1-LillyCold.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012F117EF2A23009E1816 /* p1-LillyCold.png */; };
 		F2F0130717EF2A23009E1816 /* p1-LillyCold.zwd in Resources */ = {isa = PBXBuildFile; fileRef = F2F012F217EF2A23009E1816 /* p1-LillyCold.zwd */; };
+		F2F0130A17F1A487009E1816 /* p2-lilly-spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F0130817F1A487009E1816 /* p2-lilly-spritesheet.plist */; };
+		F2F0130B17F1A487009E1816 /* p2-lilly-spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F0130917F1A487009E1816 /* p2-lilly-spritesheet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -687,6 +689,8 @@
 		F2F012F017EF2A23009E1816 /* p1-LillyCold.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p1-LillyCold.plist"; sourceTree = "<group>"; };
 		F2F012F117EF2A23009E1816 /* p1-LillyCold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p1-LillyCold.png"; sourceTree = "<group>"; };
 		F2F012F217EF2A23009E1816 /* p1-LillyCold.zwd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "p1-LillyCold.zwd"; sourceTree = "<group>"; };
+		F2F0130817F1A487009E1816 /* p2-lilly-spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p2-lilly-spritesheet.plist"; sourceTree = "<group>"; };
+		F2F0130917F1A487009E1816 /* p2-lilly-spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p2-lilly-spritesheet.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1277,6 +1281,8 @@
 		F2D14EB1179D61BE0018CBE5 /* Page2 */ = {
 			isa = PBXGroup;
 			children = (
+				F2F0130817F1A487009E1816 /* p2-lilly-spritesheet.plist */,
+				F2F0130917F1A487009E1816 /* p2-lilly-spritesheet.png */,
 				F2A5ABBA17CE16960065D8AD /* p2-snow3-ipadhd.png */,
 				F2A5ABBB17CE16960065D8AD /* p2-snow3.png */,
 				F2A5ABBC17CE16960065D8AD /* p2-snow4-ipadhd.png */,
@@ -1561,6 +1567,8 @@
 				F2F0130517EF2A23009E1816 /* p1-LillyCold.plist in Resources */,
 				F2F0130617EF2A23009E1816 /* p1-LillyCold.png in Resources */,
 				F2F0130717EF2A23009E1816 /* p1-LillyCold.zwd in Resources */,
+				F2F0130A17F1A487009E1816 /* p2-lilly-spritesheet.plist in Resources */,
+				F2F0130B17F1A487009E1816 /* p2-lilly-spritesheet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

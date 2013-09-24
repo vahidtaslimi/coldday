@@ -12,6 +12,7 @@
 #import "PageOneLayer.h"
 #import "PageThreeLayer.h"
 #import "PageFourLayer.h"
+#import "PageTwoLayer.h"
 
 #pragma mark - IntroLayer
 
