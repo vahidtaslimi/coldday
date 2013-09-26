@@ -125,8 +125,8 @@ CCSprite *background;
     NSMutableArray *winkAnimFrames = [NSMutableArray array];
     [winkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly1-00.png"]];
     [winkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly1-03.png"]];
-     [winkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly1-01.png"]];
-     CCAnimation *winkAnimimation = [CCAnimation animationWithSpriteFrames:winkAnimFrames delay:0.2f];
+    [winkAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly1-01.png"]];
+    CCAnimation *winkAnimimation = [CCAnimation animationWithSpriteFrames:winkAnimFrames delay:0.2f];
     self.winkAction = [CCAnimate actionWithAnimation:winkAnimimation];
     
     
@@ -140,20 +140,20 @@ CCSprite *background;
     CCAnimation *secondAnimimation = [CCAnimation animationWithSpriteFrames:secondAnimFrames delay:0.5f];
     CCSequence *secondSeq=[CCSequence actions:
                            [CCCallBlock actionWithBlock:^{
-             _numberOfTimesPlayed++;
+        _numberOfTimesPlayed++;
     }],
                            [CCDelayTime actionWithDuration:2],
                            [CCCallBlock actionWithBlock:^{
-     
+        
         [self.lilly runAction:[CCAnimate actionWithAnimation:secondAnimimation] ];
-    }], 
+    }],
                            [CCCallBlock actionWithBlock:^{
-      
-       if(_numberOfTimesPlayed %2==0)
-       {
-           NSLog(@"%d",_numberOfTimesPlayed);
-         [self.lilly runAction:self.winkAction];
-       }
+        
+        if(_numberOfTimesPlayed %2==0)
+        {
+            NSLog(@"%d",_numberOfTimesPlayed);
+            [self.lilly runAction:self.winkAction];
+        }
     }],
                            nil];
     
@@ -197,13 +197,13 @@ CCSprite *background;
 {
     [self.lilly stopAllActions];
     
-CCSequence *seq=[CCSequence actions:
-                 self.thirdLillyAction,
-                 [CCDelayTime actionWithDuration:2],
-                 [CCCallBlock actionWithBlock:^{
-   [self.lilly runAction:self.shiverAction];
-}]
-                 , nil];
+    CCSequence *seq=[CCSequence actions:
+                     self.thirdLillyAction,
+                     [CCDelayTime actionWithDuration:2],
+                     [CCCallBlock actionWithBlock:^{
+        [self.lilly runAction:self.shiverAction];
+    }]
+                     , nil];
     
     [self.lilly runAction:seq];
 }
@@ -212,10 +212,10 @@ CCSequence *seq=[CCSequence actions:
 {
     [self.lilly stopAllActions];
     CCSequence *seq=[CCSequence actions:
-    [CCCallBlock actionWithBlock:^{
+                     [CCCallBlock actionWithBlock:^{
         CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-06.png"];
         [self.lilly setDisplayFrame:frame];
-
+        
     }],
                      [CCDelayTime actionWithDuration:2],
                      [CCCallBlock actionWithBlock:^{
@@ -428,31 +428,32 @@ CCSequence *seq=[CCSequence actions:
                  */
             }
             if([snow killMethod] == 2){ // Particles
-                
-                CCFadeOut *fade = [CCFadeOut actionWithDuration:2];
-                CCCallFuncND *emitter = [CCCallFuncND actionWithTarget:self selector:@selector(startExplosion:data:) data:monster];
-                CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
-                CCSequence *sequencia = [CCSequence actions:emitter,fade,remove, nil];
-                
-                splashPool.position = monster.position;
-                [self addChild:splashPool];
-                
-                //if([defaults integerForKey:@"sound"]==1)
-                [[SimpleAudioEngine sharedEngine] playEffect:@"p2-ding.mp3"];
-                [splashPool runAction:sequencia];
-                CCSprite *star=[starArray objectAtIndex:score];
-                //star.color=ccc3(255, 216, 0);
-                [star runAction:[CCTintTo actionWithDuration:0.5 red:255 green:216 blue:0]];
-                
-                [self playSmileAction];
-                
-                score++;
-                if(score == 5)
+                if(score<5)
                 {
-                    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-                    [[CCDirector sharedDirector] replaceScene:[PageFourLayer scene]];
+                    CCFadeOut *fade = [CCFadeOut actionWithDuration:2];
+                    CCCallFuncND *emitter = [CCCallFuncND actionWithTarget:self selector:@selector(startExplosion:data:) data:monster];
+                    CCCallFuncN *remove = [CCCallFuncN actionWithTarget:self selector:@selector(removeSprite:)];
+                    CCSequence *sequencia = [CCSequence actions:emitter,fade,remove, nil];
+                    
+                    splashPool.position = monster.position;
+                    [self addChild:splashPool];
+                    
+                    //if([defaults integerForKey:@"sound"]==1)
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"p2-ding.mp3"];
+                    [splashPool runAction:sequencia];
+                    CCSprite *star=[starArray objectAtIndex:score];
+                    //star.color=ccc3(255, 216, 0);
+                    [star runAction:[CCTintTo actionWithDuration:0.5 red:255 green:216 blue:0]];
+                    
+                    [self playSmileAction];
+                    
+                    score++;
+                    if(score == 5)
+                    {
+                        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+                        [[CCDirector sharedDirector] replaceScene:[PageFourLayer scene]];
+                    }
                 }
-                
                 
             }
             for (CCSprite *monster in monstersToDelete) {

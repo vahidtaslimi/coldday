@@ -14,4 +14,5 @@ int main(int argc, char *argv[]) {
     int retVal = UIApplicationMain(argc, argv, nil, @"AppController");
     [pool release];
     return retVal;
+    //vahid
 }

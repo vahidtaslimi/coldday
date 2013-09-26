@@ -159,6 +159,8 @@
 		F21E9513179C023500B70E92 /* PageOne_SnowFall.png in Resources */ = {isa = PBXBuildFile; fileRef = F21E9511179C023500B70E92 /* PageOne_SnowFall.png */; };
 		F21E9514179C023500B70E92 /* PageOne_SnowFall.plist in Resources */ = {isa = PBXBuildFile; fileRef = F21E9512179C023500B70E92 /* PageOne_SnowFall.plist */; };
 		F22077E517B2711B0025601B /* CCFerris.m in Sources */ = {isa = PBXBuildFile; fileRef = F22077E417B2711B0025601B /* CCFerris.m */; };
+		F259303A17F467C700D1118F /* p1-lilly-spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F259303817F467C700D1118F /* p1-lilly-spritesheet.plist */; };
+		F259303B17F467C700D1118F /* p1-lilly-spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F259303917F467C700D1118F /* p1-lilly-spritesheet.png */; };
 		F26A7B9317C2305900C95AF8 /* P1-POP.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F26A7B9217C2305900C95AF8 /* P1-POP.mp3 */; };
 		F26A7B9717C2325200C95AF8 /* P1-BG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F26A7B9617C2325200C95AF8 /* P1-BG.mp3 */; };
 		F26A7B9C17C238F300C95AF8 /* p1-SnowFall.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F26A7B9A17C238F300C95AF8 /* p1-SnowFall.mp3 */; };
@@ -580,6 +582,8 @@
 		F21E9512179C023500B70E92 /* PageOne_SnowFall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PageOne_SnowFall.plist; sourceTree = "<group>"; };
 		F22077E317B2711B0025601B /* CCFerris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFerris.h; sourceTree = "<group>"; };
 		F22077E417B2711B0025601B /* CCFerris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFerris.m; sourceTree = "<group>"; };
+		F259303817F467C700D1118F /* p1-lilly-spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p1-lilly-spritesheet.plist"; sourceTree = "<group>"; };
+		F259303917F467C700D1118F /* p1-lilly-spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p1-lilly-spritesheet.png"; sourceTree = "<group>"; };
 		F26A7B9217C2305900C95AF8 /* P1-POP.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P1-POP.mp3"; sourceTree = "<group>"; };
 		F26A7B9617C2325200C95AF8 /* P1-BG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P1-BG.mp3"; sourceTree = "<group>"; };
 		F26A7B9A17C238F300C95AF8 /* p1-SnowFall.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "p1-SnowFall.mp3"; sourceTree = "<group>"; };
@@ -1202,6 +1206,8 @@
 		F210F29A1792C55B00BB75A2 /* Page1 */ = {
 			isa = PBXGroup;
 			children = (
+				F259303817F467C700D1118F /* p1-lilly-spritesheet.plist */,
+				F259303917F467C700D1118F /* p1-lilly-spritesheet.png */,
 				F2F012DB17EF2A23009E1816 /* p1-cold */,
 				F2F0128D17D48FFE009E1816 /* p1-dazzle-ipadhd.png */,
 				F2F0128E17D48FFE009E1816 /* p1-dazzle.png */,
@@ -1416,6 +1422,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Shaghayegh;
+				TargetAttributes = {
+					F210F0E31792C44A00BB75A2 = {
+						DevelopmentTeam = D9AX649GWZ;
+					};
+				};
 			};
 			buildConfigurationList = F210F0DF1792C44A00BB75A2 /* Build configuration list for PBXProject "ColdDay" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1479,12 +1490,14 @@
 				F2033D3517B729DC00BE1F60 /* p4-lil2-ipadhd.png in Resources */,
 				F2033D3617B729DC00BE1F60 /* p4-lil2.png in Resources */,
 				F2033D3717B729DC00BE1F60 /* p4-lil3-ipadhd.png in Resources */,
+				F259303B17F467C700D1118F /* p1-lilly-spritesheet.png in Resources */,
 				F2033D3817B729DC00BE1F60 /* p4-lil3.png in Resources */,
 				F2033D3B17B729F700BE1F60 /* p4-Liz3jump-ipadhd.png in Resources */,
 				F2033D3C17B729F700BE1F60 /* p4-Liz3jump.png in Resources */,
 				F2033D3F17B72A0400BE1F60 /* p4-Liz1-ipadhd.png in Resources */,
 				F2033D4017B72A0400BE1F60 /* p4-Liz1.png in Resources */,
 				F2033D4717B73B6A00BE1F60 /* p4-liz-walk.plist in Resources */,
+				F259303A17F467C700D1118F /* p1-lilly-spritesheet.plist in Resources */,
 				F2033D4817B73B6A00BE1F60 /* p4-liz-walk.png in Resources */,
 				F2DB432F17BB922200DAB90A /* p4-tornado.plist in Resources */,
 				F2DB433017BB922200DAB90A /* p4-tornado.png in Resources */,
@@ -1747,8 +1760,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Shaghayegh Moshtarikhah (83VH7W9MBM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shaghayegh Moshtarikhah (83VH7W9MBM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1763,6 +1776,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1771,8 +1785,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Shaghayegh Moshtarikhah (83VH7W9MBM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shaghayegh Moshtarikhah (83VH7W9MBM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ColdDay/Prefix.pch;
@@ -1786,6 +1800,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
