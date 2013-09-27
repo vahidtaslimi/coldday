@@ -138,7 +138,7 @@ int lapNumber=1;
     
     if(lapNumber==4)
     {
-        id my_wavesAction = [CCWaves actionWithWaves:7 amplitude:25 horizontal:NO
+        id my_wavesAction = [CCWaves actionWithWaves:7 amplitude:15 horizontal:NO
                                             vertical:YES grid:ccg(15,10) duration:10];
         [self.background runAction: [CCRepeatForever actionWithAction:my_wavesAction]];
     }

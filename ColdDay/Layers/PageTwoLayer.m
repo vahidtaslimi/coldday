@@ -12,6 +12,7 @@
 #import "SimpleAudioEngine.h"
 #import "PageThreeLayer.h"
 #import "PageFourLayer.h"
+#import "PageThreeLayerNew.h"
 
 NSUserDefaults *defaults;
 
@@ -384,7 +385,7 @@ CCSprite *background;
     if(CGRectContainsPoint(CGRectMake(1000, 750, 200, 200), location))
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-        [[CCDirector sharedDirector] replaceScene:[PageFourLayer scene]];
+        [[CCDirector sharedDirector] replaceScene:[PageThreeLayerNew scene]];
     }
     
     if(_hasSnowFallStarted ==false)
@@ -451,7 +452,7 @@ CCSprite *background;
                     if(score == 5)
                     {
                         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-                        [[CCDirector sharedDirector] replaceScene:[PageFourLayer scene]];
+                        [[CCDirector sharedDirector] replaceScene:[PageThreeLayerNew scene]];
                     }
                 }
                 

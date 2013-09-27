@@ -13,6 +13,7 @@
 #import "PageThreeLayer.h"
 #import "PageFourLayer.h"
 #import "PageTwoLayer.h"
+#import "PageThreeLayerNew.h"
 
 #pragma mark - IntroLayer
 
@@ -63,6 +64,6 @@
 -(void) onEnter
 {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PageOneLayer scene] ]];
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PageThreeLayerNew scene] ]];
 }
 @end

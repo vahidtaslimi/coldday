@@ -8,6 +8,7 @@
 
 #import "PageFourLayer.h"
 #include "SimpleAudioEngine.h"
+#import "PageThreeLayerNew.h"
 
 @implementation PageFourLayer
 bool lizardHasMoved=false;
@@ -212,6 +213,13 @@ bool isPlayingFish=false;
     UITouch *touch=[touches anyObject];
     CGPoint location =[touch locationInView:[touch view]];
     location=[[CCDirector sharedDirector]convertToGL:location];
+
+    if(CGRectContainsPoint(CGRectMake(0, 0, 200, 200), location))
+    {
+        [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[CCDirector sharedDirector] replaceScene:[PageThreeLayerNew scene]];
+    }
+    
     if(CGRectContainsPoint([self.lizard boundingBox], location))
     {
         if(lizardHasMoved == false)
@@ -262,6 +270,7 @@ bool isPlayingFish=false;
         {
             return;
         }
+
         
         CCTintTo *tintAction=[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ];
         CCSequence *seq=[CCSequence actions:
