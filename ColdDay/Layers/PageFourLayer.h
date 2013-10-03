@@ -27,6 +27,14 @@
 @property (nonatomic,strong) CCSprite *fish;
 @property (nonatomic,strong) CCSprite *doorHint;
 @property (nonatomic,strong) CCSprite *rock;
+@property (nonatomic, strong) CCAction *lillyActionOne;
+@property (nonatomic, strong) CCAction *lillyActionTwoWaitingForLizard;
+@property (nonatomic, strong) CCAction *lillyActionThreeHandMove;
+@property (nonatomic, strong) CCAction *lillyActionFourLizardDrop;
+@property (nonatomic, strong) CCAction *lillyActionFiveTurnBack;
+
+@property (nonatomic, strong) CCAction *legsAction;
+
 +(CCScene *) scene;
     
 @end
