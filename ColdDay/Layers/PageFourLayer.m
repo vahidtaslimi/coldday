@@ -83,7 +83,7 @@ bool isPlayingFish=false;
         [lillyFramesTwo addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName]];
     }
     //[lillyFramesTwo addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-13.png"]];
-    CCAnimation *lillyAnimimationTwo = [CCAnimation animationWithSpriteFrames:lillyFramesTwo delay:0.32f];
+    CCAnimation *lillyAnimimationTwo = [CCAnimation animationWithSpriteFrames:lillyFramesTwo delay:0.5f];
     self.lillyActionTwoWaitingForLizard = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:lillyAnimimationTwo]];
     
 
@@ -114,7 +114,7 @@ bool isPlayingFish=false;
     [legsFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"legs-01.png"]];
         [legsFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"legs-02.png"]];
     CCAnimation *legsAnimation = [CCAnimation animationWithSpriteFrames:legsFrames delay:0.32f];
-    self.legsAction = [CCAnimate actionWithAnimation:legsAnimation];
+    self.legsAction =[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:legsAnimation]];
     
     self.lilly = [CCSprite spriteWithSpriteFrameName:@"lily1-00.png"];
     self.lilly.position = ccp(600,350);
@@ -139,7 +139,11 @@ bool isPlayingFish=false;
 [CCCallBlock actionWithBlock:^{
     [self.lizard runAction:self.lizardWalkAction];
     [self.lizard runAction:seq2];
-}],
+}],  [CCDelayTime actionWithDuration:1.5],
+                     [CCCallBlock actionWithBlock:^{
+        [self.lilly runAction:self.lillyActionTwoWaitingForLizard];
+    }]
+        ,
                      nil];
     [self.lilly runAction:seq];
 
@@ -268,15 +272,15 @@ bool isPlayingFish=false;
     [self addChild:spriteSheet];
     
     NSMutableArray *skateAnimFrames = [NSMutableArray array];
-    for (int i=1; i<=2; i++) {
+    for (int i=0; i<=1; i++) {
         NSString *frameName;
-        frameName=[NSString stringWithFormat:@"p4-Liz%d.png",i];
+        frameName=[NSString stringWithFormat:@"Lizard-0%d.png",i];
         
         [skateAnimFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
           frameName]];
     }
-    self.lizard = [CCSprite spriteWithSpriteFrameName:@"p4-Liz1.png"];
+    self.lizard = [CCSprite spriteWithSpriteFrameName:@"Lizard-00.png"];
     self.lizard.position = ccp(200,100);
     
     [spriteSheet addChild:self.lizard];
@@ -286,10 +290,10 @@ bool isPlayingFish=false;
 
 -(void) runLizardJumpAction
 {
-    CGPoint location =ccp(500,400);
-    // CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"p4-Liz3jump.png"];
-    //[self.lizard setDisplayFrame:frame];
     
+    CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lizard-02.png"];
+    [self.lizard setDisplayFrame:frame];
+    CGPoint location =ccp(500,400);
     self.lizardJumpAction=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
     [self.lizard runAction:self.lizardJumpAction];
 }
@@ -313,25 +317,6 @@ bool isPlayingFish=false;
         {
             return;
         }
-        if(lillyHasGotLizard ==false)
-        {
-            id delay = [CCDelayTime actionWithDuration: 1];
-            [self.lizard runAction:[CCSequence actions:
-                                    [CCCallFunc actionWithTarget:self selector:@selector(runLizardJumpAction)],
-                                    delay,
-                                    [CCCallBlock actionWithBlock:^{
-                CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"p4-Liz2.png"];
-                [self.lizard setDisplayFrame:frame];
-                lizardHasJumped=true;
-            }],
-                                    [CCCallBlock actionWithBlock:^{
-                [self addDoorHint];
-            }]
-                                    ,nil]];
-        }
-        
-        lillyHasGotLizard = true;
-        
         
     }
     else if(CGRectContainsPoint([self.lilly boundingBox], location))
@@ -340,6 +325,31 @@ bool isPlayingFish=false;
         {
             return;
         }
+        
+        if(lillyHasGotLizard ==false)
+        {
+            [self.lilly stopAction:self.lillyActionTwoWaitingForLizard];
+            [self.lilly runAction:self.lillyActionThreeHandMove];
+            
+            id delay = [CCDelayTime actionWithDuration: 1];
+            [self.lizard runAction:[CCSequence actions:
+                                    [CCDelayTime actionWithDuration:0.5],
+                                    [CCCallFunc actionWithTarget:self selector:@selector(runLizardJumpAction)],
+                                    delay,
+                                    [CCCallBlock actionWithBlock:^{
+                CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lizard-01.png"];
+                [self.lizard setDisplayFrame:frame];
+                lizardHasJumped=true;
+            }],
+                                    [CCCallBlock actionWithBlock:^{
+                
+                [self addDoorHint];
+                
+            }]
+                                    ,nil]];
+        }
+        
+        lillyHasGotLizard = true;
         
     }
     else if(CGRectContainsPoint([self.windows boundingBox], location) || CGRectContainsPoint([self.doors boundingBox], location))

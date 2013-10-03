@@ -5,68 +5,68 @@
 	<key>frames</key>
 	<dict>
 		
-		<key>p4-Liz1.png</key>
+		<key>Lizard-00.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {125, 73}}</string>
+			<string>{{22, 5}, {128, 97}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{8, 1}</string>
 			<key>spriteSize</key>
-			<string>{125, 73}</string>
+			<string>{128, 97}</string>
 			<key>spriteSourceSize</key>
-			<string>{125, 73}</string>
+			<string>{156, 109}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{124, 166}, {125, 73}}</string>
+			<string>{{0, 99}, {128, 97}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>p4-Liz2.png</key>
+		<key>Lizard-01.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {123, 74}}</string>
+			<string>{{36, 5}, {114, 89}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{15, 5}</string>
 			<key>spriteSize</key>
-			<string>{123, 74}</string>
+			<string>{114, 89}</string>
 			<key>spriteSourceSize</key>
-			<string>{123, 74}</string>
+			<string>{156, 109}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 81}, {123, 74}}</string>
+			<string>{{130, 99}, {114, 89}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>p4-Liz3jump.png</key>
+		<key>Lizard-02.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {133, 79}}</string>
+			<string>{{7, 5}, {144, 97}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{1, 1}</string>
 			<key>spriteSize</key>
-			<string>{133, 79}</string>
+			<string>{144, 97}</string>
 			<key>spriteSourceSize</key>
-			<string>{133, 79}</string>
+			<string>{156, 109}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 0}, {133, 79}}</string>
+			<string>{{0, 0}, {144, 97}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
