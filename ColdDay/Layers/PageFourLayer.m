@@ -75,7 +75,7 @@ bool isPlayingFish=false;
     CCAnimation *lillyAnimimation = [CCAnimation animationWithSpriteFrames:lillyFramesOne delay:0.5f];
     self.lillyActionOne = [CCAnimate actionWithAnimation:lillyAnimimation];
     
-
+    
     NSMutableArray *lillyFramesTwo = [NSMutableArray array];
     for (int i=13; i<=15; i++) {
         NSString *frameName;
@@ -86,10 +86,10 @@ bool isPlayingFish=false;
     CCAnimation *lillyAnimimationTwo = [CCAnimation animationWithSpriteFrames:lillyFramesTwo delay:0.5f];
     self.lillyActionTwoWaitingForLizard = [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:lillyAnimimationTwo]];
     
-
+    
     NSMutableArray *lillyFramesThree = [NSMutableArray array];
     [lillyFramesThree addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-13.png"]];
-        [lillyFramesThree addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-16.png"]];
+    [lillyFramesThree addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-16.png"]];
     CCAnimation *lillyAnimimationThree = [CCAnimation animationWithSpriteFrames:lillyFramesThree delay:0.32f];
     self.lillyActionThreeHandMove = [CCAnimate actionWithAnimation:lillyAnimimationThree];
     
@@ -99,7 +99,7 @@ bool isPlayingFish=false;
     [lillyFramesFour addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-17.png"]];
     CCAnimation *lillyAnimimationFour = [CCAnimation animationWithSpriteFrames:lillyFramesFour delay:0.32f];
     self.lillyActionFourLizardDrop = [CCAnimate actionWithAnimation:lillyAnimimationFour];
-
+    
     
     NSMutableArray *lillyFramesFive = [NSMutableArray array];
     [lillyFramesFive addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-18.png"]];
@@ -112,8 +112,8 @@ bool isPlayingFish=false;
     NSMutableArray *legsFrames = [NSMutableArray array];
     [legsFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"legs-00.png"]];
     [legsFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"legs-01.png"]];
-        [legsFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"legs-02.png"]];
-    CCAnimation *legsAnimation = [CCAnimation animationWithSpriteFrames:legsFrames delay:0.32f];
+    [legsFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"legs-02.png"]];
+    CCAnimation *legsAnimation = [CCAnimation animationWithSpriteFrames:legsFrames delay:0.15f];
     self.legsAction =[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:legsAnimation]];
     
     self.lilly = [CCSprite spriteWithSpriteFrameName:@"lily1-00.png"];
@@ -125,29 +125,29 @@ bool isPlayingFish=false;
     id moveToAction=[CCMoveTo actionWithDuration:2 position:location];
     
     CCSequence *seq2=[CCSequence actions:
-                            moveToAction,
-                            [CCCallBlock actionWithBlock:^{
+                      moveToAction,
+                      [CCCallBlock actionWithBlock:^{
         [self.lizard stopAction:self.lizardWalkAction];
         lizardHasMoved=true;
     }]
-                            ,nil];
-
+                      ,nil];
+    
     
     CCSequence *seq=[CCSequence actions:
                      [CCDelayTime actionWithDuration:1.5],
                      self.lillyActionOne,
-[CCCallBlock actionWithBlock:^{
-    [self.lizard runAction:self.lizardWalkAction];
-    [self.lizard runAction:seq2];
-}],  [CCDelayTime actionWithDuration:1.5],
+                     [CCCallBlock actionWithBlock:^{
+        [self.lizard runAction:self.lizardWalkAction];
+        [self.lizard runAction:seq2];
+    }],  [CCDelayTime actionWithDuration:1.5],
                      [CCCallBlock actionWithBlock:^{
         [self.lilly runAction:self.lillyActionTwoWaitingForLizard];
     }]
-        ,
+                     ,
                      nil];
     [self.lilly runAction:seq];
-
-
+    
+    
 }
 
 -(void) addFishSprite
@@ -170,7 +170,7 @@ bool isPlayingFish=false;
     self.fish.scale=0.4;
     // self.fish.opacity=0;
     self.fish.rotation=-75;
-    self.fish.position = ccp(120,255);
+    self.fish.position = ccp(120,320);
     [spriteSheet addChild:self.fish];
     CCAnimation *animimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.15f];
     CCAction *action= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animimation]];
@@ -236,9 +236,10 @@ bool isPlayingFish=false;
 -(void) addRockSprite
 {
     self.rock= [CCSprite spriteWithFile:@"p4-rock.png"];
-    self.rock.position = ccp(110,370);
+    self.rock.position = ccp(110,350);
     // rock.color=ccc3(255,216,0);
     [self addChild:self.rock z:5];
+    //[self.rock runAction:[CCTintTo actionWithDuration:0 red:0 green:0 blue:0]];
 }
 
 -(void) addLollySprite:(float) speed
@@ -293,7 +294,7 @@ bool isPlayingFish=false;
     
     CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lizard-02.png"];
     [self.lizard setDisplayFrame:frame];
-    CGPoint location =ccp(500,400);
+    CGPoint location =ccp(480,420);
     self.lizardJumpAction=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
     [self.lizard runAction:self.lizardJumpAction];
 }
@@ -394,6 +395,13 @@ bool isPlayingFish=false;
         
         [self.tornado runAction:scale];
         [self.tornado runAction: [CCBezierBy actionWithDuration:duration bezier:bezier]];
+        [self.lilly runAction:[CCSequence actions:
+                               [CCDelayTime actionWithDuration:3],
+                               [CCCallBlock actionWithBlock:^{
+            [self.lilly runAction: self.legsAction];
+        }],
+                              
+                                nil]];
         
     }
     else if(CGRectContainsPoint([self.waterfall boundingBox], location))
@@ -401,32 +409,22 @@ bool isPlayingFish=false;
         if(isPlayingFish ==false)
         {
             isPlayingFish=true;
+            CGPoint location =ccp(150,490);
+            CGPoint location2 =ccp(105,270);
+            CCAction *jumpAction=[CCJumpTo actionWithDuration:1.5 position:location height:1 jumps:1];
+            CCAction *rotateAction=[CCRotateTo actionWithDuration:0.5 angle:70];
+            CCAction *returnAction=[CCJumpTo actionWithDuration:1.5 position:location2 height:1 jumps:1];
+            
             
             [self addFishSprite];
             CCSequence *seq=[CCSequence actions:
+                             jumpAction,
+                             //[CCDelayTime actionWithDuration:1.5],
+                             rotateAction,
+                             returnAction,
                              [CCCallBlock actionWithBlock:^{
-                //[self.fish runAction:[CCFadeIn actionWithDuration:0.5]];
-                CGPoint location =ccp(150,450);
-                CCAction *action=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
-                [self.fish runAction:action];
-            }],
-                             [CCDelayTime actionWithDuration:1],
-                             [CCCallBlock actionWithBlock:^{
-                self.fish.rotation=70;
-                //[self.fish runAction:[CCFadeOut actionWithDuration:1]];
-                CGPoint location =ccp(120,250);
-                CCAction *action=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
-                id seq2=[CCSequence actions:
-                         action,
-                         [CCCallBlock actionWithBlock:^{
-                    self.fish.visible=false;
-                }], nil];
-                
-                [self.fish runAction:seq2];
-            }]
-                             ,[CCCallBlock actionWithBlock:^{
+                self.fish.visible=false;
                 isPlayingFish=false;
-                
                 
                 [self addDoorHint];
             }],
