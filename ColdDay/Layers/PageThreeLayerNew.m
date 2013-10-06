@@ -126,7 +126,7 @@ sleepEmitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"P3-sun.png"]
                              [CCDelayTime actionWithDuration:5],
                              
                              [CCCallBlock actionWithBlock:^{
-                   [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:2.0 scene:[PageFourLayer scene] ]];
+                   [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:4.0 scene:[PageFourLayer scene] ]];
             }]
                              ,nil
                              ];
