@@ -41,7 +41,7 @@ CCParticleGalaxy *sleepEmitter;
 			background = [CCSprite spriteWithFile:@"Default.png"];
 			background.rotation = 90;
 		} else {
-			background = [CCSprite spriteWithFile:@"p3-BG.jpg"];
+			background = [CCSprite spriteWithFile:@"p2-page2bg.jpg"];
 		}
         
 		background.position = ccp(size.width/2, size.height/2);

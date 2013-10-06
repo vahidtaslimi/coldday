@@ -13,6 +13,7 @@
 #import "PageThreeLayer.h"
 #import "PageFourLayer.h"
 #import "PageThreeLayerNew.h"
+#import "ccTypes.h"
 
 NSUserDefaults *defaults;
 
@@ -46,7 +47,7 @@ CCSprite *background;
 			background = [CCSprite spriteWithFile:@"Default.png"];
 			background.rotation = 90;
 		} else {
-			background = [CCSprite spriteWithFile:@"P2-page2bg.png"];
+			background = [CCSprite spriteWithFile:@"p2-page2bg.jpg"];
 		}
         
 		background.position = ccp(size.width/2, size.height/2);
@@ -234,8 +235,8 @@ CCSprite *background;
     _snows = [[NSMutableArray alloc] init];
     pageTwoSnow *m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(1)];
-    [m1 setMonsterSprite:@"p2-snow3.png"];
-    [m1 setSplashSprite:@"page2snow2.png"];
+    [m1 setMonsterSprite:@"page2snow3.png"];
+    [m1 setSplashSprite:@"page2snowsplash.png"];
     [m1 setMinVelocity:2];
     [m1 setMaxVelocity:8];
     [m1 setMovement:1];
@@ -245,7 +246,7 @@ CCSprite *background;
     m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(2)];
     [m1 setMonsterSprite:@"page2snow1.png"];
-    [m1 setSplashSprite:@"page2snow2.png"];
+    [m1 setSplashSprite:@"page2snowsplash.png"];
     [m1 setMinVelocity:4];
     [m1 setMaxVelocity:10];
     [m1 setMovement:2];
@@ -254,8 +255,8 @@ CCSprite *background;
     
     m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(3)];
-    [m1 setMonsterSprite:@"p2-snow4.png"];
-    [m1 setSplashSprite:@"page2snow2.png"];
+    [m1 setMonsterSprite:@"page2snow4.png"];
+    [m1 setSplashSprite:@"page2snowsplash.png"];
     [m1 setMinVelocity:2];
     [m1 setMaxVelocity:8];
     [m1 setMovement:1];
@@ -476,12 +477,12 @@ CCSprite *background;
 //Positions the explosion emitter and sets it off
 - (void)startExplosion:(id)sender data:(CCSprite*)monster {
     particleExplosion = [[CCParticleExplosion alloc] initWithTotalParticles:809];
-    particleExplosion.texture = [[CCTextureCache sharedTextureCache] addImage:@"textureRed.png"];
+    particleExplosion.texture = [[CCTextureCache sharedTextureCache] addImage:@"textureRed copy.png"];
     particleExplosion.life = 0.0f;
     particleExplosion.lifeVar = 0.708f;
-    particleExplosion.startSize = 40;
-    particleExplosion.startSizeVar = 38;
-    particleExplosion.endSize = 14;
+    particleExplosion.startSize = 5;
+    particleExplosion.startSizeVar = 4;
+    particleExplosion.endSize = 2;
     particleExplosion.endSizeVar = 0;
     particleExplosion.angle = 360;
     particleExplosion.angleVar = 360;
@@ -489,9 +490,9 @@ CCSprite *background;
     particleExplosion.speedVar = 1;
     CGPoint g = CGPointMake(1.15, 1.58);
     particleExplosion.gravity = g;
-    ccColor4F startC =  {0.89f, 0.56f, 0.36f, 1.0f};
+    ccColor4F startC =ccc4FFromccc4B(ccc4(255,255,7,255));// {0.89f, 0.56f, 0.36f, 1.0f};
     particleExplosion.startColor = startC;
-    ccColor4F endC = {1.0f,0.0f,0.0f,1.0f};
+    ccColor4F endC =ccc4FFromccc4B(ccc4(255,255,7,50));;// {0.255f,0.255f,0.7f,1.0f};//{1.0f,0.0f,0.0f,1.0f};
     particleExplosion.endColor = endC;
     
     [self addChild:particleExplosion];
