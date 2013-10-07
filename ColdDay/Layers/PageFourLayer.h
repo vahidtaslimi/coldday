@@ -32,6 +32,7 @@
 @property (nonatomic, strong) CCAction *lillyActionThreeHandMove;
 @property (nonatomic, strong) CCAction *lillyActionFourLizardDrop;
 @property (nonatomic, strong) CCAction *lillyActionFiveTurnBack;
+@property (nonatomic, strong) CCAction *waterfallAction;
 
 @property (nonatomic, strong) CCAction *legsAction;
 

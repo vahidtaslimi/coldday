@@ -52,6 +52,13 @@ CCParticleGalaxy *sleepEmitter;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p3-bg.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         
+        [self runAction:[CCSequence actions:
+                        [CCDelayTime actionWithDuration:2],
+                        [CCCallBlock actionWithBlock:^{
+            
+            [self startPageAction];
+        }],
+                        nil]];
 	}
 	return self;
 }
@@ -85,14 +92,39 @@ CCParticleGalaxy *sleepEmitter;
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
     sleepEmitter =[[CCParticleGalaxy alloc]init];
-sleepEmitter.position=ccp(300,510);
-sleepEmitter.speed=30;
+    sleepEmitter.position=ccp(300,510);
+    sleepEmitter.speed=30;
     [sleepEmitter setDuration:kCCParticleDurationInfinity];
-
-sleepEmitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"P3-sun.png"];
-    [sleepEmitter runAction:[CCScaleTo actionWithDuration:18 scale:7]];
+    
+    sleepEmitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"P3-sun.png"];
+    [sleepEmitter runAction:[CCScaleTo actionWithDuration:10 scale:12]];
     
     [self addChild:sleepEmitter z:0];
+}
+
+-(void) startPageAction
+{
+    [self.lilly runAction:self.firstLillyAction];
+    [self displaySleepEmitter];
+    hasActionStarted=true;
+    CCSequence *seq=[CCSequence actions:
+                     [CCDelayTime actionWithDuration:2],
+                     [CCCallBlock actionWithBlock:^{
+        
+        id my_wavesAction = [CCWaves actionWithWaves:4 amplitude:10 horizontal:YES
+                                            vertical:NO grid:ccg(15,10) duration:5];
+        [background runAction: [CCRepeatForever actionWithAction:my_wavesAction]];
+        
+    }],
+                     [CCDelayTime actionWithDuration:5],
+                     
+                     [CCCallBlock actionWithBlock:^{
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:4.0 scene:[PageFourLayer scene] ]];
+    }]
+                     ,nil
+                     ];
+    [self.lilly runAction:seq];
+
 }
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -111,27 +143,7 @@ sleepEmitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"P3-sun.png"]
     {
         if(hasActionStarted ==false)
         {
-            [self.lilly runAction:self.firstLillyAction];
-            [self displaySleepEmitter];
-            hasActionStarted=true;
-            CCSequence *seq=[CCSequence actions:
-                             [CCDelayTime actionWithDuration:2],
-                             [CCCallBlock actionWithBlock:^{
-                
-                id my_wavesAction = [CCWaves actionWithWaves:4 amplitude:25 horizontal:NO
-                                                    vertical:YES grid:ccg(15,10) duration:5];
-                [background runAction: [CCRepeatForever actionWithAction:my_wavesAction]];
-                
-            }],
-                             [CCDelayTime actionWithDuration:5],
-                             
-                             [CCCallBlock actionWithBlock:^{
-                   [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:4.0 scene:[PageFourLayer scene] ]];
-            }]
-                             ,nil
-                             ];
-            [self.lilly runAction:seq];
-        }
+                  }
     }
 }
 

@@ -39,6 +39,13 @@ bool hasUserTouchedSnow =false;
 bool hasUserTouchedLights=false;
 bool lillyIsMoving = false;
 CCSpriteBatchNode *spinSpriteSheet;
+ CGPoint headLocation;
+CGPoint hatLocation;
+CGPoint eyesLocation;
+CGPoint rightHandLocation;
+CGPoint leftHandLocation;
+CGPoint noseLocation;
+
 
 +(CCScene *) scene
 {
@@ -52,6 +59,7 @@ CCSpriteBatchNode *spinSpriteSheet;
 {
     
 	if( (self=[super init]) ) {
+        hatLocation= ccp(894,454);
         
 		self. touchEnabled=TRUE;
         CGSize size = [[CCDirector sharedDirector] winSize];
@@ -68,18 +76,39 @@ CCSpriteBatchNode *spinSpriteSheet;
         
         head=[CCSprite spriteWithFile:@"p1-head.png"];
         head.anchorPoint=ccp(0,0);
-        head.position=ccp(855,390);
+        headLocation=   ccp(840,383);
+        head.position=headLocation;
         [self addChild:head];
         
         eyes=[CCSprite spriteWithFile:@"p1-eyes.png"];
         //eyes.anchorPoint=ccp(0,0);
-        eyes.position=ccp(882,420);
+        eyesLocation=ccp(878,430);
+        eyes.position=eyesLocation;
         [self addChild:eyes];
         
         hat=[CCSprite spriteWithFile:@"p1-hat.png"];
         //hat.anchorPoint=ccp(0,0);
-        hat.position=ccp(874,434);
+        hatLocation= ccp(892,451);
+        hat.position=hatLocation;
         [self addChild:hat];
+        
+        nose=[CCSprite spriteWithFile:@"p1-nose.png"];
+        nose.anchorPoint=ccp(0,0);
+        noseLocation=ccp(820,399);
+        nose.position=noseLocation;
+        [self addChild:nose];
+        
+        leftHand=[CCSprite spriteWithFile:@"p1-lhand.png"];
+        leftHand.anchorPoint=ccp(0,0);
+        leftHandLocation=  ccp(780,330);
+        leftHand.position=leftHandLocation;
+        [self addChild:leftHand];
+        
+        rightHand=[CCSprite spriteWithFile:@"p1-rhand.png"];
+        rightHand.anchorPoint=ccp(0,0);
+        rightHandLocation=ccp(899,360);
+        rightHand.position=rightHandLocation;
+        [self addChild:rightHand];
         
         /* snow1=[CCSprite spriteWithFile:@"snow1.png"];
          snow1.anchorPoint=ccp(0,0);
@@ -101,7 +130,7 @@ CCSpriteBatchNode *spinSpriteSheet;
               [NSString stringWithFormat:@"snow0%d.png",i]]];
         }
         snow1 = [CCSprite spriteWithSpriteFrameName:@"snow00.png"];
-        snow1.position=ccp(825,320);
+        snow1.position=ccp(830,330);
         snow1.scale=1.2;
         [snowFallSpriteSheet addChild:snow1];
         CCAnimation *snowFallAnimimation = [CCAnimation animationWithSpriteFrames:snowFallAnimFrames delay:0.1f];
@@ -111,21 +140,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         id rotateright = [CCRotateBy actionWithDuration:0.5 angle:2];
         [snow1 runAction:[CCRepeatForever actionWithAction:[CCSequence actions:rotateleft,rotateright,nil]]];
         
-        nose=[CCSprite spriteWithFile:@"p1-nose.png"];
-        nose.anchorPoint=ccp(0,0);
-        nose.position=ccp(879,405);
-        [self addChild:nose];
-        
-        leftHand=[CCSprite spriteWithFile:@"p1-lhand.png"];
-        leftHand.anchorPoint=ccp(0,0);
-        leftHand.position=ccp(790,330);
-        [self addChild:leftHand];
-        
-        rightHand=[CCSprite spriteWithFile:@"p1-rhand.png"];
-        rightHand.anchorPoint=ccp(0,0);
-        rightHand.position=ccp(899,370);
-        [self addChild:rightHand];
-        
+       
         window=[CCSprite spriteWithFile:@"p1-window.png"];
         window.anchorPoint=ccp(0,0);
         window.position=ccp(19,320);
@@ -248,10 +263,9 @@ CCSpriteBatchNode *spinSpriteSheet;
             return;
         }
         isEyesInPlace=true;
-        
-        location=ccp(882,420);
+       
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        [eyes runAction:[CCMoveTo actionWithDuration:1 position:location]];
+        [eyes runAction:[CCMoveTo actionWithDuration:1 position:eyesLocation]];
         [eyes runAction:scale];
         //[eyes runAction:[CCTintTo actionWithDuration:1 red:255 green:0 blue:0]];
         //[eyes runAction:[CCAnimate actionWithAnimation:[self getAnimationWithFrames:1 to:10] restoreOriginalFrame:NO]];
@@ -265,8 +279,8 @@ CCSpriteBatchNode *spinSpriteSheet;
         }
         isRightHandInPlace=true;
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        location=ccp(899,370);
-        [rightHand runAction:[CCMoveTo actionWithDuration:1 position:location]];
+
+        [rightHand runAction:[CCMoveTo actionWithDuration:1 position:rightHandLocation]];
         [rightHand runAction:scale];
         [self updateCanLillyMove];
     }
@@ -278,8 +292,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         }
         isLeftHandInPlace=true;
         
-        location=ccp(790,330);
-        [leftHand runAction:[CCMoveTo actionWithDuration:1 position:location]];
+        [leftHand runAction:[CCMoveTo actionWithDuration:1 position:leftHandLocation]];
         [self updateCanLillyMove];
     }
     else if(CGRectContainsPoint([nose boundingBox], location))
@@ -290,8 +303,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         }
         isNoseInPlace=true;
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        location=ccp(879,405);
-        [nose runAction:[CCMoveTo actionWithDuration:1 position:location]];
+        [nose runAction:[CCMoveTo actionWithDuration:1 position:noseLocation]];
         [nose runAction:scale];
         [self updateCanLillyMove];
     }
@@ -304,8 +316,7 @@ CCSpriteBatchNode *spinSpriteSheet;
         }
         isHeadInPlace=true;
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        location=ccp(855,390);
-        [head runAction:[CCMoveTo actionWithDuration:1 position:location]];
+        [head runAction:[CCMoveTo actionWithDuration:1 position:headLocation]];
         [head runAction:scale];
         
         [self updateCanLillyMove];
@@ -318,9 +329,8 @@ CCSpriteBatchNode *spinSpriteSheet;
         }
         isHatInPlace=true;
         
-        location=ccp(874,434);
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-        [hat runAction:[CCMoveTo actionWithDuration:1 position:location]];
+        [hat runAction:[CCMoveTo actionWithDuration:1 position:hatLocation]];
         [hat runAction:scale];
         //[hat runAction:[CCTintTo actionWithDuration:1 red:255 green:0 blue:0]];
         
@@ -447,8 +457,8 @@ CCSpriteBatchNode *spinSpriteSheet;
         //400 360
         
         bezier.controlPoint_1 = CGPointMake(104, -55.0f);
-        bezier.controlPoint_2 = CGPointMake(650, -150.0f);
-        bezier.endPosition =CGPointMake(500.0f,-190.0f);
+        bezier.controlPoint_2 = CGPointMake(600, -150.0f);
+        bezier.endPosition =CGPointMake(400.0f,-190.0f);
         
         self.lillySkateMove1 = [CCBezierBy actionWithDuration:3 bezier:bezier];
         ccBezierConfig bezier2;
@@ -553,9 +563,10 @@ CCSpriteBatchNode *spinSpriteSheet;
         }
         
         windowBlink=[CCSprite spriteWithFile:@"p1-dazzle.png"];
-        windowBlink.scale=0.5;
+        windowBlink.scale=1;
         windowBlink.anchorPoint=ccp(0,0);
-        windowBlink.position=ccp(73,423);
+        windowBlink.position=ccp(53,413);
+        [windowBlink runAction:[CCTintTo actionWithDuration:1 red:255 green:216 blue:0]];
         [self addChild:windowBlink];
         CCFadeTo *fade = [[CCFadeTo alloc] initWithDuration:1 opacity:255];
         CCFadeTo *fadeOut = [[CCFadeTo alloc] initWithDuration:1 opacity:50];

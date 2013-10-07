@@ -180,6 +180,7 @@
 		F2A12FBD180198450055C907 /* page2snowsplash-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FBB180198450055C907 /* page2snowsplash-ipadhd.png */; };
 		F2A12FBE180198450055C907 /* page2snowsplash.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FBC180198450055C907 /* page2snowsplash.png */; };
 		F2A12FC018019C8C0055C907 /* textureRed copy.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FBF18019C8C0055C907 /* textureRed copy.png */; };
+		F2A12FC31802CC080055C907 /* PageFiveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A12FC21802CC080055C907 /* PageFiveLayer.m */; };
 		F2A23A5E17A67A7E005C339C /* lilllyMovieclip.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A5C17A67A7E005C339C /* lilllyMovieclip.plist */; };
 		F2A23A5F17A67A7E005C339C /* lilllyMovieclip.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A5D17A67A7E005C339C /* lilllyMovieclip.png */; };
 		F2A23A6A17A6810D005C339C /* lillly1.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A6817A6810D005C339C /* lillly1.plist */; };
@@ -584,6 +585,8 @@
 		F2A12FBB180198450055C907 /* page2snowsplash-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "page2snowsplash-ipadhd.png"; sourceTree = "<group>"; };
 		F2A12FBC180198450055C907 /* page2snowsplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2snowsplash.png; sourceTree = "<group>"; };
 		F2A12FBF18019C8C0055C907 /* textureRed copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textureRed copy.png"; sourceTree = "<group>"; };
+		F2A12FC11802CC080055C907 /* PageFiveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageFiveLayer.h; sourceTree = "<group>"; };
+		F2A12FC21802CC080055C907 /* PageFiveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageFiveLayer.m; sourceTree = "<group>"; };
 		F2A23A5C17A67A7E005C339C /* lilllyMovieclip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lilllyMovieclip.plist; sourceTree = "<group>"; };
 		F2A23A5D17A67A7E005C339C /* lilllyMovieclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lilllyMovieclip.png; sourceTree = "<group>"; };
 		F2A23A6817A6810D005C339C /* lillly1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lillly1.plist; sourceTree = "<group>"; };
@@ -1254,6 +1257,8 @@
 				F2A23A7517A92FD7005C339C /* PageFourLayer.m */,
 				F210EAAA17F5AC300096DBD5 /* PageThreeLayerNew.h */,
 				F210EAAB17F5AC300096DBD5 /* PageThreeLayerNew.m */,
+				F2A12FC11802CC080055C907 /* PageFiveLayer.h */,
+				F2A12FC21802CC080055C907 /* PageFiveLayer.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1600,6 +1605,7 @@
 				F210F2741792C45C00BB75A2 /* mat3.c in Sources */,
 				F210F2761792C45C00BB75A2 /* mat4.c in Sources */,
 				F210F2781792C45C00BB75A2 /* neon_matrix_impl.c in Sources */,
+				F2A12FC31802CC080055C907 /* PageFiveLayer.m in Sources */,
 				F210F27A1792C45C00BB75A2 /* plane.c in Sources */,
 				F210F27C1792C45C00BB75A2 /* quaternion.c in Sources */,
 				F210F27E1792C45C00BB75A2 /* ray2.c in Sources */,

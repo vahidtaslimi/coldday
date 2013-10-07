@@ -236,7 +236,7 @@ CCSprite *background;
     pageTwoSnow *m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(1)];
     [m1 setMonsterSprite:@"page2snow3.png"];
-    [m1 setSplashSprite:@"page2snowsplash.png"];
+    [m1 setSplashSprite:@"page2snow4.png"];
     [m1 setMinVelocity:2];
     [m1 setMaxVelocity:8];
     [m1 setMovement:1];
@@ -246,7 +246,7 @@ CCSprite *background;
     m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(2)];
     [m1 setMonsterSprite:@"page2snow1.png"];
-    [m1 setSplashSprite:@"page2snowsplash.png"];
+    [m1 setSplashSprite:@"page2snow4.png"];
     [m1 setMinVelocity:4];
     [m1 setMaxVelocity:10];
     [m1 setMovement:2];
@@ -256,7 +256,7 @@ CCSprite *background;
     m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(3)];
     [m1 setMonsterSprite:@"page2snow4.png"];
-    [m1 setSplashSprite:@"page2snowsplash.png"];
+    [m1 setSplashSprite:@"page2snow4.png"];
     [m1 setMinVelocity:2];
     [m1 setMaxVelocity:8];
     [m1 setMovement:1];
@@ -415,6 +415,7 @@ CCSprite *background;
             pageTwoSnow *snow = [_snows objectAtIndex:(monster.tag-1)];
             snow.position = monster.position;
             CCSprite *splashPool = [[CCSprite alloc] initWithFile:[snow splashSprite]];
+            splashPool.scale=0.5;
             
             if([snow killMethod] == 1){
                 

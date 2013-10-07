@@ -9,6 +9,7 @@
 #import "PageFourLayer.h"
 #include "SimpleAudioEngine.h"
 #import "PageThreeLayerNew.h"
+#import "PageFiveLayer.h"
 
 @implementation PageFourLayer
 bool lizardHasMoved=false;
@@ -16,6 +17,9 @@ bool lillyHasGotLizard=false;
 bool lizardHasJumped=false;
 bool hasPalyedFishOnce=false;
 bool isPlayingFish=false;
+bool hasTornadoMoved=false;
+bool hasTornadoMovedOut=false;
+bool isTornadoMoving=false;
 
 +(CCScene *) scene
 {
@@ -199,8 +203,20 @@ bool isPlayingFish=false;
     self.waterfall.position = ccp(95,410);
     [spriteSheet addChild:self.waterfall z:3];
     CCAnimation *waterfallAnimimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.15f];
-    CCAction *action= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:waterfallAnimimation]];
-    [self.waterfall runAction:action];
+    self.waterfallAction= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:waterfallAnimimation]];
+}
+
+-(void) runWaterfallAction
+{
+    [self.waterfall stopAllActions];
+    [self.waterfall runAction:
+     [CCSequence actions:
+      [CCDelayTime actionWithDuration:2],
+      [CCCallBlock actionWithBlock:^{
+         [self.waterfall runAction:self.waterfallAction ];
+     }]
+      , nil]
+     ];
 }
 
 -(void) addToradoSprite
@@ -297,6 +313,19 @@ bool isPlayingFish=false;
     CGPoint location =ccp(480,420);
     self.lizardJumpAction=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
     [self.lizard runAction:self.lizardJumpAction];
+    [self runWaterfallAction];
+}
+
+-(void) runLizardJumpDownAction
+{
+    CCSpriteFrame* lillyFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-18.png"];
+    [self.lilly setDisplayFrame:lillyFrame];
+    
+    CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"Lizard-02.png"];
+    [self.lizard setDisplayFrame:frame];
+    CGPoint location =ccp(480,-120);
+    self.lizardJumpAction=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
+    [self.lizard runAction:self.lizardJumpAction];
 }
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -378,6 +407,9 @@ bool isPlayingFish=false;
         }]
                          ,[CCCallBlock actionWithBlock:^{
             [self.tornado runAction:self.tornadoAction];
+        }],
+                         [CCCallBlock actionWithBlock:^{
+            [self runLizardJumpDownAction];
         }]
                          ,
                          nil];
@@ -386,23 +418,66 @@ bool isPlayingFish=false;
     }
     else if(CGRectContainsPoint([self.tornado boundingBox], location))
     {
-        float duration=3;
-        id scale = [CCScaleTo actionWithDuration:duration scale:1] ;
-        ccBezierConfig bezier;
-        bezier.controlPoint_1 = CGPointMake(50,-650.0f);
-        bezier.controlPoint_2 = CGPointMake(450, 50.0f);
-        bezier.endPosition =CGPointMake(350, -130.0f);
+        if(isTornadoMoving)
+        {
+            return;
+        }
         
-        [self.tornado runAction:scale];
-        [self.tornado runAction: [CCBezierBy actionWithDuration:duration bezier:bezier]];
-        [self.lilly runAction:[CCSequence actions:
-                               [CCDelayTime actionWithDuration:3],
-                               [CCCallBlock actionWithBlock:^{
-            [self.lilly runAction: self.legsAction];
-        }],
-                              
-                                nil]];
+        isTornadoMoving=true;
         
+        if(hasTornadoMoved==false)
+        {
+            CCSpriteFrame* lillyFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-19.png"];
+            [self.lilly setDisplayFrame:lillyFrame];
+            
+            float duration=3;
+            id scale = [CCScaleTo actionWithDuration:duration scale:1] ;
+            ccBezierConfig bezier;
+            bezier.controlPoint_1 = CGPointMake(50,-650.0f);
+            bezier.controlPoint_2 = CGPointMake(450, 50.0f);
+            bezier.endPosition =CGPointMake(350, -130.0f);
+            
+            
+            [self.tornado runAction:scale];
+            [self.tornado runAction: [CCBezierBy actionWithDuration:duration bezier:bezier]];
+            [self.lilly runAction:[CCSequence actions:
+                                   [CCDelayTime actionWithDuration:3],
+                                   [CCCallBlock actionWithBlock:^{
+                isTornadoMoving=false;
+                hasTornadoMoved=true;
+                self.lilly.position = ccp(600,250);
+                [self.lilly runAction: self.legsAction];
+            }],
+                                   
+                                   nil]];
+            
+            CCSequence *seq=[CCSequence actions:
+                             [CCDelayTime actionWithDuration:6],
+                             [CCCallBlock actionWithBlock:^{
+                
+                CGPoint outLocation=ccp(1100, 250);
+                [self.tornado runAction:[CCMoveTo actionWithDuration:2 position:outLocation]];
+                [self.lilly runAction:[CCMoveTo actionWithDuration:2 position:outLocation]];
+                
+            }],
+
+                             [CCDelayTime actionWithDuration:1],
+[CCCallBlock actionWithBlock:^{
+     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:4.0 scene:[PageFiveLayer scene] ]];
+}]
+                             , nil];
+            
+            [self runAction:seq];
+
+            
+        }
+        else if(hasTornadoMovedOut ==false)
+        {
+            hasTornadoMovedOut=true;
+            
+                    //
+            
+        }
     }
     else if(CGRectContainsPoint([self.waterfall boundingBox], location))
     {
