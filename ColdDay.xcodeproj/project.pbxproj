@@ -181,6 +181,8 @@
 		F2A12FBE180198450055C907 /* page2snowsplash.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FBC180198450055C907 /* page2snowsplash.png */; };
 		F2A12FC018019C8C0055C907 /* textureRed copy.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FBF18019C8C0055C907 /* textureRed copy.png */; };
 		F2A12FC31802CC080055C907 /* PageFiveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A12FC21802CC080055C907 /* PageFiveLayer.m */; };
+		F2A12FCB1802D2140055C907 /* p5-BG-ipadhd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FC91802D2140055C907 /* p5-BG-ipadhd.jpg */; };
+		F2A12FCC1802D2140055C907 /* p5-BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FCA1802D2140055C907 /* p5-BG.jpg */; };
 		F2A23A5E17A67A7E005C339C /* lilllyMovieclip.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A5C17A67A7E005C339C /* lilllyMovieclip.plist */; };
 		F2A23A5F17A67A7E005C339C /* lilllyMovieclip.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A5D17A67A7E005C339C /* lilllyMovieclip.png */; };
 		F2A23A6A17A6810D005C339C /* lillly1.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A6817A6810D005C339C /* lillly1.plist */; };
@@ -587,6 +589,8 @@
 		F2A12FBF18019C8C0055C907 /* textureRed copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textureRed copy.png"; sourceTree = "<group>"; };
 		F2A12FC11802CC080055C907 /* PageFiveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageFiveLayer.h; sourceTree = "<group>"; };
 		F2A12FC21802CC080055C907 /* PageFiveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageFiveLayer.m; sourceTree = "<group>"; };
+		F2A12FC91802D2140055C907 /* p5-BG-ipadhd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p5-BG-ipadhd.jpg"; sourceTree = "<group>"; };
+		F2A12FCA1802D2140055C907 /* p5-BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p5-BG.jpg"; sourceTree = "<group>"; };
 		F2A23A5C17A67A7E005C339C /* lilllyMovieclip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lilllyMovieclip.plist; sourceTree = "<group>"; };
 		F2A23A5D17A67A7E005C339C /* lilllyMovieclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lilllyMovieclip.png; sourceTree = "<group>"; };
 		F2A23A6817A6810D005C339C /* lillly1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lillly1.plist; sourceTree = "<group>"; };
@@ -797,6 +801,7 @@
 		F210F0FC1792C44A00BB75A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F2A12FC81802D2140055C907 /* Page5 */,
 				F210EAAD17F5ACB90096DBD5 /* Page3New */,
 				F208B6C117C4F8BE001C3E8E /* Common */,
 				F208B6C217C4F907001C3E8E /* Default-568h@2x.png */,
@@ -1244,6 +1249,16 @@
 			path = Resources/Page3;
 			sourceTree = "<group>";
 		};
+		F2A12FC81802D2140055C907 /* Page5 */ = {
+			isa = PBXGroup;
+			children = (
+				F2A12FC91802D2140055C907 /* p5-BG-ipadhd.jpg */,
+				F2A12FCA1802D2140055C907 /* p5-BG.jpg */,
+			);
+			name = Page5;
+			path = Resources/Page5;
+			sourceTree = "<group>";
+		};
 		F2CA98A71792C980006A43B0 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1431,6 +1446,7 @@
 				F2033D3F17B72A0400BE1F60 /* p4-Liz1-ipadhd.png in Resources */,
 				F2033D4017B72A0400BE1F60 /* p4-Liz1.png in Resources */,
 				F2033D4717B73B6A00BE1F60 /* p4-liz-walk.plist in Resources */,
+				F2A12FCB1802D2140055C907 /* p5-BG-ipadhd.jpg in Resources */,
 				F259303A17F467C700D1118F /* p1-lilly-spritesheet.plist in Resources */,
 				F2033D4817B73B6A00BE1F60 /* p4-liz-walk.png in Resources */,
 				F2DB432F17BB922200DAB90A /* p4-tornado.plist in Resources */,
@@ -1453,6 +1469,7 @@
 				F2A5ABA017C621300065D8AD /* p1-lhand-ipadhd.png in Resources */,
 				F2A5ABA117C621300065D8AD /* p1-lhand.png in Resources */,
 				F2A5ABA217C621300065D8AD /* p1-nose-ipadhd.png in Resources */,
+				F2A12FCC1802D2140055C907 /* p5-BG.jpg in Resources */,
 				F2A5ABA317C621300065D8AD /* p1-nose.png in Resources */,
 				F2A5ABA417C621300065D8AD /* p1-rhand-ipadhd.png in Resources */,
 				F2A5ABA517C621300065D8AD /* p1-rhand.png in Resources */,
