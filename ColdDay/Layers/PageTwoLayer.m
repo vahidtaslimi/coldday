@@ -38,6 +38,8 @@ CCSprite *background;
 
 -(id) init
 {
+    _numberOfTimesPlayed;
+    _hasSnowFallStarted=false;
     
 	if( (self=[super init]) ) {
 		self. touchEnabled=TRUE;
@@ -74,7 +76,7 @@ CCSprite *background;
         }
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p2-bg.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
-        
+        [self addPauseMenuItem];
 	}
 	return self;
 }
@@ -454,7 +456,7 @@ CCSprite *background;
                     if(score == 5)
                     {
                         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PageThreeLayerNew scene]]];
+                        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PageThreeLayerNew scene]]];
                     }
                 }
                 

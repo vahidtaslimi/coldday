@@ -8,8 +8,9 @@
 
 #import "CCLayer.h"
 #import "cocos2d.h"
+#import "BaseLayer.h"
 
-@interface PageTwoLayer : CCLayer
+@interface PageTwoLayer : BaseLayer
 {
     NSMutableArray * _snows;
     NSMutableArray * _snowsOnScreen;

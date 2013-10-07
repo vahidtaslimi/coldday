@@ -183,6 +183,9 @@
 		F2A12FC31802CC080055C907 /* PageFiveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A12FC21802CC080055C907 /* PageFiveLayer.m */; };
 		F2A12FCB1802D2140055C907 /* p5-BG-ipadhd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FC91802D2140055C907 /* p5-BG-ipadhd.jpg */; };
 		F2A12FCC1802D2140055C907 /* p5-BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2A12FCA1802D2140055C907 /* p5-BG.jpg */; };
+		F2A1318E1802D7770055C907 /* MenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A1318D1802D7770055C907 /* MenuLayer.m */; };
+		F2A131911802DD340055C907 /* BaseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A131901802DD340055C907 /* BaseLayer.m */; };
+		F2A131941802DF470055C907 /* CCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A131931802DF470055C907 /* CCAlertView.m */; };
 		F2A23A5E17A67A7E005C339C /* lilllyMovieclip.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A5C17A67A7E005C339C /* lilllyMovieclip.plist */; };
 		F2A23A5F17A67A7E005C339C /* lilllyMovieclip.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A5D17A67A7E005C339C /* lilllyMovieclip.png */; };
 		F2A23A6A17A6810D005C339C /* lillly1.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2A23A6817A6810D005C339C /* lillly1.plist */; };
@@ -591,6 +594,12 @@
 		F2A12FC21802CC080055C907 /* PageFiveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageFiveLayer.m; sourceTree = "<group>"; };
 		F2A12FC91802D2140055C907 /* p5-BG-ipadhd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p5-BG-ipadhd.jpg"; sourceTree = "<group>"; };
 		F2A12FCA1802D2140055C907 /* p5-BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "p5-BG.jpg"; sourceTree = "<group>"; };
+		F2A1318C1802D7770055C907 /* MenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLayer.h; sourceTree = "<group>"; };
+		F2A1318D1802D7770055C907 /* MenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLayer.m; sourceTree = "<group>"; };
+		F2A1318F1802DD340055C907 /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLayer.h; sourceTree = "<group>"; };
+		F2A131901802DD340055C907 /* BaseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLayer.m; sourceTree = "<group>"; };
+		F2A131921802DF470055C907 /* CCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAlertView.h; sourceTree = "<group>"; };
+		F2A131931802DF470055C907 /* CCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAlertView.m; sourceTree = "<group>"; };
 		F2A23A5C17A67A7E005C339C /* lilllyMovieclip.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lilllyMovieclip.plist; sourceTree = "<group>"; };
 		F2A23A5D17A67A7E005C339C /* lilllyMovieclip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lilllyMovieclip.png; sourceTree = "<group>"; };
 		F2A23A6817A6810D005C339C /* lillly1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lillly1.plist; sourceTree = "<group>"; };
@@ -1274,6 +1283,10 @@
 				F210EAAB17F5AC300096DBD5 /* PageThreeLayerNew.m */,
 				F2A12FC11802CC080055C907 /* PageFiveLayer.h */,
 				F2A12FC21802CC080055C907 /* PageFiveLayer.m */,
+				F2A1318C1802D7770055C907 /* MenuLayer.h */,
+				F2A1318D1802D7770055C907 /* MenuLayer.m */,
+				F2A1318F1802DD340055C907 /* BaseLayer.h */,
+				F2A131901802DD340055C907 /* BaseLayer.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1313,6 +1326,8 @@
 				F2D14EC0179FE9F10018CBE5 /* pageTwoSnow.m */,
 				F22077E317B2711B0025601B /* CCFerris.h */,
 				F22077E417B2711B0025601B /* CCFerris.m */,
+				F2A131921802DF470055C907 /* CCAlertView.h */,
+				F2A131931802DF470055C907 /* CCAlertView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1578,6 +1593,7 @@
 				F210F1CF1792C45400BB75A2 /* CCTexture2D.m in Sources */,
 				F210F1D21792C45400BB75A2 /* CCTextureAtlas.m in Sources */,
 				F210F1D51792C45400BB75A2 /* CCTextureCache.m in Sources */,
+				F2A1318E1802D7770055C907 /* MenuLayer.m in Sources */,
 				F210F1D81792C45400BB75A2 /* CCTexturePVR.m in Sources */,
 				F210F1DB1792C45400BB75A2 /* CCTileMapAtlas.m in Sources */,
 				F210F1DE1792C45400BB75A2 /* CCTMXLayer.m in Sources */,
@@ -1601,6 +1617,7 @@
 				F210F2191792C45700BB75A2 /* base64.c in Sources */,
 				F210F21D1792C45700BB75A2 /* CCArray.m in Sources */,
 				F210F2201792C45700BB75A2 /* ccCArray.m in Sources */,
+				F2A131911802DD340055C907 /* BaseLayer.m in Sources */,
 				F210F2231792C45800BB75A2 /* CCFileUtils.m in Sources */,
 				F210F2261792C45800BB75A2 /* CCProfiling.m in Sources */,
 				F210F2281792C45800BB75A2 /* ccUtils.c in Sources */,
@@ -1623,6 +1640,7 @@
 				F210F2761792C45C00BB75A2 /* mat4.c in Sources */,
 				F210F2781792C45C00BB75A2 /* neon_matrix_impl.c in Sources */,
 				F2A12FC31802CC080055C907 /* PageFiveLayer.m in Sources */,
+				F2A131941802DF470055C907 /* CCAlertView.m in Sources */,
 				F210F27A1792C45C00BB75A2 /* plane.c in Sources */,
 				F210F27C1792C45C00BB75A2 /* quaternion.c in Sources */,
 				F210F27E1792C45C00BB75A2 /* ray2.c in Sources */,

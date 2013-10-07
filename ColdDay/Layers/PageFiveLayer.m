@@ -37,7 +37,7 @@ CCParticleGalaxy *sleepEmitter;
 		background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:-1];
         
-
+   [self addPauseMenuItem];
 	}
 	return self;
 }

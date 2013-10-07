@@ -8,9 +8,9 @@
 
 #import "CCLayer.h"
 #import "cocos2d.h"
+#import "BaseLayer.h"
 
-
-@interface PageFourLayer : CCLayer
+@interface PageFourLayer : BaseLayer
 {
 }
 

@@ -39,7 +39,7 @@ bool hasUserTouchedSnow =false;
 bool hasUserTouchedLights=false;
 bool lillyIsMoving = false;
 CCSpriteBatchNode *spinSpriteSheet;
- CGPoint headLocation;
+CGPoint headLocation;
 CGPoint hatLocation;
 CGPoint eyesLocation;
 CGPoint rightHandLocation;
@@ -57,6 +57,19 @@ CGPoint noseLocation;
 
 -(id) init
 {
+ isLightOn = false;
+   isEyesInPlace = true;
+   isHatInPlace = true;
+   isRightHandInPlace = true;
+   isLeftHandInPlace = true;
+   isNoseInPlace = true;
+   isHeadInPlace = true;
+   isSnowmanFixed=true;
+   hasFixedSnowManForAtleastOneTime=false;
+   canLightTurnOn=false;
+   hasUserTouchedSnow =false;
+   hasUserTouchedLights=false;
+   lillyIsMoving = false;
     
 	if( (self=[super init]) ) {
         hatLocation= ccp(894,454);
@@ -140,7 +153,7 @@ CGPoint noseLocation;
         id rotateright = [CCRotateBy actionWithDuration:0.5 angle:2];
         [snow1 runAction:[CCRepeatForever actionWithAction:[CCSequence actions:rotateleft,rotateright,nil]]];
         
-       
+        
         window=[CCSprite spriteWithFile:@"p1-window.png"];
         window.anchorPoint=ccp(0,0);
         window.position=ccp(19,320);
@@ -214,6 +227,7 @@ CGPoint noseLocation;
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         
+        [self addPauseMenuItem];
 	}
 	return self;
 }
@@ -263,7 +277,7 @@ CGPoint noseLocation;
             return;
         }
         isEyesInPlace=true;
-       
+        
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
         [eyes runAction:[CCMoveTo actionWithDuration:1 position:eyesLocation]];
         [eyes runAction:scale];
@@ -279,7 +293,7 @@ CGPoint noseLocation;
         }
         isRightHandInPlace=true;
         id scale = [CCScaleTo actionWithDuration:1 scale:1] ;
-
+        
         [rightHand runAction:[CCMoveTo actionWithDuration:1 position:rightHandLocation]];
         [rightHand runAction:scale];
         [self updateCanLillyMove];
@@ -338,7 +352,7 @@ CGPoint noseLocation;
     }
     else if(CGRectContainsPoint([snow1 boundingBox], location))
     {
-  
+        
         if(isSnowmanFixed == false || hasUserTouchedSnow )
         {
             return;
@@ -538,7 +552,7 @@ CGPoint noseLocation;
      [spinSpriteSheet addChild:lilly];
      */
     [lilly stopAction:self.lillySpinAction];
-
+    
     [lilly runAction:self.lillySpinAction];
 }
 

@@ -14,6 +14,8 @@
 #import "PageFourLayer.h"
 #import "PageTwoLayer.h"
 #import "PageThreeLayerNew.h"
+#import "MenuLayer.h"
+
 
 #pragma mark - IntroLayer
 
@@ -41,6 +43,7 @@
 {
 	if( (self=[super init])) {
 
+        [self addChild:[MenuLayer node]];
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
 
@@ -51,13 +54,41 @@
 			background.rotation = 90;
 		} else {
 			//background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
-            background = [CCSprite spriteWithFile:@"p1-BG.jpg"];
+            background = [CCSprite spriteWithFile:@"p5-BG.jpg"];
             //
 		}
 		background.position = ccp(size.width/2, size.height/2);
 
 		// add the label as a child to this Layer
 		[self addChild: background];
+        
+        // create and initialize a Label
+        CCLabelTTF *label = [CCLabelTTF labelWithString:@"A Cold Day" fontName:@"Marker Felt" fontSize:64];
+        
+        // ask director for the window size
+        
+        // position the label on the center of the screen
+        label.position =  ccp( size.width /2 , size.height/2 );
+        
+        // add the label as a child to this Layer
+        [self addChild: label];
+        
+        
+        //test
+        [CCMenuItemFont setFontSize:35];
+        //[CCMenuItemFont setFontName: @"TrebuchetMS-Bold"];
+        
+        
+        CCMenuItem *item1 = [CCMenuItemFont itemWithString:@"Play" block:^(id sender) {
+	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:2.0 scene:[PageOneLayer scene] ]];
+        }];
+      
+        
+       CCMenu* menu = [CCMenu menuWithItems: item1, nil];
+        [menu alignItemsVertically];
+        [menu alignItemsHorizontallyWithPadding:20];
+        [menu setPosition:ccp( size.width/2, size.height/2 - 50)];
+        [self addChild: menu];
 	}
 	
 	return self;
@@ -66,6 +97,6 @@
 -(void) onEnter
 {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:2.0 scene:[PageOneLayer scene] ]];
+
 }
 @end

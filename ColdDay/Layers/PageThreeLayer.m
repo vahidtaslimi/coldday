@@ -48,7 +48,7 @@ int lapNumber=1;
 		[self addChild: self.background z:-1];
         
         [self addLillySprite];
-        
+           [self addPauseMenuItem];
 
 	}
 	return self;

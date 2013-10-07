@@ -31,6 +31,15 @@ bool isTornadoMoving=false;
 -(id) init
 {
     
+    lizardHasMoved=false;
+    lillyHasGotLizard=false;
+    lizardHasJumped=false;
+    hasPalyedFishOnce=false;
+    isPlayingFish=false;
+    hasTornadoMoved=false;
+    hasTornadoMovedOut=false;
+    isTornadoMoving=false;
+    
     if( (self=[super init]) ) {
         self. touchEnabled=TRUE;
         CGSize size = [[CCDirector sharedDirector] winSize];
@@ -51,6 +60,7 @@ bool isTornadoMoving=false;
         [self addLollySprite:0.5];
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p4.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
+        [self addPauseMenuItem];
     }
     return self;
 }
@@ -460,22 +470,22 @@ bool isTornadoMoving=false;
                 [self.lilly runAction:[CCMoveTo actionWithDuration:2 position:outLocation]];
                 
             }],
-
+                             
                              [CCDelayTime actionWithDuration:1],
-[CCCallBlock actionWithBlock:^{
-     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:4.0 scene:[PageFiveLayer scene] ]];
-}]
+                             [CCCallBlock actionWithBlock:^{
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:4.0 scene:[PageFiveLayer scene] ]];
+            }]
                              , nil];
             
             [self runAction:seq];
-
+            
             
         }
         else if(hasTornadoMovedOut ==false)
         {
             hasTornadoMovedOut=true;
             
-                    //
+            //
             
         }
     }

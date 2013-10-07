@@ -32,7 +32,7 @@ CCParticleGalaxy *sleepEmitter;
 
 -(id) init
 {
-    
+hasActionStarted=false;    
 	if( (self=[super init]) ) {
 		self. touchEnabled=TRUE;
         CGSize size = [[CCDirector sharedDirector] winSize];
@@ -53,12 +53,13 @@ CCParticleGalaxy *sleepEmitter;
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         
         [self runAction:[CCSequence actions:
-                        [CCDelayTime actionWithDuration:2],
-                        [CCCallBlock actionWithBlock:^{
+                         [CCDelayTime actionWithDuration:2],
+                         [CCCallBlock actionWithBlock:^{
             
             [self startPageAction];
         }],
-                        nil]];
+                         nil]];
+        [self addPauseMenuItem];
 	}
 	return self;
 }
@@ -124,7 +125,7 @@ CCParticleGalaxy *sleepEmitter;
                      ,nil
                      ];
     [self.lilly runAction:seq];
-
+    
 }
 
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -143,7 +144,7 @@ CCParticleGalaxy *sleepEmitter;
     {
         if(hasActionStarted ==false)
         {
-                  }
+        }
     }
 }
 

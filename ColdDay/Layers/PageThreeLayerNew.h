@@ -8,8 +8,9 @@
 
 #import "CCLayer.h"
 #import "cocos2d.h"
+#import "BaseLayer.h"
 
-@interface PageThreeLayerNew : CCLayer
+@interface PageThreeLayerNew : BaseLayer
 
 {
     
