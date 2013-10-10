@@ -17,7 +17,11 @@
 }
 
 @property (nonatomic, strong) CCSprite* lilly;
-@property (nonatomic, strong) CCAction *firstLillyAction;
+@property (nonatomic, strong) CCAction *lilywakesupActionOne;
+@property (nonatomic, strong) CCAction *lilywakesupActionFour;
+@property (nonatomic, strong) CCAction *lilywakesupActionThree;
+@property (nonatomic, strong) CCAction *lilywakesupActionTwo;
+@property (nonatomic, strong) CCAction *skateAction;
 +(CCScene *) scene;
 
 @end

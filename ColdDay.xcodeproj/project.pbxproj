@@ -213,7 +213,6 @@
 		F2A5ABAE17CCD7400065D8AD /* p2-missed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2A5ABAB17CCD7400065D8AD /* p2-missed.mp3 */; };
 		F2A5ABAF17CCD7400065D8AD /* p2-bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F2A5ABAC17CCD7400065D8AD /* p2-bg.mp3 */; };
 		F2A5ABB817CDFFE90065D8AD /* p1_Lilly.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2A5ABB617CDFFE90065D8AD /* p1_Lilly.plist */; };
-		F2A5ABB917CDFFE90065D8AD /* p1_Lilly.png in Resources */ = {isa = PBXBuildFile; fileRef = F2A5ABB717CDFFE90065D8AD /* p1_Lilly.png */; };
 		F2AB5EA517B2519B0055CA0F /* Particles_fire.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB5EA417B2519B0055CA0F /* Particles_fire.png */; };
 		F2AB5EA717B25D2D0055CA0F /* particleTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AB5EA617B25D2D0055CA0F /* particleTexture.png */; };
 		F2CA98AA1792C980006A43B0 /* PageOneLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CA98A91792C980006A43B0 /* PageOneLayer.m */; };
@@ -253,6 +252,8 @@
 		F2F012DA17E711A1009E1816 /* p4-rock.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F012D817E711A1009E1816 /* p4-rock.png */; };
 		F2F0130A17F1A487009E1816 /* p2-lilly-spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2F0130817F1A487009E1816 /* p2-lilly-spritesheet.plist */; };
 		F2F0130B17F1A487009E1816 /* p2-lilly-spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F2F0130917F1A487009E1816 /* p2-lilly-spritesheet.png */; };
+		F2FF17C21806C9E800350E64 /* p5-lilly-spritesheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2FF17C01806C9E800350E64 /* p5-lilly-spritesheet.plist */; };
+		F2FF17C31806C9E800350E64 /* p5-lilly-spritesheet.png in Resources */ = {isa = PBXBuildFile; fileRef = F2FF17C11806C9E800350E64 /* p5-lilly-spritesheet.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -628,7 +629,6 @@
 		F2A5ABAB17CCD7400065D8AD /* p2-missed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "p2-missed.mp3"; sourceTree = "<group>"; };
 		F2A5ABAC17CCD7400065D8AD /* p2-bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "p2-bg.mp3"; sourceTree = "<group>"; };
 		F2A5ABB617CDFFE90065D8AD /* p1_Lilly.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = p1_Lilly.plist; sourceTree = "<group>"; };
-		F2A5ABB717CDFFE90065D8AD /* p1_Lilly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p1_Lilly.png; sourceTree = "<group>"; };
 		F2AB5EA417B2519B0055CA0F /* Particles_fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particles_fire.png; sourceTree = "<group>"; };
 		F2AB5EA617B25D2D0055CA0F /* particleTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particleTexture.png; sourceTree = "<group>"; };
 		F2CA98A81792C980006A43B0 /* PageOneLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageOneLayer.h; sourceTree = "<group>"; };
@@ -672,6 +672,8 @@
 		F2F012D817E711A1009E1816 /* p4-rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-rock.png"; sourceTree = "<group>"; };
 		F2F0130817F1A487009E1816 /* p2-lilly-spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p2-lilly-spritesheet.plist"; sourceTree = "<group>"; };
 		F2F0130917F1A487009E1816 /* p2-lilly-spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p2-lilly-spritesheet.png"; sourceTree = "<group>"; };
+		F2FF17C01806C9E800350E64 /* p5-lilly-spritesheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "p5-lilly-spritesheet.plist"; sourceTree = "<group>"; };
+		F2FF17C11806C9E800350E64 /* p5-lilly-spritesheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p5-lilly-spritesheet.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1204,7 +1206,6 @@
 				F2F0128D17D48FFE009E1816 /* p1-dazzle-ipadhd.png */,
 				F2F0128E17D48FFE009E1816 /* p1-dazzle.png */,
 				F2A5ABB617CDFFE90065D8AD /* p1_Lilly.plist */,
-				F2A5ABB717CDFFE90065D8AD /* p1_Lilly.png */,
 				F2A5AB8E17C621300065D8AD /* p1-eyes-ipadhd.png */,
 				F2A5AB8F17C621300065D8AD /* p1-eyes.png */,
 				F2A5AB9017C621300065D8AD /* p1-hat-ipadhd.png */,
@@ -1261,6 +1262,8 @@
 		F2A12FC81802D2140055C907 /* Page5 */ = {
 			isa = PBXGroup;
 			children = (
+				F2FF17C01806C9E800350E64 /* p5-lilly-spritesheet.plist */,
+				F2FF17C11806C9E800350E64 /* p5-lilly-spritesheet.png */,
 				F2A12FC91802D2140055C907 /* p5-BG-ipadhd.jpg */,
 				F2A12FCA1802D2140055C907 /* p5-BG.jpg */,
 			);
@@ -1448,6 +1451,7 @@
 				F2AB5EA717B25D2D0055CA0F /* particleTexture.png in Resources */,
 				F2A12FB7180192FC0055C907 /* page2snow4-ipadhd.png in Resources */,
 				F2A12FB6180192FC0055C907 /* page2snow3.png in Resources */,
+				F2FF17C21806C9E800350E64 /* p5-lilly-spritesheet.plist in Resources */,
 				F2033D3317B729DC00BE1F60 /* p4-lil1-ipadhd.png in Resources */,
 				F2033D3417B729DC00BE1F60 /* p4-lil1.png in Resources */,
 				F2033D3517B729DC00BE1F60 /* p4-lil2-ipadhd.png in Resources */,
@@ -1466,6 +1470,7 @@
 				F2033D4817B73B6A00BE1F60 /* p4-liz-walk.png in Resources */,
 				F2DB432F17BB922200DAB90A /* p4-tornado.plist in Resources */,
 				F2DB433017BB922200DAB90A /* p4-tornado.png in Resources */,
+				F2FF17C31806C9E800350E64 /* p5-lilly-spritesheet.png in Resources */,
 				F2DB433217BB939600DAB90A /* p4-windows.png in Resources */,
 				F26A7B9317C2305900C95AF8 /* P1-POP.mp3 in Resources */,
 				F2A12FB3180192FC0055C907 /* p2-page2bg-ipadhd.jpg in Resources */,
@@ -1492,7 +1497,6 @@
 				F2A5ABAE17CCD7400065D8AD /* p2-missed.mp3 in Resources */,
 				F2A5ABAF17CCD7400065D8AD /* p2-bg.mp3 in Resources */,
 				F2A5ABB817CDFFE90065D8AD /* p1_Lilly.plist in Resources */,
-				F2A5ABB917CDFFE90065D8AD /* p1_Lilly.png in Resources */,
 				F2F0128F17D48FFE009E1816 /* p1-dazzle-ipadhd.png in Resources */,
 				F2F0129017D48FFE009E1816 /* p1-dazzle.png in Resources */,
 				F2F0129617DEFEF1009E1816 /* p4-hint-ipadhd.png in Resources */,
