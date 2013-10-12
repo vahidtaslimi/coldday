@@ -10,7 +10,7 @@
 
 @implementation PageFiveLayer
 CCSprite *background;
-CCParticleGalaxy *sleepEmitter;
+CCParticleSnow *emitter;
 
 +(CCScene *) scene
 {
@@ -36,11 +36,32 @@ CCParticleGalaxy *sleepEmitter;
         
 		background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:0];
+        [self addSnowFall];
         [self addLillySpriteSheet];
         
         [self addPauseMenuItem];
 	}
 	return self;
+}
+
+-(void) addSnowFall
+{
+     CGSize size = [[CCDirector sharedDirector] winSize];
+    emitter =[[CCParticleSnow alloc]init];
+    emitter.position=ccp(size.width/2,size.height);
+    emitter.speed=30;
+    [emitter setDuration:kCCParticleDurationInfinity];
+    emitter.texture=[[CCTextureCache sharedTextureCache]addImage:@"page2snow1.png"];
+    [self addChild:emitter];
+
+}
+
+-(void) addHouse
+{
+    CCSprite* houseSprite = [CCSprite spriteWithFile:@"p5-front.png"];
+    houseSprite.position=ccp(188, 345);
+    [self addChild:houseSprite z:5];
+    [houseSprite runAction:[CCTintTo actionWithDuration:1 red:0 green:0 blue:0]];
 }
 
 -(void)addLillySpriteSheet
@@ -133,52 +154,74 @@ CCParticleGalaxy *sleepEmitter;
     CCAction* lilybyeActionThree = [CCAnimate actionWithAnimation:thirdByeAnimimation];
     
     self.lilly = [CCSprite spriteWithSpriteFrameName:@"lilywakesup-00.png"];
-    self.lilly.position = ccp(800, 310);
+    self.lilly.position = ccp(661, 78);
+    self.lilly.anchorPoint=ccp(0,0);
     //lilly.scale=0.6;
     [self addChild:self.lilly z:2];
+
     
-    ccBezierConfig bezier;
-    bezier.controlPoint_1 = CGPointMake(-950, -105.0f);
-    bezier.controlPoint_2 = CGPointMake(-600, 150.0f);
-    bezier.endPosition =CGPointMake(-90.0f,50.0f);
-    
-    ccBezierConfig bezier2;
-    bezier2.controlPoint_1 = CGPointMake(-700.0f, 190.0f);
-    bezier2.controlPoint_2 = CGPointMake(-780, -80.0f);
-    bezier2.endPosition =CGPointMake(-100.0f,20.0f);
-    
-    id scale = [CCScaleTo actionWithDuration:3 scale:0.7] ;
+    id scale = [CCScaleTo actionWithDuration:1 scale:0.9] ;
     id flipXAction=[CCFlipX actionWithFlipX:true];
-    id flipXActionNo=[CCFlipX actionWithFlipX:false];
-    
-    
-    
-    
+   
     
     CCSequence *seq=[CCSequence actions:
                      [CCDelayTime actionWithDuration:2],
                       self.lilywakesupActionOne,
                       self.lilywakesupActionTwo,
                       self.lilywakesupActionThree,
-                      [CCDelayTime actionWithDuration:2],
+                      [CCDelayTime actionWithDuration:1],
                      [CCCallBlock actionWithBlock:^{
         [self.lilly runAction:self.skateAction];
-        self.lilly.flipX=true; //[CCFlipX actionWithFlipX:true];
+        self.lilly.flipX=true;
        [self.lilly runAction:scale];
     }],
-                    [CCBezierBy actionWithDuration:3 bezier:bezier],
-                     //[CCBezierBy actionWithDuration:3 bezier:bezier2],
+                     [CCMoveTo actionWithDuration:1.5 position:ccp(69,94)],
+                     [CCFlipX actionWithFlipX:false],
+                     [CCCallBlock actionWithBlock:^{
+          [self.lilly runAction:[CCScaleTo actionWithDuration:1.5 scale:0.7]];
+    }],
+                     [CCMoveTo actionWithDuration:1.5 position:ccp(541,209)],
                      [CCCallBlock actionWithBlock:^{
         [self.lilly stopAction:self.skateAction];
+         self.houseSprite = [CCSprite spriteWithFile:@"p5-front.png"];
+        self.houseSprite.position=ccp(188, 345);
+        [self addChild:self.houseSprite z:5];
+        //[houseSprite runAction:[CCTintTo actionWithDuration:1 red:0 green:0 blue:0]];
     }],
                      lilybyeActionOne,
                      lilybyeActionTwo,
                      lilybyeActionThree,
-                     nil];
+                     [CCDelayTime actionWithDuration:0.5],
+                     [CCCallBlock actionWithBlock:^{
+        [self.lilly runAction:self.skateAction];
+        [self.lilly runAction:[CCScaleTo actionWithDuration:3 scale:0.3]];
+        [self.lilly runAction:[CCFlipX actionWithFlipX:true]];
+    }],
+                     [CCMoveTo actionWithDuration:1.5 position:ccp(400,273)],
+                     [CCMoveTo actionWithDuration:2.5 position:ccp(51,337)],
+                     [CCCallBlock actionWithBlock:^{
+        [self.children removeObject:emitter];
+         [self.houseSprite runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+        [background runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:@"The End" fontName:@"Marker Felt" fontSize:64];
+        CGSize size = [[CCDirector sharedDirector] winSize];
+        label.position =  ccp( size.width /2 , size.height/2 );
+        [self addChild: label];
+    }]
+                     ,nil];
     
     
     
     [self.lilly runAction:seq];
 }
 
+
+-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch * touch = [[touches allObjects] objectAtIndex:0];
+    CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
+    CGPoint location =[touch locationInView:[touch view]];
+    NSLog(@"Touced %f,%f", touchLocation.x,touchLocation.y);
+    [self.lilly runAction:[CCMoveTo actionWithDuration:1 position:touchLocation]];
+}
 @end

@@ -407,14 +407,21 @@ CGPoint noseLocation;
         scale = [CCScaleTo actionWithDuration:1 scale:1.4] ;
         [head runAction:scale];
         
-        isHatInPlace=false;
-        isEyesInPlace=false;
-        isHeadInPlace=false;
-        isNoseInPlace=false;
-        isLeftHandInPlace=false;
-        isRightHandInPlace=false;
-        hasUserTouchedSnow =true;
-        isSnowmanFixed = false;
+        [self runAction:[CCSequence actions:
+                         [CCDelayTime actionWithDuration:1],
+                         [CCCallBlock actionWithBlock:^{
+            
+            isHatInPlace=false;
+            isEyesInPlace=false;
+            isHeadInPlace=false;
+            isNoseInPlace=false;
+            isLeftHandInPlace=false;
+            isRightHandInPlace=false;
+            hasUserTouchedSnow =true;
+            isSnowmanFixed = false;
+            
+        }]
+                         , nil]];
         
         /*
          lilly.anchorPoint =  ccp(0.5,0.1);
@@ -470,14 +477,14 @@ CGPoint noseLocation;
         ccBezierConfig bezier;
         //400 360
         
-        bezier.controlPoint_1 = CGPointMake(104, -55.0f);
-        bezier.controlPoint_2 = CGPointMake(600, -150.0f);
-        bezier.endPosition =CGPointMake(400.0f,-190.0f);
+        bezier.controlPoint_1 = CGPointMake(104, -85.0f);
+        bezier.controlPoint_2 = CGPointMake(550, -120.0f);
+        bezier.endPosition =CGPointMake(350.0f,-160.0f);
         
         self.lillySkateMove1 = [CCBezierBy actionWithDuration:3 bezier:bezier];
         ccBezierConfig bezier2;
-        bezier2.controlPoint_1 = CGPointMake(-700.0f, 190.0f);
-        bezier2.controlPoint_2 = CGPointMake(-780, -80.0f);
+        bezier2.controlPoint_1 = CGPointMake(-600.0f, 190.0f);
+        bezier2.controlPoint_2 = CGPointMake(-600, -80.0f);
         bezier2.endPosition =CGPointMake(-350.0f,50.0f);
         
         self.lillySkateMove2 = [CCBezierBy actionWithDuration:3 bezier:bezier2];

@@ -248,7 +248,7 @@ CCSprite *background;
     m1 = [[pageTwoSnow alloc] init];
     [m1 setTag:(2)];
     [m1 setMonsterSprite:@"page2snow1.png"];
-    [m1 setSplashSprite:@"page2snow4.png"];
+    [m1 setSplashSprite:@"page2snow1.png"];
     [m1 setMinVelocity:4];
     [m1 setMaxVelocity:10];
     [m1 setMovement:2];

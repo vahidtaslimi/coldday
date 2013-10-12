@@ -54,7 +54,7 @@
 			background.rotation = 90;
 		} else {
 			//background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
-            background = [CCSprite spriteWithFile:@"p5-BG.jpg"];
+            background = [CCSprite spriteWithFile:@"intropage-BG.jpg"];
             //
 		}
 		background.position = ccp(size.width/2, size.height/2);

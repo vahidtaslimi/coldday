@@ -25,32 +25,22 @@
         [[CCDirector sharedDirector] pause];
 		self. touchEnabled=TRUE;
         CGSize size = [[CCDirector sharedDirector] winSize];
-        CCSprite *background = [CCSprite spriteWithFile:@"p5-BG.jpg"];
+        CCSprite *background = [CCSprite spriteWithFile:@"pausepage-BG.jpg"];
         background.position = ccp(size.width/2, size.height/2);
         [self addChild:background z:0];
              
-        // create and initialize a Label
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"A Cold Day" fontName:@"Marker Felt" fontSize:64];
-        
-        // ask director for the window size
-        
-        // position the label on the center of the screen
         label.position =  ccp( size.width /2 , size.height/2 );
-        
-        // add the label as a child to this Layer
         [self addChild: label];
-        
-        
-        //test
+
         [CCMenuItemFont setFontSize:35];
         //[CCMenuItemFont setFontName: @"TrebuchetMS-Bold"];
-        
         
         CCMenuItem *itemRestart = [CCMenuItemFont itemWithString:@"Restart" block:^(id sender) {
             [[CCDirector sharedDirector] resume];
             ((CCLayer*) self.parent).touchEnabled =true;
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PageOneLayer scene] withColor:ccc3(255, 255, 255)]];
-                    [self setVisible:false];
+            [self setVisible:false];
             //[[CCDirector sharedDirector] end];
             //	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:2.0 scene:[PageOneLayer scene] ]];
             /*UIAlertView *alert = [[[UIAlertView alloc]
