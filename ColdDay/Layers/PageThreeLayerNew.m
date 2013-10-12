@@ -45,6 +45,7 @@ hasActionStarted=false;
 		}
         
 		background.position = ccp(size.width/2, size.height/2);
+
 		[self addChild: background z:-1];
         
         [self addLillySpriteSheet];
@@ -112,7 +113,7 @@ hasActionStarted=false;
                      [CCDelayTime actionWithDuration:2],
                      [CCCallBlock actionWithBlock:^{
         
-        id my_wavesAction = [CCWaves actionWithWaves:4 amplitude:10 horizontal:YES
+        id my_wavesAction = [CCWaves actionWithWaves:4 amplitude:4 horizontal:YES
                                             vertical:NO grid:ccg(15,10) duration:5];
         [background runAction: [CCRepeatForever actionWithAction:my_wavesAction]];
         

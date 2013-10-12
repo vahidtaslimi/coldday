@@ -20,6 +20,7 @@ bool isPlayingFish=false;
 bool hasTornadoMoved=false;
 bool hasTornadoMovedOut=false;
 bool isTornadoMoving=false;
+bool waterfallHasStarted=false;
 
 +(CCScene *) scene
 {
@@ -39,6 +40,7 @@ bool isTornadoMoving=false;
     hasTornadoMoved=false;
     hasTornadoMovedOut=false;
     isTornadoMoving=false;
+    waterfallHasStarted=false;
     
     if( (self=[super init]) ) {
         self. touchEnabled=TRUE;
@@ -214,6 +216,7 @@ bool isTornadoMoving=false;
     [spriteSheet addChild:self.waterfall z:3];
     CCAnimation *waterfallAnimimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.15f];
     self.waterfallAction= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:waterfallAnimimation]];
+
 }
 
 -(void) runWaterfallAction
@@ -224,6 +227,7 @@ bool isTornadoMoving=false;
       [CCDelayTime actionWithDuration:2],
       [CCCallBlock actionWithBlock:^{
          [self.waterfall runAction:self.waterfallAction ];
+         waterfallHasStarted=true;
      }]
       , nil]
      ];
@@ -491,6 +495,11 @@ bool isTornadoMoving=false;
     }
     else if(CGRectContainsPoint([self.waterfall boundingBox], location))
     {
+        if(waterfallHasStarted==false)
+        {
+            return;
+        }
+        
         if(isPlayingFish ==false)
         {
             isPlayingFish=true;

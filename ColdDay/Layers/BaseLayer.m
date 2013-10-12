@@ -21,10 +21,10 @@
    
     
 	//test
-	[CCMenuItemFont setFontSize:35];
+	[CCMenuItemFont setFontSize:40];
 	[CCMenuItemFont setFontName: @"TrebuchetMS-Bold"];
 		
-    CCMenuItem *item1 = [CCMenuItemFont itemWithString:@"Menu" block:^(id sender) {
+    CCMenuItem *item1 = [CCMenuItemFont itemWithString:@"II" block:^(id sender) {
        self. touchEnabled=false;
         CCNode *menuNode=[MenuLayer node];
         [self addChild:menuNode z:1002];
@@ -34,7 +34,7 @@
    CCMenu *menu  = [CCMenu menuWithItems: item1, nil];
 	[menu alignItemsVertically];
 	[menu alignItemsHorizontallyWithPadding:20];
-    [menu setPosition:ccp( size.width-100, size.height -50)];
+    [menu setPosition:ccp( size.width-50, size.height -50)];
 	[self addChild: menu];
 }
 
