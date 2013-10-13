@@ -222,6 +222,6 @@ CCParticleSnow *emitter;
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     CGPoint location =[touch locationInView:[touch view]];
     NSLog(@"Touced %f,%f", touchLocation.x,touchLocation.y);
-    [self.lilly runAction:[CCMoveTo actionWithDuration:1 position:touchLocation]];
+    //[self.lilly runAction:[CCMoveTo actionWithDuration:1 position:touchLocation]];
 }
 @end

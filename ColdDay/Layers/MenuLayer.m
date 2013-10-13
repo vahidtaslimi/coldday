@@ -15,6 +15,7 @@
 {
 	CCScene *scene = [CCScene node];
 	MenuLayer *layer = [MenuLayer node];
+    
 	[scene addChild: layer];
 	return scene;
 }
@@ -27,8 +28,12 @@
         CGSize size = [[CCDirector sharedDirector] winSize];
         CCSprite *background = [CCSprite spriteWithFile:@"pausepage-BG.jpg"];
         background.position = ccp(size.width/2, size.height/2);
-        [self addChild:background z:0];
-             
+        //[self addChild:background z:0];
+
+        ccColor4B color = {0,0,0,150};
+        CCLayerColor *colorLayer = [CCLayerColor layerWithColor:color];
+        [self addChild:colorLayer z:0];
+        
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"A Cold Day" fontName:@"Marker Felt" fontSize:64];
         label.position =  ccp( size.width /2 , size.height/2 );
         [self addChild: label];
