@@ -9,6 +9,7 @@
 #import "PageOneLayer.h"
 #import "PageTwoLayer.h"
 #include "SimpleAudioEngine.h"
+#include "IntroLayer.h"
 
 @implementation PageOneLayer
 {
@@ -266,7 +267,7 @@ CGPoint noseLocation;
 
 -(void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
+   
     UITouch *touch=[touches anyObject];
     CGPoint location =[touch locationInView:[touch view]];
     location=[[CCDirector sharedDirector]convertToGL:location];
