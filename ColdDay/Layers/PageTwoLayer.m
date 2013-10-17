@@ -27,6 +27,7 @@ NSUserDefaults *defaults;
 int _numberOfTimesPlayed;
 bool _hasSnowFallStarted=false;
 CCSprite *background;
+        CDSoundSource* _teethSound;
 
 +(CCScene *) scene
 {
@@ -54,6 +55,9 @@ CCSprite *background;
         
 		background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:-1];
+
+        _teethSound = [ [ SimpleAudioEngine sharedEngine ] soundSourceForFile:@"p2-teethcht.mp3" ];
+        _teethSound.looping = YES;
         
         [self addLillySpriteSheet];
         
@@ -74,7 +78,7 @@ CCSprite *background;
             star.position = ccp( ((size.width-300)+(i*50)), size.height - 50);
             //[self addChild:star];
         }
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p2-bg.mp3"];
+       [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p2-bg.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         [self addPauseMenuItem];
 	}
@@ -206,6 +210,8 @@ CCSprite *background;
                      [CCDelayTime actionWithDuration:2],
                      [CCCallBlock actionWithBlock:^{
         [self.lilly runAction:self.shiverAction];
+              _teethSound= [[SimpleAudioEngine sharedEngine] playEffect:@"p2-teethcht.mp3" loop:YES];
+        
     }]
                      , nil];
     
@@ -215,6 +221,7 @@ CCSprite *background;
 -(void)playSmileAction
 {
     [self.lilly stopAllActions];
+    [[SimpleAudioEngine    sharedEngine]stopEffect:_teethSound];
     CCSequence *seq=[CCSequence actions:
                      [CCCallBlock actionWithBlock:^{
         CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-06.png"];
@@ -338,6 +345,7 @@ CCSprite *background;
             [self removeChild:[hearthArray lastObject] cleanup:YES];
             [hearthArray removeLastObject];
             [[SimpleAudioEngine sharedEngine] playEffect:@"p2-missed.mp3"];
+            
             /* if(lives == 0)
              [[CCDirector sharedDirector] replaceScene:[PageOneLayer scene]];
              */
