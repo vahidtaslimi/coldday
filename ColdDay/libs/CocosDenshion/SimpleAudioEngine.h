@@ -87,4 +87,7 @@
 /** Shuts down the shared audio engine instance so that it can be reinitialised */
 +(void) end;
 
+-(ALuint)playEffect:(NSString*)filePath loop:(BOOL)loop;
+-(ALuint)playEffect:(NSString*)filePath pitch:(Float32)pitch pan:(Float32)pan gain:(Float32)gain loop:(BOOL)loop;
+
 @end
