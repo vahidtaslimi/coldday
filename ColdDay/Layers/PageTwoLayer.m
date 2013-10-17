@@ -79,6 +79,7 @@ CCSprite *background;
             //[self addChild:star];
         }
        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"p2-bg.mp3"];
+            [[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
         [self addPauseMenuItem];
 	}
@@ -396,6 +397,7 @@ CCSprite *background;
     if(CGRectContainsPoint(CGRectMake(1000, 750, 200, 200), location))
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] stopEffect:_teethSound];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PageThreeLayerNew scene]]];
     }
     
@@ -464,6 +466,7 @@ CCSprite *background;
                     if(score == 5)
                     {
                         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+                        [[SimpleAudioEngine sharedEngine] stopEffect:_teethSound];
                         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PageThreeLayerNew scene]]];
                     }
                 }

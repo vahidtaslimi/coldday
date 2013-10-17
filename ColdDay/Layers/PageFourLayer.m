@@ -191,6 +191,7 @@ bool waterfallHasStarted=false;
     CCAnimation *animimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.15f];
     CCAction *action= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:animimation]];
     
+    [[SimpleAudioEngine sharedEngine] playEffect:@"p4-fish.mp3"];
     [self.fish runAction:action];
 }
 
@@ -226,6 +227,7 @@ bool waterfallHasStarted=false;
      [CCSequence actions:
       [CCDelayTime actionWithDuration:2],
       [CCCallBlock actionWithBlock:^{
+         [[SimpleAudioEngine sharedEngine] playEffect:@"p4-waterfall1.mp3" loop:YES];
          [self.waterfall runAction:self.waterfallAction ];
          waterfallHasStarted=true;
      }]
@@ -326,6 +328,7 @@ bool waterfallHasStarted=false;
     [self.lizard setDisplayFrame:frame];
     CGPoint location =ccp(480,420);
     self.lizardJumpAction=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"p4-liz jump.mp3"];
     [self.lizard runAction:self.lizardJumpAction];
     [self runWaterfallAction];
 }
@@ -339,6 +342,7 @@ bool waterfallHasStarted=false;
     [self.lizard setDisplayFrame:frame];
     CGPoint location =ccp(480,-120);
     self.lizardJumpAction=[CCJumpTo actionWithDuration:1 position:location height:1 jumps:1];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"p4-liz fall.mp3"];
     [self.lizard runAction:self.lizardJumpAction];
 }
 

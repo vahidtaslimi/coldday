@@ -46,7 +46,8 @@ CGPoint eyesLocation;
 CGPoint rightHandLocation;
 CGPoint leftHandLocation;
 CGPoint noseLocation;
-
+CDSoundSource* _skateSound;
+CDSoundSource* _spinSound;
 
 +(CCScene *) scene
 {
@@ -227,7 +228,7 @@ CGPoint noseLocation;
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.6];
-        
+            //    [background runAction:[CCTintTo actionWithDuration:2 red:150 green:150 blue:150 ]];
         [self addPauseMenuItem];
 	}
 	return self;
@@ -447,6 +448,8 @@ CGPoint noseLocation;
         {
             [lilly stopAllActions];
             [lilly runAction:self.skateAction];
+            [[SimpleAudioEngine sharedEngine]stopEffect:_skateSound];
+         _skateSound=[[SimpleAudioEngine sharedEngine] playEffect:@"p1-skate1.mp3" loop:YES];
             //CCAction *moveLilly=[CCMoveTo actionWithDuration:1 position:location];
             location=ccp(1250,150);
             CCSequence *seq=[CCSequence actions:
@@ -466,6 +469,8 @@ CGPoint noseLocation;
         
         [lilly stopAction:self.skateAction];
         [lilly runAction:self.skateAction];
+        //[[SimpleAudioEngine sharedEngine]stopEffect:_skateSound];
+        //_skateSound=[[SimpleAudioEngine sharedEngine] playEffect:@"p1-skate1.mp3" loop:YES];
         /*
          ccBezierConfig bezier;
          bezier.controlPoint_1 = ccp(0, 500);
@@ -515,11 +520,12 @@ CGPoint noseLocation;
         isHeadInPlace=true;
         [[SimpleAudioEngine sharedEngine] playEffect:@"p1-Switch.mp3"];
         
-        [background runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+       /* [background runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
         [head runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
         [hat runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
         [snow1 runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
         [nose runAction:[CCTintTo actionWithDuration:2 red:119 green:119 blue:119 ]];
+        */
         CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"p1-BGdark.jpg"];
         [background setTexture: tex];
         CCAction *fadeAction = [CCFadeTo actionWithDuration:2 opacity:1];
@@ -559,20 +565,24 @@ CGPoint noseLocation;
      lilly.position = position;
      [spinSpriteSheet addChild:lilly];
      */
+    [[SimpleAudioEngine sharedEngine] stopEffect:_spinSound];
     [lilly stopAction:self.lillySpinAction];
     
+    _spinSound=[[SimpleAudioEngine sharedEngine] playEffect:@"p1-spin.mp3"];
     [lilly runAction:self.lillySpinAction];
 }
 
 - (void) moveToSceneTwo
 {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] stopEffect:_skateSound];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[PageTwoLayer scene] ]];
 }
 
 - (void) skateMoveEnded
 {
     [lilly stopAction:self.skateAction];
+                [[SimpleAudioEngine sharedEngine] stopEffect:_skateSound];
     canLightTurnOn = true;
     lillyIsMoving = false;
     canLightTurnOn =true;
@@ -638,7 +648,8 @@ CGPoint noseLocation;
         isSnowmanFixed =true;
         [lilly stopAction:self.skateAction];
         [lilly runAction:self.skateAction];
-        
+       [[SimpleAudioEngine sharedEngine]stopEffect:_skateSound];
+        _skateSound=[[SimpleAudioEngine sharedEngine] playEffect:@"p1-skate1.mp3" loop:YES];
         hasFixedSnowManForAtleastOneTime=true;
     }
 }
