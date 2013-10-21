@@ -135,11 +135,12 @@ hasActionStarted=false;
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     CGPoint location =[touch locationInView:[touch view]];
     
-    if(CGRectContainsPoint(CGRectMake(1000, 750, 200, 200), location))
+  /*  if(CGRectContainsPoint(CGRectMake(1000, 750, 200, 200), location))
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[CCDirector sharedDirector] replaceScene:[PageFourLayer scene]];
     }
+    */
     
     if(CGRectContainsPoint([self.lilly boundingBox], location))
     {

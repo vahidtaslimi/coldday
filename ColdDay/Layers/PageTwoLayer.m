@@ -345,7 +345,7 @@ CCSprite *background;
             lives--;
             [self removeChild:[hearthArray lastObject] cleanup:YES];
             [hearthArray removeLastObject];
-            [[SimpleAudioEngine sharedEngine] playEffect:@"p2-missed.mp3"];
+          //  [[SimpleAudioEngine sharedEngine] playEffect:@"p2-missed.mp3"];
             
             /* if(lives == 0)
              [[CCDirector sharedDirector] replaceScene:[PageOneLayer scene]];
@@ -394,13 +394,13 @@ CCSprite *background;
     CGPoint touchLocation = [self convertTouchToNodeSpace:touch];
     CGPoint location =[touch locationInView:[touch view]];
     
-    if(CGRectContainsPoint(CGRectMake(1000, 750, 200, 200), location))
+   /* if(CGRectContainsPoint(CGRectMake(1000, 750, 200, 200), location))
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
         [[SimpleAudioEngine sharedEngine] stopEffect:_teethSound];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[PageThreeLayerNew scene]]];
     }
-    
+    */
     if(_hasSnowFallStarted ==false)
     {
         //CCTexture2D* texture=[[CCTextureCache sharedTextureCache]addImage:@"P2-Lilly2.png"];

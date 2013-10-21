@@ -7,6 +7,7 @@
 //
 
 #import "PageFiveLayer.h"
+#include "SimpleAudioEngine.h"
 
 @implementation PageFiveLayer
 CCSprite *background;
@@ -33,7 +34,7 @@ CCParticleSnow *emitter;
 		} else {
 			background = [CCSprite spriteWithFile:@"p5-BG.jpg"];
 		}
-        
+                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
 		background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:0];
         [self addSnowFall];
@@ -171,6 +172,7 @@ CCParticleSnow *emitter;
                       self.lilywakesupActionThree,
                       [CCDelayTime actionWithDuration:1],
                      [CCCallBlock actionWithBlock:^{
+           [[SimpleAudioEngine sharedEngine] playEffect:@"p5-s1.mp3"];
         [self.lilly runAction:self.skateAction];
         self.lilly.flipX=true;
        [self.lilly runAction:scale];
@@ -193,6 +195,7 @@ CCParticleSnow *emitter;
                      lilybyeActionThree,
                      [CCDelayTime actionWithDuration:0.5],
                      [CCCallBlock actionWithBlock:^{
+          [[SimpleAudioEngine sharedEngine] playEffect:@"p5-s2.mp3"];
         [self.lilly runAction:self.skateAction];
         [self.lilly runAction:[CCScaleTo actionWithDuration:3 scale:0.3]];
         [self.lilly runAction:[CCFlipX actionWithFlipX:true]];

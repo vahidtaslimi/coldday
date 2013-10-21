@@ -21,6 +21,7 @@ bool hasTornadoMoved=false;
 bool hasTornadoMovedOut=false;
 bool isTornadoMoving=false;
 bool waterfallHasStarted=false;
+CDSoundSource* _waterfallSound;
 
 +(CCScene *) scene
 {
@@ -153,7 +154,8 @@ bool waterfallHasStarted=false;
                      [CCDelayTime actionWithDuration:1.5],
                      self.lillyActionOne,
                      [CCCallBlock actionWithBlock:^{
-        [self.lizard runAction:self.lizardWalkAction];
+                 [self.lizard runAction:self.lizardWalkAction];
+           [[SimpleAudioEngine sharedEngine] playEffect:@"p4-lizard.mp3"];
         [self.lizard runAction:seq2];
     }],  [CCDelayTime actionWithDuration:1.5],
                      [CCCallBlock actionWithBlock:^{
@@ -227,7 +229,7 @@ bool waterfallHasStarted=false;
      [CCSequence actions:
       [CCDelayTime actionWithDuration:2],
       [CCCallBlock actionWithBlock:^{
-         [[SimpleAudioEngine sharedEngine] playEffect:@"p4-waterfall1.mp3" loop:YES];
+        _waterfallSound= [[SimpleAudioEngine sharedEngine] playEffect:@"p4-waterfall1.mp3" loop:YES];
          [self.waterfall runAction:self.waterfallAction ];
          waterfallHasStarted=true;
      }]
@@ -256,10 +258,11 @@ bool waterfallHasStarted=false;
     self.tornado.position = ccp(250,650);
     self.tornado.scale=0.2f;
     self.tornado.opacity=0;
-    [spriteSheet addChild:self.tornado z:3];
+    [spriteSheet addChild:self.tornado z:10];
     CCAnimation *skateAnimimation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.15f];
     self.tornadoAction= [CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:skateAnimimation]];
     [self.tornado runAction:[CCFadeIn actionWithDuration:1]];
+
     //[self.tornado runAction:[CCScaleTo actionWithDuration:1 scale:0.2f]];
     [self addLollySprite:0.2];
 }
@@ -280,7 +283,7 @@ bool waterfallHasStarted=false;
     lolly.position = ccp(925,650);
     id spin = [CCRotateBy actionWithDuration:speed angle: 360];
     id spins = [CCRepeatForever actionWithAction:spin];
-    [self addChild:lolly z:5];
+    [self addChild:lolly];
     [lolly runAction:spins];
     
 }
@@ -353,11 +356,13 @@ bool waterfallHasStarted=false;
     CGPoint location =[touch locationInView:[touch view]];
     location=[[CCDirector sharedDirector]convertToGL:location];
     
-    if(CGRectContainsPoint(CGRectMake(0, 0, 200, 200), location))
+   /* if(CGRectContainsPoint(CGRectMake(0, 0, 200, 200), location))
     {
         [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+        [[SimpleAudioEngine sharedEngine] stopEffect:_waterfallSound];
         [[CCDirector sharedDirector] replaceScene:[PageThreeLayerNew scene]];
     }
+    */
     
     if(CGRectContainsPoint([self.lizard boundingBox], location))
     {
@@ -445,6 +450,7 @@ bool waterfallHasStarted=false;
         
         if(hasTornadoMoved==false)
         {
+                      [[SimpleAudioEngine sharedEngine] playEffect:@"p4-storm.mp3"];
             CCSpriteFrame* lillyFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lily1-19.png"];
             [self.lilly setDisplayFrame:lillyFrame];
             
@@ -473,6 +479,7 @@ bool waterfallHasStarted=false;
                              [CCDelayTime actionWithDuration:6],
                              [CCCallBlock actionWithBlock:^{
                 
+            
                 CGPoint outLocation=ccp(1100, 250);
                 [self.tornado runAction:[CCMoveTo actionWithDuration:2 position:outLocation]];
                 [self.lilly runAction:[CCMoveTo actionWithDuration:2 position:outLocation]];
@@ -481,6 +488,8 @@ bool waterfallHasStarted=false;
                              
                              [CCDelayTime actionWithDuration:1],
                              [CCCallBlock actionWithBlock:^{
+                    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+                        [[SimpleAudioEngine sharedEngine] stopEffect:_waterfallSound];
                 [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:4.0 scene:[PageFiveLayer scene] ]];
             }]
                              , nil];

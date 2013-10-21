@@ -48,6 +48,8 @@ CGPoint leftHandLocation;
 CGPoint noseLocation;
 CDSoundSource* _skateSound;
 CDSoundSource* _spinSound;
+CDSoundSource* _windowBlingSound;
+
 
 +(CCScene *) scene
 {
@@ -535,6 +537,7 @@ CDSoundSource* _spinSound;
         if(windowBlink)
         {
             [self removeChild:windowBlink];
+            [[SimpleAudioEngine sharedEngine] stopEffect:_windowBlingSound];
         }
         
         CGSize size = [[CCDirector sharedDirector] winSize];
@@ -546,11 +549,11 @@ CDSoundSource* _spinSound;
         [self addChild:emitter];
         [self addLillyColdSpriteSheet];
     }
-    else if(CGRectContainsPoint(CGRectMake(1000, 0, 200, 200), location))
+  /*  else if(CGRectContainsPoint(CGRectMake(1000, 0, 200, 200), location))
     {
         [self moveToSceneTwo];
     }
-    
+    */
 }
 
 -(void) spinLilly
@@ -605,6 +608,7 @@ CDSoundSource* _spinSound;
         CCSequence *sequence = [[CCSequence alloc] initOne:fade two:fadeOut];
         CCRepeatForever *repeat = [[CCRepeatForever alloc] initWithAction:sequence];
         [windowBlink runAction:repeat];
+       _windowBlingSound= [[SimpleAudioEngine sharedEngine] playEffect:@"p1-bell.mp3" loop:YES];
     }];
     CCSequence *AddBlinkSeq=[CCSequence actions:
                              delay,
