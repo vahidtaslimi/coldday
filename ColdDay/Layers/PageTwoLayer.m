@@ -165,8 +165,18 @@ CCSprite *background;
         }
     }],
                            nil];
+     self.secondtLillyAction = [CCRepeatForever actionWithAction:secondSeq];
     
-    self.secondtLillyAction = [CCRepeatForever actionWithAction:secondSeq];
+    self.lilly = [CCSprite spriteWithSpriteFrameName:@"lilly1-00.png"];
+    self.lilly.position = ccp(400, 310);
+    //lilly.scale=0.6;
+    [spriteSheet addChild:self.lilly];
+    
+    
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"p2-lilly-spritesheet2.plist"];
+    CCSpriteBatchNode* spriteSheet2=[CCSpriteBatchNode batchNodeWithFile:@"p2-lilly-spritesheet2.png"];
+    [self addChild:spriteSheet2];
     
     NSMutableArray *thirdAnimFrames = [NSMutableArray array];
     for (int i=0; i<=5; i++) {
@@ -177,7 +187,6 @@ CCSprite *background;
     CCAnimation *thirdAnimimation = [CCAnimation animationWithSpriteFrames:thirdAnimFrames delay:0.3f];
     self.thirdLillyAction = [CCAnimate actionWithAnimation:thirdAnimimation];
     
-    
     NSMutableArray *shiverAnimFrames = [NSMutableArray array];
     [shiverAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-04.png"]];
     [shiverAnimFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-05.png"]];
@@ -185,11 +194,12 @@ CCSprite *background;
     CCAnimation *shiverAnimimation = [CCAnimation animationWithSpriteFrames:shiverAnimFrames delay:0.07f];
     self.shiverAction =[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:shiverAnimimation]];
     
+
     
-    self.lilly = [CCSprite spriteWithSpriteFrameName:@"lilly1-00.png"];
-    self.lilly.position = ccp(400, 310);
-    //lilly.scale=0.6;
-    [spriteSheet addChild:self.lilly];
+    self.lillyShiver = [CCSprite spriteWithSpriteFrameName:@"lilly2-00.png"];
+    self.lillyShiver.position = ccp(400, 310);
+    self.lillyShiver.visible=false;
+    [spriteSheet2 addChild:self.lillyShiver];
     
     CCSequence *firstSeq=[CCSequence actions:
                           self.firstLillyAction,
@@ -204,29 +214,29 @@ CCSprite *background;
 
 -(void)startLillyShiver
 {
-    [self.lilly stopAllActions];
+    [self.lillyShiver stopAllActions];
     
     CCSequence *seq=[CCSequence actions:
                      self.thirdLillyAction,
                      [CCDelayTime actionWithDuration:2],
                      [CCCallBlock actionWithBlock:^{
-        [self.lilly runAction:self.shiverAction];
+        [self.lillyShiver runAction:self.shiverAction];
               _teethSound= [[SimpleAudioEngine sharedEngine] playEffect:@"p2-teethcht.mp3" loop:YES];
         
     }]
                      , nil];
     
-    [self.lilly runAction:seq];
+    [self.lillyShiver runAction:seq];
 }
 
 -(void)playSmileAction
 {
-    [self.lilly stopAllActions];
+    [self.lillyShiver stopAllActions];
     [[SimpleAudioEngine    sharedEngine]stopEffect:_teethSound];
     CCSequence *seq=[CCSequence actions:
                      [CCCallBlock actionWithBlock:^{
         CCSpriteFrame* frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"lilly2-06.png"];
-        [self.lilly setDisplayFrame:frame];
+        [self.lillyShiver setDisplayFrame:frame];
         
     }],
                      [CCDelayTime actionWithDuration:2],
@@ -236,7 +246,7 @@ CCSprite *background;
                      
                      , nil];
     
-    [self.lilly runAction:seq];
+    [self.lillyShiver runAction:seq];
 }
 
 -(void) initSnows
@@ -415,6 +425,8 @@ CCSprite *background;
         id sequence = [CCSequence actions: delay, callbackAction, nil];
         [self runAction: sequence];
         
+        self.lillyShiver.visible=true;
+        self.lilly.visible=false;
         [self startLillyShiver];
         
     }

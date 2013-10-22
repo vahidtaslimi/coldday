@@ -23,6 +23,7 @@
 }
 
 @property (nonatomic, strong) CCSprite* lilly;
+@property (nonatomic, strong) CCSprite* lillyShiver;
 @property (nonatomic, strong) CCAction *firstLillyAction;
 @property (nonatomic, strong) CCAction *secondtLillyAction;
 @property (nonatomic, strong) CCAction *thirdLillyAction;

@@ -5,7 +5,7 @@
 	<key>frames</key>
 	<dict>
 		
-		<key>lilybye-00-ipadhd.png</key>
+		<key>lilybye-00.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -27,7 +27,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-01-ipadhd.png</key>
+		<key>lilybye-01.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -49,7 +49,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-02-ipadhd.png</key>
+		<key>lilybye-02.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -71,7 +71,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-03-ipadhd.png</key>
+		<key>lilybye-03.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -93,7 +93,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-04-ipadhd.png</key>
+		<key>lilybye-04.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -115,7 +115,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-05-ipadhd.png</key>
+		<key>lilybye-05.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -137,7 +137,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-06-ipadhd.png</key>
+		<key>lilybye-06.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -159,7 +159,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-07-ipadhd.png</key>
+		<key>lilybye-07.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -181,7 +181,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-08-ipadhd.png</key>
+		<key>lilybye-08.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -203,7 +203,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-09-ipadhd.png</key>
+		<key>lilybye-09.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -225,7 +225,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilybye-10-ipadhd.png</key>
+		<key>lilybye-10.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -247,7 +247,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-00-ipadhd.png</key>
+		<key>lilywakesup-00.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -269,7 +269,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-01-ipadhd.png</key>
+		<key>lilywakesup-01.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -291,7 +291,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-02-ipadhd.png</key>
+		<key>lilywakesup-02.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -313,7 +313,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-03-ipadhd.png</key>
+		<key>lilywakesup-03.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -335,7 +335,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-04-ipadhd.png</key>
+		<key>lilywakesup-04.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -357,7 +357,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-05-ipadhd.png</key>
+		<key>lilywakesup-05.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -379,7 +379,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-06-ipadhd.png</key>
+		<key>lilywakesup-06.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -401,7 +401,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-07-ipadhd.png</key>
+		<key>lilywakesup-07.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -423,7 +423,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-08-ipadhd.png</key>
+		<key>lilywakesup-08.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -445,7 +445,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-09-ipadhd.png</key>
+		<key>lilywakesup-09.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -467,7 +467,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-10-ipadhd.png</key>
+		<key>lilywakesup-10.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -489,7 +489,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-11-ipadhd.png</key>
+		<key>lilywakesup-11.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -511,7 +511,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-12-ipadhd.png</key>
+		<key>lilywakesup-12.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -533,7 +533,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-13-ipadhd.png</key>
+		<key>lilywakesup-13.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -555,7 +555,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-14-ipadhd.png</key>
+		<key>lilywakesup-14.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -577,7 +577,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-15-ipadhd.png</key>
+		<key>lilywakesup-15.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -599,7 +599,7 @@
 			<false/>
 		</dict>
 		
-		<key>lilywakesup-16-ipadhd.png</key>
+		<key>lilywakesup-16.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
@@ -631,9 +631,9 @@
 		<key>size</key>
 		<string>{4096, 4096}</string>
 		<key>name</key>
-		<string>p5-lilly-spritesheet-ipadhd</string>
+		<string>p5-lilly-spritesheet</string>
 		<key>textureFileName</key>
-		<string>p5-lilly-spritesheet-ipadhd.png</string>
+		<string>p5-lilly-spritesheet.png</string>
 		<key>premultipliedAlpha</key>
 		<false/>
 	</dict>

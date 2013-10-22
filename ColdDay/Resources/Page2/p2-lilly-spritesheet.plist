@@ -22,7 +22,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{4, 637}, {583, 633}}</string>
+			<string>{{1170, 0}, {583, 633}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -44,7 +44,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{1170, 0}, {583, 633}}</string>
+			<string>{{0, 1270}, {583, 633}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -66,7 +66,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{1170, 635}, {583, 633}}</string>
+			<string>{{0, 0}, {583, 633}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -88,7 +88,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{585, 1270}, {583, 633}}</string>
+			<string>{{585, 0}, {583, 633}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -110,7 +110,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{1755, 0}, {583, 633}}</string>
+			<string>{{0, 635}, {583, 633}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -132,161 +132,7 @@
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{1170, 1270}, {583, 633}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>lilly2-00.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {583, 633}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{583, 633}</string>
-			<key>spriteSourceSize</key>
-			<string>{583, 633}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{0, 1270}, {583, 633}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>lilly2-01.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {583, 633}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{583, 633}</string>
-			<key>spriteSourceSize</key>
-			<string>{583, 633}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{0, 0}, {583, 633}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>lilly2-02.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {583, 633}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{583, 633}</string>
-			<key>spriteSourceSize</key>
-			<string>{583, 633}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
 			<string>{{585, 635}, {583, 633}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>lilly2-03.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {583, 633}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{583, 633}</string>
-			<key>spriteSourceSize</key>
-			<string>{583, 633}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{585, 0}, {583, 633}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>lilly2-04.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{2, 0}, {581, 633}}</string>
-			<key>spriteOffset</key>
-			<string>{1, -0}</string>
-			<key>spriteSize</key>
-			<string>{581, 633}</string>
-			<key>spriteSourceSize</key>
-			<string>{583, 633}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{1755, 1270}, {581, 633}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>lilly2-05.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{2, 0}, {581, 633}}</string>
-			<key>spriteOffset</key>
-			<string>{1, -0}</string>
-			<key>spriteSize</key>
-			<string>{581, 633}</string>
-			<key>spriteSourceSize</key>
-			<string>{583, 633}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{2338, 1270}, {581, 633}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>lilly2-06.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {583, 633}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{583, 633}</string>
-			<key>spriteSourceSize</key>
-			<string>{583, 633}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{1755, 635}, {583, 633}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -299,7 +145,7 @@
 		<key>format</key>
 		<integer>3</integer>
 		<key>size</key>
-		<string>{4096, 2048}</string>
+		<string>{2048, 2048}</string>
 		<key>name</key>
 		<string>p2-lilly-spritesheet</string>
 		<key>textureFileName</key>
