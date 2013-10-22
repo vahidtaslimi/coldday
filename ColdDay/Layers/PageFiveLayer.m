@@ -34,7 +34,7 @@ CCParticleSnow *emitter;
 		} else {
 			background = [CCSprite spriteWithFile:@"p5-BG.jpg"];
 		}
-                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P1-BG.mp3"];
+                [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"P5.mp3"];
 		background.position = ccp(size.width/2, size.height/2);
 		[self addChild: background z:0];
         [self addSnowFall];
