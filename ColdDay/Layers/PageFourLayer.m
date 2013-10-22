@@ -22,6 +22,7 @@ bool hasTornadoMovedOut=false;
 bool isTornadoMoving=false;
 bool waterfallHasStarted=false;
 CDSoundSource* _waterfallSound;
+bool _tornadoIsAdded;
 
 +(CCScene *) scene
 {
@@ -32,7 +33,7 @@ CDSoundSource* _waterfallSound;
 }
 -(id) init
 {
-    
+    _tornadoIsAdded=false;
     lizardHasMoved=false;
     lillyHasGotLizard=false;
     lizardHasJumped=false;
@@ -239,6 +240,11 @@ CDSoundSource* _waterfallSound;
 
 -(void) addToradoSprite
 {
+    if(_tornadoIsAdded)
+    {
+        return;
+    }
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"p4-tornado.plist"];
     CCSpriteBatchNode *spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"p4-tornado.png"];
     [self addChild:spriteSheet];
@@ -459,7 +465,7 @@ CDSoundSource* _waterfallSound;
             ccBezierConfig bezier;
             bezier.controlPoint_1 = CGPointMake(50,-650.0f);
             bezier.controlPoint_2 = CGPointMake(450, 50.0f);
-            bezier.endPosition =CGPointMake(350, -130.0f);
+            bezier.endPosition =CGPointMake(400, -100.0f);
             
             
             [self.tornado runAction:scale];
