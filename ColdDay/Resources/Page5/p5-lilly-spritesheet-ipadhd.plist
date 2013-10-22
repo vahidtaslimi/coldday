@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>lilybye-00-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{110, 18}, {504, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{51, -6}</string>
+			<key>spriteSize</key>
+			<string>{504, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{3052, 882}, {504, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-01-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{110, 18}, {504, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{51, -6}</string>
+			<key>spriteSize</key>
+			<string>{504, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{2546, 882}, {504, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-02-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{75, 18}, {540, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{34, -6}</string>
+			<key>spriteSize</key>
+			<string>{540, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{3226, 0}, {540, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-03-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{2, 18}, {612, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{-3, -6}</string>
+			<key>spriteSize</key>
+			<string>{612, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{320, 0}, {612, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-04-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{20, 18}, {594, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{6, -6}</string>
+			<key>spriteSize</key>
+			<string>{594, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{934, 0}, {594, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-05-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{40, 18}, {574, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{16, -6}</string>
+			<key>spriteSize</key>
+			<string>{574, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1530, 0}, {574, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-06-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{61, 18}, {554, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{27, -6}</string>
+			<key>spriteSize</key>
+			<string>{554, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{2670, 0}, {554, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-07-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{79, 18}, {536, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{36, -6}</string>
+			<key>spriteSize</key>
+			<string>{536, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{960, 882}, {536, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-08-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{104, 18}, {510, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{48, -6}</string>
+			<key>spriteSize</key>
+			<string>{510, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{2034, 882}, {510, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-09-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{81, 18}, {534, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{37, -6}</string>
+			<key>spriteSize</key>
+			<string>{534, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1498, 882}, {534, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilybye-10-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{52, 18}, {562, 880}}</string>
+			<key>spriteOffset</key>
+			<string>{22, -6}</string>
+			<key>spriteSize</key>
+			<string>{562, 880}</string>
+			<key>spriteSourceSize</key>
+			<string>{622, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{2106, 0}, {562, 880}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-00-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 12}, {318, 888}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -4}</string>
+			<key>spriteSize</key>
+			<string>{318, 888}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1600, 1784}, {318, 888}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-01-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{3558, 892}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-02-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{320, 1778}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-03-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{320, 2670}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-04-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1280, 2656}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-05-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{960, 2656}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-06-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{640, 2666}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-07-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{3768, 0}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-08-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{640, 882}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-09-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1280, 1764}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-10-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{960, 1764}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-11-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 10}, {318, 890}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -3}</string>
+			<key>spriteSize</key>
+			<string>{318, 890}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{640, 1774}, {318, 890}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-12-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 7}, {318, 894}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -2}</string>
+			<key>spriteSize</key>
+			<string>{318, 894}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 1792}, {318, 894}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-13-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 7}, {318, 894}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -2}</string>
+			<key>spriteSize</key>
+			<string>{318, 894}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{320, 882}, {318, 894}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-14-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 7}, {318, 894}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -2}</string>
+			<key>spriteSize</key>
+			<string>{318, 894}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 896}, {318, 894}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-15-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 7}, {318, 894}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -2}</string>
+			<key>spriteSize</key>
+			<string>{318, 894}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 2688}, {318, 894}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>lilywakesup-16-ipadhd.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{85, 6}, {318, 894}}</string>
+			<key>spriteOffset</key>
+			<string>{1, -1}</string>
+			<key>spriteSize</key>
+			<string>{318, 894}</string>
+			<key>spriteSourceSize</key>
+			<string>{486, 904}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 0}, {318, 894}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{4096, 4096}</string>
+		<key>name</key>
+		<string>p5-lilly-spritesheet-ipadhd</string>
+		<key>textureFileName</key>
+		<string>p5-lilly-spritesheet-ipadhd.png</string>
+		<key>premultipliedAlpha</key>
+		<false/>
+	</dict>
+</dict>
+</plist>
