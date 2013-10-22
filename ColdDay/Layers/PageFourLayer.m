@@ -465,7 +465,7 @@ bool _tornadoIsAdded;
             ccBezierConfig bezier;
             bezier.controlPoint_1 = CGPointMake(50,-650.0f);
             bezier.controlPoint_2 = CGPointMake(450, 50.0f);
-            bezier.endPosition =CGPointMake(400, -100.0f);
+            bezier.endPosition =CGPointMake(470, -100.0f);
             
             
             [self.tornado runAction:scale];
@@ -487,12 +487,13 @@ bool _tornadoIsAdded;
                 
             
                 CGPoint outLocation=ccp(1100, 250);
+                CGPoint outLocationLilly=ccp(1100, 00);
                 [self.tornado runAction:[CCMoveTo actionWithDuration:2 position:outLocation]];
-                [self.lilly runAction:[CCMoveTo actionWithDuration:2 position:outLocation]];
+                [self.lilly runAction:[CCMoveTo actionWithDuration:2 position:outLocationLilly]];
                 
             }],
                              
-                             [CCDelayTime actionWithDuration:1],
+                             [CCDelayTime actionWithDuration:2],
                              [CCCallBlock actionWithBlock:^{
                     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
                         [[SimpleAudioEngine sharedEngine] stopEffect:_waterfallSound];
