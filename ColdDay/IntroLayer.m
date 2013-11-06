@@ -10,7 +10,6 @@
 // Import the interfaces
 #import "IntroLayer.h"
 #import "PageOneLayer.h"
-#import "PageThreeLayer.h"
 #import "PageFourLayer.h"
 #import "PageTwoLayer.h"
 #import "PageThreeLayerNew.h"
