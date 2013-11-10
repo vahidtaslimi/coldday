@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77F2026A182FB60F00E9DB1B /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F20269182FB60F00E9DB1B /* Crashlytics.framework */; };
 		77F3830018267BC70021E468 /* hearth.png in Resources */ = {isa = PBXBuildFile; fileRef = 77F382FF18267BC70021E468 /* hearth.png */; };
 		F2033D3317B729DC00BE1F60 /* p4-lil1-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = F2033D2D17B729DC00BE1F60 /* p4-lil1-ipadhd.png */; };
 		F2033D3417B729DC00BE1F60 /* p4-lil1.png in Resources */ = {isa = PBXBuildFile; fileRef = F2033D2E17B729DC00BE1F60 /* p4-lil1.png */; };
@@ -299,6 +300,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77F20269182FB60F00E9DB1B /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		77F382FF18267BC70021E468 /* hearth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hearth.png; sourceTree = "<group>"; };
 		F2033D2D17B729DC00BE1F60 /* p4-lil1-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lil1-ipadhd.png"; sourceTree = "<group>"; };
 		F2033D2E17B729DC00BE1F60 /* p4-lil1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "p4-lil1.png"; sourceTree = "<group>"; };
@@ -764,6 +766,7 @@
 				F210F0F61792C44A00BB75A2 /* CoreGraphics.framework in Frameworks */,
 				F210F0F81792C44A00BB75A2 /* CoreText.framework in Frameworks */,
 				F210F0FA1792C44A00BB75A2 /* GameKit.framework in Frameworks */,
+				77F2026A182FB60F00E9DB1B /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +895,7 @@
 		F210F0E61792C44A00BB75A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77F20269182FB60F00E9DB1B /* Crashlytics.framework */,
 				F210F0E71792C44A00BB75A2 /* QuartzCore.framework */,
 				F210F0E91792C44A00BB75A2 /* OpenGLES.framework */,
 				F210F0EB1792C44A00BB75A2 /* OpenAL.framework */,
@@ -1464,6 +1468,7 @@
 				F210F0E01792C44A00BB75A2 /* Sources */,
 				F210F0E11792C44A00BB75A2 /* Frameworks */,
 				F210F0E21792C44A00BB75A2 /* Resources */,
+				77F20268182FB5EB00E9DB1B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1671,6 +1676,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77F20268182FB5EB00E9DB1B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 6d77897a4291d8654a376118358be7001f76fcca";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F210F0E01792C44A00BB75A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1852,6 +1873,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/vt/GitHubRepo/coldday,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ColdDay/Prefix.pch;
@@ -1878,6 +1903,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/vt/GitHubRepo/coldday,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ColdDay/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"ColdDay/libs/kazmath/include\"";

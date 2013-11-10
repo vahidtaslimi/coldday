@@ -10,6 +10,7 @@
 
 #import "AppDelegate.h"
 #import "MainMenuLayer.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation MyNavigationController
 
@@ -59,6 +60,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [Crashlytics startWithAPIKey:@"6d77897a4291d8654a376118358be7001f76fcca"];
+    
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
